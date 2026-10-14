@@ -16,24 +16,6 @@
          <!-- Contact Channels List -->
          <div class="col-12 col-lg-5 col-xl-4">
             <div class="contact__content">
-               <!-- Flagship Address -->
-               <div class="contact__content-single" data-aos="fade-up" data-aos-duration="600">
-                  <div class="icon">
-                     <i class="ti ti-building-skyscraper"></i>
-                  </div>
-                  <div class="content">
-                     <h6 class="fw-6 mb-5">Goa Flagship Casino &amp; Resort</h6>
-                     <div class="content-group">
-                        <p>
-                           <a href="{{ site.map_link }}" target="_blank" rel="noopener">
-                              {{ site.address }}
-                           </a>
-                        </p>
-                        <p class="mt-2 text-xs text-secondary-color fw-6">Gaming Floor Open 24 x 7</p>
-                     </div>
-                  </div>
-               </div>
-
                <!-- Phones -->
                <div class="contact__content-single mt-20" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
                   <div class="icon">
@@ -155,33 +137,6 @@
                      </button>
                   </div>
                </form>
-            </div>
-         </div>
-      </div>
-
-      <!-- Regional Royale Lounges (Goa, Mumbai, Delhi) -->
-      <div class="row gutter-24 mt-80">
-         <div class="col-12 text-center mb-35">
-            <span class="fw-6 secondary-text text-xl"><strong>Royale</strong> Presence</span>
-            <h3 class="title-animation fw-6 mt-12">Our Indian Flagship &amp; VIP Lounges</h3>
-         </div>
-
-         {% for off in site.offices %}
-         <div class="col-12 col-lg-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 150 }}" data-aos-duration="600">
-            <div class="office-card text-center">
-               <i class="ti {{ off.icon }} mb-3 d-inline-block"></i>
-               <h5 class="fw-6 neutral-top mb-12">{{ off.city }}</h5>
-               <p class="text-sm opacity-75 mb-0" style="line-height: 1.8;">{{ off.text }}</p>
-            </div>
-         </div>
-         {% endfor %}
-      </div>
-
-      <!-- Google Map Section -->
-      <div class="row mt-80">
-         <div class="col-12">
-            <div class="site-map-embed rounded-4 overflow-hidden border border-secondary" data-aos="zoom-in" data-aos-duration="600">
-               <iframe allowfullscreen="" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="{{ site.map_embed }}" title="Casino Royale Mandovi Riverfront Goa Location" width="100%"></iframe>
             </div>
          </div>
       </div>
