@@ -1,0 +1,174 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Untitled{% endblock title %}
+
+{% block styles %}
+<link href="{{ config.ASSETS_ROOT }}/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+<link href="{{ config.ASSETS_ROOT }}/images/favicon.png" rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="{{ config.ASSETS_ROOT }}/css/main.css" rel="stylesheet"/>
+<link href="{{ config.ASSETS_ROOT }}/css/responsive.css" rel="stylesheet"/>
+<link href="{{ config.ASSETS_ROOT }}/css/rtl-version.css" rel="stylesheet"/>
+<link href="{{ config.ASSETS_ROOT }}/css/template-settings.css" rel="stylesheet"/>
+{% endblock styles %}
+
+{% block content %}
+<!--[if lte IE 9]>
+      <p class="browserupgrade">
+         You are using an <strong>outdated</strong> browser. Please
+         <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+         your experience and security.
+      </p>
+      <![endif]-->
+<div class="page-wrapper a-cursor">
+<!-- ==== preloader start ==== -->
+<div class="preloader">
+<i class="ti ti-device-gamepad-2"></i>
+<p>Betwins</p>
+</div>
+<!-- ==== / preloader end ==== -->
+<!-- ==== coming soon section start ==== -->
+<section class="soon">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="soon__inner">
+<div class="soon__logo">
+<a href="/">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/logo.png"/>
+</a>
+</div>
+<div class="countdown-wrapper">
+<div class="clock">
+<div class="hand hour-hand"></div>
+<div class="hand minute-hand"></div>
+<div class="hand second-hand"></div>
+<div class="center-dot"></div>
+<div class="center-dot-orange"></div>
+<div class="hour-markers"></div>
+<div class="minute-markers"></div>
+</div>
+<div class="time-countdown">
+<div class="counter-column" data-aos="fade-up" data-aos-duration="600"><span class="count day">0</span>Days</div>
+<div class="counter-column" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+<span class="count hour">0</span>Hours
+                              </div>
+<div class="counter-column" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+<span class="count minute">0</span>Minutes
+                              </div>
+<div class="counter-column" data-aos="fade-up" data-aos-delay="600" data-aos-duration="600">
+<span class="count second">0</span>Seconds
+                              </div>
+</div>
+</div>
+<div class="content" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+<h4 class="title-animation">Something exciting is coming!</h4>
+<p class="mt-25">Exciting updates are on the way.</p>
+<p><strong>Stay with us!</strong></p>
+<form action="#" class="mt-60" method="post">
+<div class="form-group">
+<input id="subEmail" name="sub-email" placeholder="Your Email" required="" type="email"/>
+<button aria-label="subscribe our newsletter" class="btn--primary" title="subscribe our newsletter" type="submit">Subscribe</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="soon-bg">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/banner-two-bg.png"/>
+</div>
+</section>
+<!-- ==== / coming soon section end ==== -->
+<!-- ==== mouse cursor start ==== -->
+<div class="mouseCursor cursor-outer"></div>
+<div class="mouseCursor cursor-inner">
+</div>
+<!-- ==== / mouse cursor end ==== -->
+<!-- ==== scroll to top start ==== -->
+<button aria-label="scroll indicator" class="progress-wrap" title="back to top">
+<span></span>
+<svg class="progress-circle svg-content" height="100%" viewbox="-1 -1 102 102" width="100%">
+<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+</svg>
+</button>
+<!-- ==== / scroll to top end ==== -->
+<!-- ==== template option start ==== -->
+<div class="color-palate">
+<div class="color-icon">
+<button class="open-color">
+<i class="ti ti-settings-filled"></i>
+</button>
+<button class="close-color">
+<i class="ti ti-x"></i>
+</button>
+</div>
+<div class="color-palate-inner">
+<div class="group">
+<h6 class="not-cursor">Cursor</h6>
+<ul class="cursor-version">
+<li class="active cursor-pointer animated-cursor">Animated</li>
+<li class="box cursor-pointer default-cursor">Default</li>
+</ul>
+</div>
+<div class="group">
+<h6 class="not-cursor">Direction</h6>
+<ul class="rtl-version">
+<li class="active cursor-pointer ltr-yes">LTR</li>
+<li class="cursor-pointer ltr-no">RTL</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- ==== / template option end ==== -->
+</div>
+<!-- ==== js dependencies start ==== -->
+<!-- jquery -->
+
+<!-- bootstrap five js -->
+
+<!-- nice select js -->
+
+<!-- magnific popup js -->
+
+<!-- swiper slider js -->
+
+<!-- viewport js -->
+
+<!-- odometer js -->
+
+<!-- vanilla tilt js -->
+
+<!-- aos js -->
+
+<!-- splittext js -->
+
+<!-- scrollto js -->
+
+<!-- scrolltrigger js -->
+
+<!-- gsap js -->
+
+<!-- ==== / js dependencies end ==== -->
+<!-- main js -->
+{% endblock content %}
+
+{% block scripts %}
+<script src="{{ config.ASSETS_ROOT }}/js/jquery-3.7.1.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/bootstrap.bundle.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/jquery.nice-select.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/jquery.magnific-popup.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/swiper-bundle.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/viewport.jquery.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/odometer.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/vanilla-tilt.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/aos.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/SplitText.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/ScrollToPlugin.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/ScrollTrigger.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/gsap.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/custom.js"></script>
+{% endblock scripts %}

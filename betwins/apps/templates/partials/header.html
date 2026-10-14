@@ -1,0 +1,105 @@
+   <!-- ==== header start ==== -->
+   <header class="header">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <div class="main-header__menu-box">
+                  <nav class="navbar p-0">
+                     <div class="navbar__intro">
+                        <div class="navbar-logo">
+                           <a aria-label="{{ site.name }} home" href="/">
+                              <img alt="{{ site.name }}" src="{{ img('casino/logo.svg') }}" />
+                           </a>
+                        </div>
+                     </div>
+                     <div class="navbar__menu d-none d-xl-block">
+                        <ul class="navbar__list">
+                           {% for item in nav %}
+                           <li class="navbar__item{% if segment in item.match %} active{% endif %}">
+                              <a href="{{ item.href }}">{{ item.label }}</a>
+                           </li>
+                           {% endfor %}
+                        </ul>
+                     </div>
+                     <div class="navbar__options">
+                        <div class="navbar__mobile-options">
+                           <div class="navbar__mobile-icons">
+                              <div class="search-box">
+                                 <button aria-label="search games" class="open-search" title="open search box">
+                                    <i class="ti ti-search"></i>
+                                 </button>
+                              </div>
+                           </div>
+                           <div class="navbar__cta d-none d-sm-flex">
+                              <a aria-label="sign in" class="btn--secondary" href="/sign-in" title="sign in">Sign In <i
+                                    class="ti ti-arrow-narrow-right"></i></a>
+                              <a aria-label="join now" class="btn--primary" href="/sign-up"
+                                 title="join now">Join Now <i class="ti ti-arrow-narrow-right"></i></a>
+                           </div>
+                        </div>
+                        <button aria-label="toggle mobile menu" class="open-offcanvas-nav d-flex d-xl-none"
+                           title="open offcanvas menu">
+                           <span class="icon-bar top-bar"></span>
+                           <span class="icon-bar middle-bar"></span>
+                           <span class="icon-bar bottom-bar"></span>
+                        </button>
+                     </div>
+                  </nav>
+               </div>
+            </div>
+         </div>
+      </div>
+   </header>
+   <!-- ==== / header end ==== -->
+
+   <!-- ==== mobile menu start ==== -->
+   <div class="mobile-menu d-block d-xl-none">
+      <nav class="mobile-menu__wrapper">
+         <div class="mobile-menu__header">
+            <div class="logo">
+               <a aria-label="home page" href="/" title="logo">
+                  <img alt="{{ site.name }}" src="{{ img('casino/logo.svg') }}" />
+               </a>
+            </div>
+            <button aria-label="close mobile menu" class="close-mobile-menu">
+               <i class="ti ti-x"></i>
+            </button>
+         </div>
+         <div class="mobile-menu__list"></div>
+         <div class="mobile-menu__cta d-block d-md-none">
+            <a aria-label="sign in" class="btn--secondary mb-12" href="/sign-in" title="sign in">Sign In <i
+                  class="ti ti-arrow-narrow-right"></i></a>
+            <a aria-label="join now" class="btn--primary" href="/sign-up" title="join now">Join Now <i
+                  class="ti ti-arrow-narrow-right"></i></a>
+         </div>
+         <div class="mobile-menu__contact">
+            <a href="tel:{{ site.phones[0].href }}"><i class="ti ti-phone-call"></i> {{ site.phones[0].label }}</a>
+            <a href="mailto:{{ site.emails[0].label }}"><i class="ti ti-mail-opened"></i> {{ site.emails[0].label }}</a>
+         </div>
+         <div class="mobile-menu__social social">
+            {% for s in site.social %}
+            <a aria-label="{{ s.name }}" href="{{ s.href }}" target="_blank" rel="noopener" title="{{ s.name }}">
+               <i class="{{ s.icon }}"></i>
+            </a>
+            {% endfor %}
+         </div>
+      </nav>
+   </div>
+   <div class="mobile-menu__backdrop"></div>
+   <!-- ==== / mobile menu end ==== -->
+
+   <!-- ==== search popup start ==== -->
+   <div class="search-popup">
+      <button aria-label="close search box" class="close-search" title="close search box">
+         <i class="fa-solid fa-xmark"></i>
+      </button>
+      <form action="/games" method="get">
+         <div class="search-popup__group">
+            <input id="searchField" name="q" placeholder="Search games, e.g. Teen Patti, Roulette..." required="" type="text" />
+            <button aria-label="search games" title="search games" type="submit">
+               <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+         </div>
+      </form>
+   </div>
+   <!-- ==== / search popup end ==== -->

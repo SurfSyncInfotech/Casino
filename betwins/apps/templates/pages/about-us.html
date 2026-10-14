@@ -1,0 +1,162 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner, heading, counter_section, work_section, story_section, sponsor_section, vip_cta %}
+
+{% block title %}About Us{% endblock title %}
+{% block description %}Casino Royale is India's premier luxury casino & resort on the Mandovi Riverfront in Panaji, Goa. Explore our world-class gaming floors, VIP salons, fine dining, and sovereign hospitality.{% endblock %}
+
+{% block content %}
+{{ banner("About Casino Royale", [("About Us", "/about-us")]) }}
+
+<!-- ==== about section start ==== -->
+<section class="about about-alternate pt-120 pb-120">
+   <div class="container">
+      <div class="row align-items-center">
+         <div class="col-12 col-lg-6 col-xl-6">
+            <div class="about__content" data-aos="fade-right" data-aos-duration="600">
+               <div class="section__content text-start">
+                  <span class="fw-6 secondary-text text-xl"><strong>India's</strong> Premier Luxury Gaming Destination</span>
+                  <h2 class="title-animation fw-6 mt-25">
+                     A Palace of Fortune on the <span>Mandovi River</span>
+                  </h2>
+                  <p class="mt-25">
+                     Anchored on the serene Mandovi Riverfront in Panaji, Goa, Casino Royale was founded on a singular vision: to bring the grandeur of India's royal courts to the modern world of luxury casino entertainment. Spanning 45,000 square feet across four opulent decks, we offer the country's most refined gaming tables, private VIP salons, multi-cuisine fine dining, and live theatre.
+                  </p>
+                  <p class="mt-16">
+                     Whether you sit at our high-stakes Teen Patti and Baccarat tables or spin the reels on the floor, every moment is elevated by legendary Indian hospitality, Hindi and English-speaking dealers, and the highest standards of safety and fair play.
+                  </p>
+               </div>
+               <hr class="divider mt-35 mb-40" />
+               <div class="about__content-group">
+                  <div class="about__content-single">
+                     <div class="thumb">
+                        <i class="ti ti-cards"></i>
+                     </div>
+                     <div class="content">
+                        <h6 class="fw-6">Certified Fair Play</h6>
+                        <p class="text-sm mt-8">
+                           GLI-certified RNG, optical shufflers, and transparent payout tables on every game.
+                        </p>
+                     </div>
+                  </div>
+                  <span class="divideer d-none d-xxl-block"></span>
+                  <div class="about__content-single">
+                     <div class="thumb">
+                        <i class="ti ti-currency-rupee"></i>
+                     </div>
+                     <div class="content">
+                        <h6 class="fw-6">Instant UPI Payouts</h6>
+                        <p class="text-sm mt-8">
+                           Direct-to-bank UPI, IMPS and NEFT withdrawals processed in under 15 minutes.
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <ul class="list-group-row mt-40">
+                  <li><i class="ti ti-check"></i>24x7 Goa Riverfront Gaming Floor</li>
+                  <li><i class="ti ti-check"></i>Dedicated VIP Hosts & Concierge</li>
+                  <li><i class="ti ti-check"></i>Hindi, Marathi & English Tables</li>
+                  <li><i class="ti ti-check"></i>Strict 21+ Age Verification & KYC</li>
+               </ul>
+               <div class="mt-40">
+                  <a aria-label="Explore Games" class="btn--primary" href="/games" title="Explore Games">Explore Gaming Floors <i class="ti ti-arrow-narrow-right"></i></a>
+               </div>
+            </div>
+         </div>
+         <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
+            <div class="authentication__thumb text-center d-none d-lg-block" data-background="{{ img('authentication/thumb-sm.png') }}">
+               <div class="circle-img">
+                  <img alt="" src="{{ img('authentication/circle.png') }}" />
+               </div>
+               <div class="thumb">
+                  <img alt="Casino Royale Casino Floor" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="600" src="{{ img('casino/auth-thumb.svg') }}" />
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="left-thumb">
+      <img alt="" src="{{ img('spring.png') }}" />
+   </div>
+   <div class="rocket">
+      <img alt="" src="{{ img('casino/dice.svg') }}" />
+   </div>
+</section>
+<!-- ==== / about section end ==== -->
+
+<!-- ==== choose section start ==== -->
+<section class="choose choose-alternate pt-120 pb-120 tertiary-bg">
+   <div class="container">
+      <div class="row align-items-center">
+         <div class="col-12 col-lg-5 col-xl-5">
+            <div class="choose__thumb d-none d-lg-block text-center">
+               <div class="winner">
+                  <img alt="Royale Gaming Table" class="winner-img" src="{{ img('casino/f-cards.svg') }}" />
+                  <div class="light">
+                     <img alt="" class="light-thumb" src="{{ img('light.png') }}" />
+                  </div>
+               </div>
+               <div class="car">
+                  <img alt="" src="{{ img('casino/f-chips.svg') }}" />
+               </div>
+            </div>
+         </div>
+         <div class="col-12 col-lg-7 col-xl-6 offset-xl-1">
+            <div class="choose__content" data-aos="fade-left" data-aos-duration="600">
+               <div class="section__content text-start">
+                  <span class="fw-6 secondary-text text-xl"><strong>The Royale</strong> Standard of Trust</span>
+                  <h2 class="title-animation fw-6 mt-25">Built for Discerning <span>Indian Players</span></h2>
+                  <p class="mt-25">
+                     At Casino Royale, luxury is defined not only by golden chandeliers and river views, but by integrity, speed, and discretion. Every deal, spin, and transaction is held to the highest international benchmark.
+                  </p>
+               </div>
+               <div class="rating__group mt-40">
+                  <div class="left-group">
+                     <h3 class="fw-6">4.9<span class="secondary-text">/5</span></h3>
+                  </div>
+                  <div class="divider"></div>
+                  <div class="right-group">
+                     <p class="text-lg">Rated by 25,000+ Verified Guests</p>
+                     <div class="review mt-16">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                     </div>
+                  </div>
+               </div>
+               <ul class="list-group-row mt-40">
+                  <li><i class="ti ti-shield-check"></i>PMLA & FIU-IND Compliant KYC Standards</li>
+                  <li><i class="ti ti-clock-24"></i>24x7 Concierge Desk on WhatsApp</li>
+                  <li><i class="ti ti-file-certificate"></i>TDS Deduction Transparency & Form 16A</li>
+                  <li><i class="ti ti-heart-handshake"></i>Responsible Gaming Limits & Tele-MANAS Support</li>
+               </ul>
+               <div class="mt-40">
+                  <a aria-label="Explore VIP Club" class="btn--primary" href="/vip-club" title="Explore VIP Club">Explore VIP Privileges <i class="ti ti-arrow-narrow-right"></i></a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="left-thumb">
+      <img alt="" src="{{ img('spring.png') }}" />
+   </div>
+   <div class="rocket">
+      <img alt="" src="{{ img('casino/chip-gold.svg') }}" />
+   </div>
+   <div class="right-thumb">
+      <img alt="" src="{{ img('left-th.png') }}" />
+   </div>
+</section>
+<!-- ==== / choose section end ==== -->
+
+{{ counter_section() }}
+
+{{ work_section() }}
+
+{{ story_section() }}
+
+{{ vip_cta() }}
+
+{{ sponsor_section() }}
+{% endblock content %}

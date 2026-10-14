@@ -1,0 +1,121 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner, heading %}
+
+{% block title %}Responsible Gaming Policy | Casino Royale Goa{% endblock title %}
+{% block description %}Casino Royale is dedicated to player protection, mandatory 21+ age verification, deposit & session limits, self-exclusion breaks, and support via Tele-MANAS 14416.{% endblock %}
+
+{% block content %}
+{{ banner("Responsible Gaming Policy", [("Responsible Gaming", "/responsible-gaming")]) }}
+
+<!-- ==== responsible gaming section start ==== -->
+<section class="privacy pt-120 pb-120">
+   <div class="container">
+      <div class="row gutter-40">
+         <div class="col-12 col-xl-8">
+            <div class="blog__details-card">
+               <div class="details__content" data-aos="fade-up" data-aos-duration="600">
+                  <div class="d-inline-flex align-items-center gap-2 mb-3">
+                     <span class="age-badge">21+</span>
+                     <span class="text-sm fw-6 text-secondary-color text-uppercase">Strict Age Restriction &amp; Player Care</span>
+                  </div>
+                  <h3 class="title-animation neutral-top fw-7">Playing with Sovereignty, Dignity &amp; Control</h3>
+                  <p class="mt-20 text-lg opacity-85">
+                     At Casino Royale, casino entertainment is an indulgence — an evening of thrilling sport, fine dining, and camaraderie. We believe that true luxury requires unwavering player care and responsibility.
+                  </p>
+               </div>
+
+               {% for sec_id, icon, title, label, paragraphs in content.RESPONSIBLE %}
+               <div class="details__content mt-35 mb-35">
+                  <hr class="divider" />
+               </div>
+
+               <div class="details__content" id="{{ sec_id }}" data-aos="fade-up" data-aos-duration="600">
+                  <h4 class="title-animation neutral-top fw-6"><i class="ti {{ icon }} text-secondary-color me-2"></i> {{ title }}</h4>
+                  {% for p in paragraphs %}
+                  <p class="mt-16 text-base opacity-85" style="line-height: 1.8;">{{ p }}</p>
+                  {% endfor %}
+               </div>
+               {% endfor %}
+
+               <div class="details__content mt-35 mb-35">
+                  <hr class="divider" />
+               </div>
+
+               <!-- Request a Break / Limit Form -->
+               <div class="details__content" data-aos="fade-up" data-aos-duration="600">
+                  <h4 class="title-animation neutral-top fw-6"><i class="ti ti-hand-stop text-secondary-color me-2"></i> Request Account Limits or Cool-off</h4>
+                  <p class="mt-12 opacity-75">
+                     Submit a request below and our Responsible Play Officer will activate your requested limits immediately.
+                  </p>
+
+                  <form class="mt-25" data-ajax-form="contact" method="post">
+                     <input type="hidden" name="type" value="Responsible Gaming Limit Request" />
+                     <div class="row gutter-20">
+                        <div class="col-12 col-md-6">
+                           <div class="input-wrapper">
+                              <label for="rgName">Registered Name</label>
+                              <div class="input-single">
+                                 <input id="rgName" name="name" placeholder="Your Name" required="" type="text" />
+                                 <i class="fa-solid fa-user"></i>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                           <div class="input-wrapper">
+                              <label for="rgPhone">Registered Mobile</label>
+                              <div class="input-single">
+                                 <input id="rgPhone" name="phone" placeholder="+91 98765 43210" required="" type="tel" />
+                                 <i class="fa-solid fa-phone"></i>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="input-wrapper mt-20">
+                        <label for="rgOption">Requested Protection Measure</label>
+                        <div class="input-single">
+                           <select id="rgOption" name="action" class="form-control" style="background: transparent; color: #fff; border: 0;">
+                              <option value="Deposit Limit (Daily/Weekly)" style="background: #1d1e24; color: #fff;">Set Daily / Weekly Deposit Cap</option>
+                              <option value="Cool-off 7 Days" style="background: #1d1e24; color: #fff;">7-Day Cool-off Break</option>
+                              <option value="Cool-off 30 Days" style="background: #1d1e24; color: #fff;">30-Day Cool-off Break</option>
+                              <option value="Self-Exclusion 6 Months" style="background: #1d1e24; color: #fff;">6-Month Self-Exclusion</option>
+                              <option value="Self-Exclusion 1 Year" style="background: #1d1e24; color: #fff;">1-Year Formal Self-Exclusion</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="mt-25">
+                        <button class="btn--primary" type="submit">Activate Player Protection <i class="ti ti-arrow-narrow-right"></i></button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+
+         <!-- Sidebar -->
+         <div class="col-12 col-xl-4">
+            <div class="privacy__sidebar blog__sidebar-widget mb-30">
+               {% for sec_id, icon, title, label, paragraphs in content.RESPONSIBLE %}
+               <a class="privacy-btn{% if loop.first %} active{% endif %}" href="#{{ sec_id }}">
+                  <i class="ti {{ icon }}"></i> {{ label }}
+               </a>
+               {% endfor %}
+            </div>
+
+            <!-- Helpline Box -->
+            <div class="lottery-card p-4 rounded-4 tertiary-bg border border-secondary text-center" data-aos="fade-up" data-aos-duration="600">
+               <i class="ti ti-lifebuoy text-secondary-color" style="font-size: 42px;"></i>
+               <h5 class="fw-7 mt-16">National Support Helpline</h5>
+               <p class="text-sm mt-8 opacity-75">
+                  Tele-MANAS (Ministry of Health &amp; Family Welfare, Govt of India) provides free, confidential 24x7 mental health counselling.
+               </p>
+               <div class="mt-20">
+                  <a class="btn--primary w-100 justify-content-center" href="tel:14416">
+                     <i class="ti ti-phone me-2"></i> Call Tele-MANAS (14416)
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ==== / responsible gaming section end ==== -->
+{% endblock content %}

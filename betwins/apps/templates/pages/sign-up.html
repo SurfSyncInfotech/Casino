@@ -1,0 +1,123 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Create Member Account | Casino Royale Goa{% endblock title %}
+{% block description %}Register for Casino Royale luxury casino membership. Enjoy live dealer tables, Teen Patti, roulette, instant UPI payouts, and exclusive VIP welcome privileges.{% endblock %}
+
+{% block content %}
+<!-- ==== authentication section start ==== -->
+<section class="authentication pt-120 pb-120" data-background="{{ img('error-bg.jpg') }}">
+   <div class="container">
+      <div class="row align-items-center">
+         <div class="col-12 col-lg-6 col-xl-6">
+            <div class="authentication__inner" data-aos="fade-right" data-aos-duration="600">
+               <div class="authentication__intro mb-30">
+                  <a aria-label="back to home" class="btn--primary" href="/" title="back to home">
+                     <i class="ti ti-arrow-narrow-left"></i> Back To Home
+                  </a>
+               </div>
+               <div class="authentication__content mt-40">
+                  <span class="text-uppercase fw-6 secondary-text"><i class="ti ti-crown"></i> Membership Registration</span>
+                  <h3 class="title-animation neutral-top fw-7 mt-8">Begin Your Royale Journey</h3>
+                  <p class="mt-8 opacity-75">Create your membership account to access high-stakes tables, exclusive VIP salons, and instant UPI payouts.</p>
+               </div>
+
+               <div class="authentication__form mt-40">
+                  <form data-ajax-form="signup" method="post">
+                     <div class="row gutter-20">
+                        <div class="col-12 col-md-6">
+                           <div class="input-wrapper">
+                              <label for="authFirstName">First Name</label>
+                              <div class="input-single">
+                                 <input id="authFirstName" name="first_name" placeholder="Devon" required="" type="text" />
+                                 <i class="fa-solid fa-user"></i>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                           <div class="input-wrapper">
+                              <label for="authLastName">Last Name</label>
+                              <div class="input-single">
+                                 <input id="authLastName" name="last_name" placeholder="Sharma" required="" type="text" />
+                                 <i class="fa-solid fa-user"></i>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="row gutter-20 mt-20">
+                        <div class="col-12 col-md-6">
+                           <div class="input-wrapper">
+                              <label for="authPhone">Mobile Number (+91)</label>
+                              <div class="input-single">
+                                 <input id="authPhone" name="phone" placeholder="+91 98765 43210" required="" type="tel" />
+                                 <i class="fa-solid fa-phone"></i>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                           <div class="input-wrapper">
+                              <label for="authEmail">Email Address</label>
+                              <div class="input-single">
+                                 <input id="authEmail" name="email" placeholder="devon@example.com" required="" type="email" />
+                                 <i class="fa-solid fa-envelope"></i>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="input-wrapper mt-20 password-group">
+                        <label for="authPassword">Create Password (min. 8 characters)</label>
+                        <div class="input-single">
+                           <input id="authPassword" name="password" placeholder="Choose a strong password" required="" type="password" />
+                           <i class="ti ti-eye-off show-pass"></i>
+                        </div>
+                     </div>
+
+                     <div class="mt-20">
+                        <div class="form-check d-flex align-items-start gap-2 mb-2">
+                           <input class="form-check-input mt-1" type="checkbox" id="ageCheck" required="" style="accent-color: var(--secondary-color);" />
+                           <label class="form-check-label text-sm opacity-85" for="ageCheck">
+                              I confirm that I am at least <strong>21 years of age</strong> and hold valid Indian government photo ID (Aadhaar / PAN / Passport).
+                           </label>
+                        </div>
+                        <div class="form-check d-flex align-items-start gap-2">
+                           <input class="form-check-input mt-1" type="checkbox" id="termsCheck" required="" style="accent-color: var(--secondary-color);" />
+                           <label class="form-check-label text-sm opacity-85" for="termsCheck">
+                              I agree to the <a href="/terms-conditions" class="text-secondary-color" target="_blank">Terms &amp; Conditions</a>, <a href="/privacy-policy" class="text-secondary-color" target="_blank">Privacy Policy</a>, and <a href="/responsible-gaming" class="text-secondary-color" target="_blank">Responsible Gaming Policy</a>.
+                           </label>
+                        </div>
+                     </div>
+
+                     <div class="mt-35">
+                        <button aria-label="Create Account" class="btn--primary w-100 justify-content-center" type="submit">
+                           Complete Registration <i class="ti ti-arrow-narrow-right"></i>
+                        </button>
+                     </div>
+
+                     <p class="create-msg mt-24 text-center">
+                        Already hold a membership? <a href="/sign-in" class="text-secondary-color fw-6">Sign In</a>
+                     </p>
+
+                     <div class="mt-20 pt-20 border-top text-center text-xs opacity-75">
+                        <i class="ti ti-shield-check me-1"></i> Data protected by 256-bit TLS encryption &middot; Regulated under PMLA
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+
+         <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
+            <div class="authentication__thumb text-center d-none d-lg-block" data-background="{{ img('authentication/thumb-sm.png') }}">
+               <div class="circle-img">
+                  <img alt="" src="{{ img('authentication/circle.png') }}" />
+               </div>
+               <div class="thumb">
+                  <img alt="Casino Royale" data-aos="zoom-in" data-aos-duration="600" src="{{ img('casino/auth-thumb.svg') }}" />
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ==== / authentication section end ==== -->
+{% endblock content %}

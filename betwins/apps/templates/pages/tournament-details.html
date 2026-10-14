@@ -1,0 +1,229 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner, tournament_card, vip_cta %}
+
+{% set cur_t = t or content.TOURNAMENTS[0] %}
+{% set other_events = others or content.TOURNAMENTS[1:4] %}
+
+{% block title %}{{ cur_t.title }} | Schedule, Structure &amp; Prize Pool{% endblock title %}
+{% block description %}{{ cur_t.title }} at Casino Royale Goa - {{ cur_t.prize }} prize pool, {{ cur_t.buyin }} buy-in, running {{ cur_t.dates }} at {{ cur_t.venue }}. Reserve your tournament seat.{% endblock %}
+
+{% block content %}
+{{ banner(cur_t.title, [("Tournaments", "/tournaments")]) }}
+
+<!-- ==== tournament details section start ==== -->
+<section class="game-details pt-120 pb-120">
+   <div class="container">
+      <div class="row gutter-40">
+         <div class="col-12 col-xl-8">
+            <div class="blog__details-card lottery-details__card">
+               <!-- Event Header -->
+               <div class="details__content lottery__poster" data-aos="fade-up" data-aos-duration="600">
+                  <div class="thumb text-center">
+                     <img alt="{{ cur_t.title }}" src="{{ img(cur_t.img) }}" style="max-height: 260px; width: auto; object-fit: contain;" />
+                  </div>
+                  <div class="content mt-30">
+                     <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                        <span class="text-uppercase fw-6 secondary-text"><i class="ti ti-trophy"></i> Event Code: {{ cur_t.code }}</span>
+                        <span class="badge tertiary-bg border border-secondary text-secondary-color px-3 py-2 rounded-pill">{{ cur_t.format }}</span>
+                     </div>
+                     <h3 class="fw-7 title-animation mt-12">{{ cur_t.title }}</h3>
+                     <p class="text-lg secondary-text mt-8"><i class="ti ti-calendar me-1"></i> {{ cur_t.dates }} &middot; <i class="ti ti-map-pin ms-2 me-1"></i> {{ cur_t.venue }}</p>
+
+                     <p class="mt-20">{{ cur_t.intro }}</p>
+                  </div>
+               </div>
+
+               <!-- Quick Stat Strip -->
+               <div class="details__content mt-35 mb-35">
+                  <div class="game-stats" data-aos="fade-up" data-aos-duration="600">
+                     <div>
+                        <strong>{{ cur_t.prize }}</strong>
+                        <span>Guaranteed Prize</span>
+                     </div>
+                     <div>
+                        <strong>{{ cur_t.buyin }}</strong>
+                        <span>Buy-in Entry</span>
+                     </div>
+                     <div>
+                        <strong>{{ cur_t.starts }}</strong>
+                        <span>Countdown</span>
+                     </div>
+                     <div>
+                        <strong>{{ cur_t.seats }}</strong>
+                        <span>Availability</span>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="details__content mb-35">
+                  <hr class="divider" />
+               </div>
+
+               <!-- Prize Pool Distribution -->
+               <div class="details__content" data-aos="fade-up" data-aos-duration="600">
+                  <h4 class="title-animation neutral-top fw-6"><i class="ti ti-award text-secondary-color"></i> Prize Pool Distribution</h4>
+                  <p class="mt-10">Official payout ladder based on full field registration:</p>
+
+                  <div class="table-responsive mt-20">
+                     <table class="prize-table">
+                        <tbody>
+                           {% for place, reward in cur_t.prizes %}
+                           <tr>
+                              <td>{{ place }} Place</td>
+                              <td><i class="ti ti-currency-rupee text-secondary-color"></i> {{ reward }}</td>
+                           </tr>
+                           {% endfor %}
+                        </tbody>
+                     </table>
+                  </div>
+               </div>
+
+               <div class="details__content mt-35 mb-35">
+                  <hr class="divider" />
+               </div>
+
+               <!-- Schedule & Flights -->
+               <div class="details__content" data-aos="fade-up" data-aos-duration="600">
+                  <h4 class="title-animation neutral-top fw-6"><i class="ti ti-clock-play text-secondary-color"></i> Tournament Schedule &amp; Flights</h4>
+                  <ol class="steps-list mt-24">
+                     {% for day, desc in cur_t.schedule %}
+                     <li>
+                        <h6 class="fw-6 neutral-top mb-1">{{ day }}</h6>
+                        <p class="text-sm opacity-75">{{ desc }}</p>
+                     </li>
+                     {% endfor %}
+                  </ol>
+               </div>
+
+               <div class="details__content mt-35 mb-35">
+                  <hr class="divider" />
+               </div>
+
+               <!-- Official Rules -->
+               <div class="details__content" data-aos="fade-up" data-aos-duration="600">
+                  <h4 class="title-animation neutral-top fw-6"><i class="ti ti-gavel text-secondary-color"></i> Official Tournament Rules &amp; KYC</h4>
+                  <ul class="rules-list mt-20">
+                     {% for r in cur_t.rules %}
+                     <li class="mb-12"><i class="ti ti-check text-secondary-color me-2"></i> {{ r }}</li>
+                     {% endfor %}
+                  </ul>
+               </div>
+
+               <div class="details__content mt-35 mb-35">
+                  <hr class="divider" />
+               </div>
+
+               <!-- Reservation Form -->
+               <div class="details__content" data-aos="fade-up" data-aos-duration="600">
+                  <h4 class="title-animation neutral-top fw-6"><i class="ti ti-ticket text-secondary-color"></i> Reserve Your Tournament Seat</h4>
+                  <p class="mt-10">Pre-register to lock your starting flight and seating priority at the Royale Theatre, Goa.</p>
+
+                  <form class="mt-25" data-ajax-form="reservation" method="post">
+                     <input type="hidden" name="tournament" value="{{ cur_t.code }}" />
+                     <div class="row gutter-20">
+                        <div class="col-12 col-md-6">
+                           <div class="input-wrapper">
+                              <label for="regName">Full Name (as per Photo ID)</label>
+                              <div class="input-single">
+                                 <input id="regName" name="name" placeholder="Aarav Sharma" required="" type="text" />
+                                 <i class="fa-solid fa-user"></i>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                           <div class="input-wrapper">
+                              <label for="regPhone">Mobile Number (with WhatsApp)</label>
+                              <div class="input-single">
+                                 <input id="regPhone" name="phone" placeholder="+91 98765 43210" required="" type="tel" />
+                                 <i class="fa-solid fa-phone"></i>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="row gutter-20 mt-20">
+                        <div class="col-12 col-md-6">
+                           <div class="input-wrapper">
+                              <label for="regEmail">Email Address</label>
+                              <div class="input-single">
+                                 <input id="regEmail" name="email" placeholder="aarav@example.com" required="" type="email" />
+                                 <i class="fa-solid fa-envelope"></i>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                           <div class="input-wrapper">
+                              <label for="regCity">City</label>
+                              <div class="input-single">
+                                 <input id="regCity" name="city" placeholder="New Delhi" required="" type="text" />
+                                 <i class="fa-solid fa-location-dot"></i>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="mt-30">
+                        <button aria-label="Confirm Seat Reservation" class="btn--primary" type="submit">
+                           Confirm Seat Reservation <i class="ti ti-arrow-narrow-right"></i>
+                        </button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+
+         <!-- Sidebar -->
+         <div class="col-12 col-xl-4">
+            <div class="lottery-sidebar">
+               <!-- Event Quick Facts -->
+               <div class="lottery-card p-4" data-aos="fade-up" data-aos-duration="600">
+                  <h5 class="fw-6 neutral-top mb-16"><i class="ti ti-info-circle text-secondary-color"></i> Event Summary</h5>
+                  <ul class="list-unstyled mb-0" style="font-size: 14px; line-height: 2.2;">
+                     <li><strong>Event:</strong> {{ cur_t.title }}</li>
+                     <li><strong>Code:</strong> {{ cur_t.code }}</li>
+                     <li><strong>Buy-in:</strong> <span class="text-secondary-color fw-7">{{ cur_t.buyin }}</span></li>
+                     <li><strong>Prize Pool:</strong> <span class="text-secondary-color fw-7">{{ cur_t.prize }}</span></li>
+                     <li><strong>Dates:</strong> {{ cur_t.dates }}</li>
+                     <li><strong>Venue:</strong> {{ cur_t.venue }}</li>
+                     <li><strong>Format:</strong> {{ cur_t.format }}</li>
+                     <li><strong>Late Reg:</strong> Until start of Level 8</li>
+                  </ul>
+
+                  <a aria-label="Register on WhatsApp" class="btn--secondary w-100 justify-content-center mt-24" href="https://wa.me/{{ site.phones[1].href.replace('+','') }}?text=Hello%20Royale%20Concierge,%20I%20want%20to%20register%20for%20{{ cur_t.code }}" target="_blank" rel="noopener">
+                     <i class="fa-brands fa-whatsapp me-2"></i> Register via WhatsApp
+                  </a>
+               </div>
+
+               <!-- Accommodation & Travel Box -->
+               <div class="lottery-card p-4 mt-24 text-center" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
+                  <div class="thumb-ic mb-12">
+                     <i class="ti ti-bed" style="font-size: 38px; color: var(--secondary-color);"></i>
+                  </div>
+                  <h6 class="fw-6">Goa Riverfront Stay Packages</h6>
+                  <p class="text-sm mt-8">Tournament players receive special corporate rates on luxury suites at our Mandovi resort.</p>
+                  <a aria-label="Contact Concierge" class="btn--primary mt-16 w-100 justify-content-center" href="/contact-us">
+                     Inquire for Hotel Packages <i class="ti ti-arrow-narrow-right"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Other Tournaments -->
+      {% if other_events %}
+      <div class="row mt-80">
+         <div class="col-12">
+            <div class="section__header text-center mb-40" data-aos="fade-up" data-aos-duration="600">
+               <span class="fw-6 secondary-text text-xl"><strong>More,</strong> Showdowns</span>
+               <h3 class="title-animation fw-6 mt-16">Other Upcoming Tournaments</h3>
+            </div>
+         </div>
+         {% for ot in other_events %}
+         {{ tournament_card(ot, loop.index0 * 150) }}
+         {% endfor %}
+      </div>
+      {% endif %}
+   </div>
+</section>
+<!-- ==== / tournament details section end ==== -->
+
+{{ vip_cta() }}
+{% endblock content %}

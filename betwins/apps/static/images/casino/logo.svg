@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="46" viewBox="0 0 200 46"><defs>
+<linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3b8"/><stop offset=".45" stop-color="#ffba23"/><stop offset="1" stop-color="#a8650a"/></linearGradient>
+<linearGradient id="gRuby" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff7a85"/><stop offset=".5" stop-color="#d11a3a"/><stop offset="1" stop-color="#6a0b1e"/></linearGradient>
+<linearGradient id="gSapphire" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fbaff"/><stop offset=".5" stop-color="#2563d8"/><stop offset="1" stop-color="#0c2a6e"/></linearGradient>
+<linearGradient id="gEmerald" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8ff5c0"/><stop offset=".5" stop-color="#14a366"/><stop offset="1" stop-color="#075238"/></linearGradient>
+<linearGradient id="gOnyx" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b5f6c"/><stop offset=".5" stop-color="#2a2c34"/><stop offset="1" stop-color="#0d0e12"/></linearGradient>
+<linearGradient id="gCyan" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e3fbff"/><stop offset=".5" stop-color="#9cecfe"/><stop offset="1" stop-color="#3c9db8"/></linearGradient>
+<linearGradient id="gCard" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfe3ee"/></linearGradient>
+<linearGradient id="gWood" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a4b1c"/><stop offset=".5" stop-color="#4e2610"/><stop offset="1" stop-color="#2b1208"/></linearGradient>
+<radialGradient id="gGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#9cecfe" stop-opacity=".45"/><stop offset=".6" stop-color="#9cecfe" stop-opacity=".08"/><stop offset="1" stop-color="#9cecfe" stop-opacity="0"/></radialGradient>
+<radialGradient id="gGlowGold" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffba23" stop-opacity=".5"/><stop offset=".6" stop-color="#ffba23" stop-opacity=".1"/><stop offset="1" stop-color="#ffba23" stop-opacity="0"/></radialGradient>
+<radialGradient id="gFelt" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#1f7a55"/><stop offset="1" stop-color="#0a3523"/></radialGradient>
+<filter id="fShadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#000" flood-opacity=".45"/></filter>
+<filter id="fSoft" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity=".4"/></filter>
+</defs>
+<g transform="translate(2 2)">
+  <path d="M20 4 L36 12 L36 28 L20 40 L4 28 L4 12 Z" fill="url(#gGold)" stroke="#8a520a" stroke-width="1.5" stroke-linejoin="round"/>
+  <path d="M20 9 L31 14.5 L31 26 L20 35 L9 26 L9 14.5 Z" fill="#1d1e24"/>
+  <path d="M12 27 L13.5 17 L17 21.5 L20 14 L23 21.5 L26.5 17 L28 27 Z" fill="url(#gGold)"/>
+  <circle cx="20" cy="14" r="1.6" fill="#fff3b8"/><circle cx="13.5" cy="17" r="1.3" fill="#fff3b8"/><circle cx="26.5" cy="17" r="1.3" fill="#fff3b8"/>
+</g>
+<text x="52" y="25" font-family="Georgia,'Times New Roman',serif" font-weight="bold" font-size="23" letter-spacing="1.5" fill="#ffffff">CASINO</text>
+<text x="52" y="40" font-family="Arial,Helvetica,sans-serif" font-weight="bold" font-size="11.5" letter-spacing="7.2" fill="#ffba23">ROYALE</text>
+<path d="M150 21 h18" stroke="#ffba23" stroke-width="1.2" opacity=".0"/>
+</svg>

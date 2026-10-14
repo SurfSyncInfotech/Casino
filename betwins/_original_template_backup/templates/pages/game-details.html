@@ -1,0 +1,1031 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Untitled{% endblock title %}
+
+{% block styles %}
+<link href="{{ config.ASSETS_ROOT }}/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+<link href="{{ config.ASSETS_ROOT }}/images/favicon.png" rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="{{ config.ASSETS_ROOT }}/css/main.css" rel="stylesheet"/>
+<link href="{{ config.ASSETS_ROOT }}/css/responsive.css" rel="stylesheet"/>
+<link href="{{ config.ASSETS_ROOT }}/css/rtl-version.css" rel="stylesheet"/>
+<link href="{{ config.ASSETS_ROOT }}/css/template-settings.css" rel="stylesheet"/>
+{% endblock styles %}
+
+{% block content %}
+<!--[if lte IE 9]>
+      <p class="browserupgrade">
+         You are using an <strong>outdated</strong> browser. Please
+         <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+         your experience and security.
+      </p>
+      <![endif]-->
+<div class="page-wrapper a-cursor">
+<!-- ==== preloader start ==== -->
+<div class="preloader">
+<i class="ti ti-device-gamepad-2"></i>
+<p>Betwins</p>
+</div>
+<!-- ==== / preloader end ==== -->
+<!-- ==== header start ==== -->
+<header class="header">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="main-header__menu-box">
+<nav class="navbar p-0">
+<div class="navbar__intro">
+<div class="navbar-logo">
+<a href="/">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/logo.png"/>
+</a>
+</div>
+<div class="navbar__intro-games">
+<button aria-label="dropdown menu"><i class="ti ti-layout-grid"></i>Top Games <i class="ti ti-chevron-down"></i></button>
+<ul class="sub-menu">
+<li>
+<a href="/games">Jackpot</a>
+</li>
+<li>
+<a href="/games">Slots</a>
+</li>
+<li>
+<a href="/games-two">Gambling</a>
+</li>
+<li>
+<a href="/games-two">Casino</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="navbar__menu d-none d-xl-block">
+<ul class="navbar__list">
+<li class="navbar__item navbar__item--has-children">
+<a aria-label="dropdown menu" class="navbar__dropdown-label dropdown-label-alter" href="#">Home</a>
+<ul class="navbar__sub-menu">
+<li>
+<a href="/">Home</a>
+</li>
+<li>
+<a href="/index-two">Home Two</a>
+</li>
+<li>
+<a href="/index-three">Home Three</a>
+</li>
+<li>
+<a href="/index-four">Home Four</a>
+</li>
+</ul>
+</li>
+<li class="navbar__item">
+<a href="/about-us">About Us</a>
+</li>
+<li class="navbar__item navbar__item--has-children">
+<a aria-label="dropdown menu" class="navbar__dropdown-label dropdown-label-alter" href="#">Games</a>
+<ul class="navbar__sub-menu">
+<li>
+<a href="/games">Games</a>
+</li>
+<li>
+<a href="/games-two">Games Two</a>
+</li>
+<li>
+<a href="/game-details">Game Details</a>
+</li>
+</ul>
+</li>
+<li class="navbar__item navbar__item--has-children">
+<a aria-label="dropdown menu" class="navbar__dropdown-label dropdown-label-alter" href="#">Lottery</a>
+<ul class="navbar__sub-menu">
+<li>
+<a href="/lottery">Lottery</a>
+</li>
+<li>
+<a href="/lottery-contest">Lottery Contest</a>
+</li>
+<li>
+<a href="/lottery-result">Lottery Results</a>
+</li>
+<li>
+<a href="/lottery-details">Lottery Details</a>
+</li>
+</ul>
+</li>
+<li class="navbar__item navbar__item--has-children">
+<a aria-label="dropdown menu" class="navbar__dropdown-label dropdown-label-alter" href="#">Pages</a>
+<ul class="navbar__sub-menu">
+<li>
+<a href="/faq">FAQ</a>
+</li>
+<li>
+<a href="/sign-in">Sign In</a>
+</li>
+<li>
+<a href="/sign-up">Create Account</a>
+</li>
+<li>
+<a href="/coming-soon">Coming Soon</a>
+</li>
+<li>
+<a href="/404">Error</a>
+</li>
+</ul>
+</li>
+<li class="navbar__item navbar__item--has-children">
+<a aria-label="dropdown menu" class="navbar__dropdown-label dropdown-label-alter" href="#">Blog</a>
+<ul class="navbar__sub-menu">
+<li>
+<a href="/blog">Blog List View</a>
+</li>
+<li>
+<a href="/blog-grid">Blog Grid View</a>
+</li>
+<li>
+<a href="/blog-details">Blog Details</a>
+</li>
+</ul>
+</li>
+<li class="navbar__item">
+<a href="/contact-us">Contact Us</a>
+</li>
+</ul>
+</div>
+<div class="navbar__options">
+<div class="navbar__mobile-options">
+<div class="navbar__mobile-icons">
+<div class="search-box">
+<button aria-label="search products" class="open-search" title="open search box">
+<i class="ti ti-search"></i>
+</button>
+</div>
+<div class="language-box">
+<button aria-label="select language" class="language-select" title="select language">
+<i class="ti ti-world"></i>
+</button>
+<ul>
+<li>EN</li>
+<li>FR</li>
+<li>CN</li>
+<li>PK</li>
+</ul>
+</div>
+</div>
+<div class="navbar__cta d-none d-sm-flex">
+<a aria-label="sign in" class="btn--secondary" href="/sign-in" title="sign in">Sign
+                                    In <i class="ti ti-arrow-narrow-right"></i></a>
+<a aria-label="create account" class="btn--primary" href="/sign-up" title="create account">Sign Up <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+<button aria-label="toggle mobile menu" class="open-offcanvas-nav d-flex d-xl-none" title="open offcanvas menu">
+<span class="icon-bar top-bar"></span>
+<span class="icon-bar middle-bar"></span>
+<span class="icon-bar bottom-bar"></span>
+</button>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- ==== / header end ==== -->
+<!-- ==== mobile menu start ==== -->
+<div class="mobile-menu d-block d-xl-none">
+<nav class="mobile-menu__wrapper">
+<div class="mobile-menu__header">
+<div class="logo">
+<a aria-label="home page" href="/" title="logo">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/logo.png"/>
+</a>
+</div>
+<button aria-label="close mobile menu" class="close-mobile-menu">
+<i class="ti ti-x"></i>
+</button>
+</div>
+<div class="mobile-menu__list"></div>
+<div class="mobile-menu__cta d-block d-md-none">
+<a aria-label="create account" class="btn--primary" href="/sign-up" title="create account">Sign
+                  Up <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+<div class="mobile-menu__social social">
+<a aria-label="share us on facebook" href="https://www.facebook.com/" target="_blank" title="facebook">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+<a aria-label="share us on instagram" href="https://instagram.com/" target="_blank" title="instagram">
+<i class="fa-brands fa-instagram"></i>
+</a>
+<a aria-label="share us on twitter" href="https://x.com/" target="_blank" title="twitter">
+<i class="fa-brands fa-twitter"></i>
+</a>
+<a aria-label="share us on linkedin" href="https://www.linkedin.com/" target="_blank" title="linkedin">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+</div>
+</nav>
+</div>
+<div class="mobile-menu__backdrop"></div>
+<!-- ==== / mobile menu end ==== -->
+<!-- ==== search popup start ==== -->
+<div class="search-popup">
+<button aria-label="close search box" class="close-search" title="close search box">
+<i class="fa-solid fa-xmark"></i>
+</button>
+<form action="#" method="post">
+<div class="search-popup__group">
+<input id="searchField" name="search-field" placeholder="Search...." required="" type="text"/>
+<button aria-label="search products" title="search products" type="submit">
+<i class="fa-solid fa-magnifying-glass"></i>
+</button>
+</div>
+</form>
+</div>
+<!-- ==== / search popup end ==== -->
+<!-- ==== banner section start ==== -->
+<section class="common-banner">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="common-banner__content">
+<h2 class="title-animation neutral-top fw-6">Game Details</h2>
+<nav aria-label="breadcrumb" class="mt-16">
+<ol class="breadcrumb">
+<li class="breadcrumb-item">
+<a href="/">Home</a>
+</li>
+<li aria-current="page" class="breadcrumb-item active">
+                                 Game Details
+                              </li>
+</ol>
+</nav>
+</div>
+</div>
+</div>
+</div>
+<div class="banner-bg">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/cmn-banner-bg.png"/>
+</div>
+<div class="thumb-wrapper">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/cmn-banner-thumb.png"/>
+</div>
+<div class="btc d-none d-sm-block">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/btc.png"/>
+</div>
+<div class="coin-up d-none d-sm-block">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/coin-up.png"/>
+</div>
+<div class="rocket">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/rocket.png"/>
+</div>
+</div>
+<div class="coin-down">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/coin-down.png"/>
+</div>
+<div class="point">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/point.png"/>
+</div>
+<div class="bg-r">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/bg-r.png"/>
+</div>
+<div class="bg-l">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/bg-l.png"/>
+</div>
+</section>
+<!-- ==== / banner section end ==== -->
+<!-- ==== game details section start ==== -->
+<section class="game-details pt-120 pb-120">
+<div class="container">
+<div class="row gutter-40">
+<div class="col-12 col-xl-8">
+<div class="blog__details-card lottery-details__card">
+<div class="details__content lottery__poster" data-aos="fade-up" data-aos-duration="600">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/lottery/jackpot.png"/>
+</div>
+<div class="content">
+<h5 class="fw-6 title-animation">Jackpot Betting</h5>
+<p class="mt-20">Crypto Jackpot Gaming combines the excitement of lottery-style games with
+                                 blockchain technology, offering players the chance to win substantial prizes in
+                                 cryptocurrency. Here are key details about this gaming category:
+                              </p>
+</div>
+</div>
+<div class="details__content mt-40 mb-40">
+<hr class="divider"/>
+</div>
+<div class="details__content" data-aos="fade-up" data-aos-duration="600">
+<h6 class="title-animation neutral-top fw-6">Decentralization &amp; Transparency:</h6>
+<ul class="details__list mt-16 mb-25">
+<li>Built on blockchain platforms, ensuring fairness and eliminating manipulation risks.</li>
+<li>Players can verify the randomness and fairness of each draw.</li>
+</ul>
+<p>It is a long established fact that a reader will be distracted by the readable content of a
+                              page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less
+                              normal distribution of letters, as opposed to using 'Content here, content here', making it
+                              look like readable English. Many desktop publishing packages and web page editors now use
+                              Lorem Ipsum as their default model text.
+                           </p>
+</div>
+<div class="details__content mt-40 mb-40">
+<hr class="divider"/>
+</div>
+<div class="details__content" data-aos="fade-up" data-aos-duration="600">
+<h6 class="text-xl neutral-top fw-6">Easy Access:</h6>
+<p class="mt-16">It is a long established fact that a reader will be distracted by the readable
+                              content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                              more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                              here', making it look like readable English. Many desktop publishing packages and web page
+                              editors now use Lorem Ipsum as their default model text.
+                           </p>
+<ul class="details__list mt-25">
+<li>Accessible worldwide, users only need a cryptocurrency wallet.</li>
+<li>Often allows small investments to participate in jackpots.</li>
+</ul>
+</div>
+<div class="details__content mt-40 mb-40">
+<hr class="divider"/>
+</div>
+<div class="details__content" data-aos="fade-up" data-aos-duration="600">
+<h6 class="text-xl neutral-top fw-6">Instant Transactions:</h6>
+<ul class="details__list mt-25">
+<li>Residential rooftop installations</li>
+<li>Off-grid solar systems</li>
+<li>Camping and RVs</li>
+<li>Remote communication equipment</li>
+<li>Marine solar setups</li>
+</ul>
+</div>
+<div class="details__content mt-40 mb-40">
+<hr class="divider"/>
+</div>
+<div class="details__content" data-aos="fade-up" data-aos-duration="600">
+<h6 class="text-xl neutral-top fw-6">Benefits:</h6>
+<p class="mt-16">It is a long established fact that a reader will be distracted by the readable
+                              content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                              more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                              here', making it look like readable English. Many desktop publishing packages and web page
+                              editors now use Lorem Ipsum as their default model text, 
+                           </p>
+<ul class="details__list mt-25">
+<li>Lucky Block: Offers crypto-powered jackpots with weekly draws.</li>
+<li>Crypto Millions Lotto: A Bitcoin-based lottery with large prizes.</li>
+<li>DuckDice: A dice game with a jackpot element.</li>
+<li>Stake: A casino platform featuring jackpot games for crypto users.</li>
+</ul>
+</div>
+<div class="details__content mt-40 mb-40">
+<hr class="divider"/>
+</div>
+<div class="details__content details__footer">
+<div class="details-tag">
+<div class="tag-header">
+<p>Popular Tags <i class="ti ti-arrow-move-right"></i></p>
+</div>
+<div class="tag-wrapper">
+<a href="/blog">Crypto</a>
+<a href="/blog">Casino</a>
+</div>
+</div>
+<div class="details-tag">
+<div class="tag-header">
+<p>Follow <i class="ti ti-arrow-move-right"></i></p>
+</div>
+<div class="social">
+<a aria-label="share us on facebook" href="https://www.facebook.com/" target="_blank" title="facebook">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+<a aria-label="share us on instagram" href="https://instagram.com/" target="_blank" title="instagram">
+<i class="fa-brands fa-instagram"></i>
+</a>
+<a aria-label="share us on twitter" href="https://x.com/" target="_blank" title="twitter">
+<i class="fa-brands fa-twitter"></i>
+</a>
+<a aria-label="share us on linkedin" href="https://www.linkedin.com/" target="_blank" title="linkedin">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="blog__details-card-sm mt-60">
+<div class="card__intro">
+<h6 class="title-animation neutral-top fw-6">Average Reviews</h6>
+</div>
+<hr class="divider mt-30 mb-40"/>
+<div class="review-wrapper" data-aos="fade-up" data-aos-duration="600">
+<div class="review-left text-center">
+<h3 class="fw-6">4.7<span class="text-xxl">/5</span></h3>
+<div class="review mt-8">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half-stroke"></i>
+</div>
+<p class="mt-12 fw-5">26 Rating</p>
+</div>
+<div class="review-right">
+<div class="pg-wrapper">
+<div class="pg-single">
+<p class="pg-left"><i class="fa-solid fa-star"></i>5</p>
+<div class="progress-bar-wrapper" data-percent="90%">
+<div class="progress-bar">
+<div class="progress-bar-percent">
+</div>
+</div>
+</div>
+<span class="percent-value"></span>
+</div>
+<div class="pg-single">
+<p class="pg-left"><i class="fa-solid fa-star"></i>4</p>
+<div class="progress-bar-wrapper" data-percent="70%">
+<div class="progress-bar">
+<div class="progress-bar-percent">
+</div>
+</div>
+</div>
+<span class="percent-value"></span>
+</div>
+<div class="pg-single">
+<p class="pg-left"><i class="fa-solid fa-star"></i>3</p>
+<div class="progress-bar-wrapper" data-percent="50%">
+<div class="progress-bar">
+<div class="progress-bar-percent">
+</div>
+</div>
+</div>
+<span class="percent-value"></span>
+</div>
+<div class="pg-single">
+<p class="pg-left"><i class="fa-solid fa-star"></i>2</p>
+<div class="progress-bar-wrapper" data-percent="30%">
+<div class="progress-bar">
+<div class="progress-bar-percent">
+</div>
+</div>
+</div>
+<span class="percent-value"></span>
+</div>
+<div class="pg-single">
+<p class="pg-left"><i class="fa-solid fa-star"></i>1</p>
+<div class="progress-bar-wrapper" data-percent="20%">
+<div class="progress-bar">
+<div class="progress-bar-percent">
+</div>
+</div>
+</div>
+<span class="percent-value"></span>
+</div>
+</div>
+</div>
+</div>
+<hr class="divider mt-40 mb-40"/>
+<div class="card__intro mb-40" data-aos="fade-up" data-aos-duration="600">
+<h6 class="title-animation neutral-top fw-6">All Reviews</h6>
+<div class="sort-wrapper">
+<p>Sort By:</p>
+<select class="sort-select select" name="sort">
+<option value="new">New</option>
+<option value="old">Old</option>
+</select>
+</div>
+</div>
+<div class="comment__single" data-aos="fade-up" data-aos-duration="600">
+<div class="comment__meta">
+<div class="author__info">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/avatar/one.png"/>
+</div>
+<div class="content">
+<p class="text-xl fw-6">Kiss Laura</p>
+<p>Product Designer</p>
+</div>
+</div>
+<div class="time">
+<p>09:01 am</p>
+<p>Mar 03, 2025</p>
+</div>
+</div>
+<hr class="divider mt-25 mb-30"/>
+<div class="comment__single-content">
+<div class="review mb-20">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+<p>It is a long established fact that a reader will be distracted by the readable content of
+                                 a page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                                 more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                                 here...
+                              </p>
+<hr class="divider mt-25 mb-25"/>
+<div class="comment__single-action">
+<button class="single" title="like"><i class="ti ti-thumb-up"></i> 190</button>
+<div class="reply-button">
+<button aria-label="reply"><i class="ti ti-messages"></i>Reply</button>
+</div>
+</div>
+<div class="reply__comment mt-30">
+<div class="reply__comment-inner">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/avatar/two.png"/>
+</div>
+<form action="#" method="post">
+<div class="input-group">
+<div class="input-single">
+<textarea placeholder="Join the discussion..." required=""></textarea>
+</div>
+<div class="btn-wrapper">
+<button class="btn--primary" type="submit">Reply</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="comment__single mt-30" data-aos="fade-up" data-aos-duration="600">
+<div class="comment__meta">
+<div class="author__info">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/avatar/three.png"/>
+</div>
+<div class="content">
+<p class="text-xl fw-6">Devon Lane</p>
+<p>Front End Developer</p>
+</div>
+</div>
+<div class="time">
+<p>09:01 am</p>
+<p>Mar 03, 2025</p>
+</div>
+</div>
+<hr class="divider mt-25 mb-30"/>
+<div class="comment__single-content">
+<div class="review mb-20">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+<p>It is a long established fact that a reader will be distracted by the readable content of
+                                 a page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                                 more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                                 here...
+                              </p>
+<hr class="divider mt-25 mb-25"/>
+<div class="comment__single-action">
+<button class="single" title="like"><i class="ti ti-thumb-up"></i> 190</button>
+<div class="reply-button">
+<button aria-label="reply"><i class="ti ti-messages"></i>Reply</button>
+</div>
+</div>
+<div class="reply__comment mt-30">
+<div class="reply__comment-inner">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/avatar/two.png"/>
+</div>
+<form action="#" method="post">
+<div class="input-group">
+<div class="input-single">
+<textarea placeholder="Join the discussion..." required=""></textarea>
+</div>
+<div class="btn-wrapper">
+<button class="btn--primary" type="submit">Reply</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="comment__single mt-30" data-aos="fade-up" data-aos-duration="600">
+<div class="comment__meta">
+<div class="author__info">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/avatar/four.png"/>
+</div>
+<div class="content">
+<p class="text-xl fw-6">Theresa Webb</p>
+<p>UI Designer</p>
+</div>
+</div>
+<div class="time">
+<p>09:01 am</p>
+<p>Mar 03, 2025</p>
+</div>
+</div>
+<hr class="divider mt-25 mb-30"/>
+<div class="comment__single-content">
+<div class="review mb-20">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+<p>It is a long established fact that a reader will be distracted by the readable content of
+                                 a page when looking at its layout. The point of using Lorem Ipsum is that it has a
+                                 more-or-less normal distribution of letters, as opposed to using 'Content here, content
+                                 here...
+                              </p>
+<hr class="divider mt-25 mb-25"/>
+<div class="comment__single-action">
+<button class="single" title="like"><i class="ti ti-thumb-up"></i> 190</button>
+<div class="reply-button">
+<button aria-label="reply"><i class="ti ti-messages"></i>Reply</button>
+</div>
+</div>
+<div class="reply__comment mt-30">
+<div class="reply__comment-inner">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/avatar/two.png"/>
+</div>
+<form action="#" method="post">
+<div class="input-group">
+<div class="input-single">
+<textarea placeholder="Join the discussion..." required=""></textarea>
+</div>
+<div class="btn-wrapper">
+<button class="btn--primary" type="submit">Reply</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-40">
+<a aria-label="see all reviews" class="btn--secondary" href="/game-details" title="see all reviews">See All Reviews</a>
+</div>
+</div>
+<div class="blog__details-card-sm mt-60" data-aos="fade-up" data-aos-duration="600">
+<div class="card__intro">
+<h6 class="title-animation neutral-top fw-6">Leave A Review</h6>
+</div>
+<hr class="divider mt-20 mb-40"/>
+<form action="#" method="post">
+<div class="input-wrapper">
+<label for="r-fullName">Your Name</label>
+<div class="input-single">
+<input id="r-fullName" name="r-full-name" placeholder="Enter Name" required="" type="text"/>
+<i class="fa-solid fa-user"></i>
+</div>
+</div>
+<div class="input-wrapper mt-30">
+<label for="r-cEmail">Your Email</label>
+<div class="input-single">
+<input id="r-cEmail" name="r-c-email" placeholder="Enter Email" required="" type="email"/>
+<i class="fa-solid fa-envelope"></i>
+</div>
+</div>
+<div class="input-wrapper mt-30">
+<p>Ratings</p>
+<div class="review review-game mt-16">
+<i class="ti ti-star"></i>
+<i class="ti ti-star"></i>
+<i class="ti ti-star"></i>
+<i class="ti ti-star"></i>
+<i class="ti ti-star"></i>
+</div>
+</div>
+<div class="input-wrapper mt-30">
+<label for="r-reviewMessage">Your Review</label>
+<div class="input-single alter-input">
+<textarea id="r-reviewMessage" name="r-review-message" placeholder="Your Review..."></textarea>
+<i class="fa-solid fa-comments"></i>
+</div>
+</div>
+<div class="mt-40">
+<button aria-label="submit review" class="btn--secondary" title="submit review" type="submit">Submit Review</button>
+</div>
+</form>
+</div>
+</div>
+<div class="col-12 col-xl-4">
+<div class="blog__sidebar" data-aos="fade-up" data-aos-duration="600">
+<div class="blog__sidebar-widget game-details__widget">
+<div class="blog__widget-intro">
+<h6 class="fw-6 neutral-top">Overviews</h6>
+<ul class="platform mt-12">
+<li>Windows</li>
+<li><span></span></li>
+<li>Android</li>
+<li><span></span></li>
+<li>Xbox</li>
+<li><span></span></li>
+<li>Mac</li>
+</ul>
+</div>
+<hr class="divider mt-35 mb-35"/>
+<div class="platform-meta">
+<p><span>Category</span> <span>Casino Jackpot</span></p>
+<p class="mt-12"><span>Rating</span> <span><i class="fa-solid fa-star"></i>5</span></p>
+<p class="mt-12"><span>Playing User</span> <span class="secondary-text fw-6">562M</span></p>
+</div>
+<hr class="divider mt-35 mb-35"/>
+<div class="platform__price">
+<p class="text-lg fw-6 neutral-top">Deposit And Play</p>
+<form action="#" class="mt-16" method="post">
+<div class="input-single mb-0">
+<input id="priceBtc" name="price-btc" placeholder="0.001" required="" type="text"/>
+</div>
+<select class="payment-select select" name="pay-method">
+<option value="btc">BTC</option>
+<option value="eth">ETH</option>
+<option value="doge">DOGE</option>
+</select>
+<button aria-label="play now" class="btn--primary mt-16" title="play now" type="submit">Play Now<i class="ti ti-arrow-narrow-right"></i></button>
+</form>
+</div>
+<div class="platform__footer mt-25">
+<p>By Clicking you agree with our
+                                 <a href="/terms-conditions">Terms and Conditions</a>,
+                                 <a href="/privacy-policy">Privacy Policy</a>
+</p>
+<div class="action-group mt-25">
+<a aria-label="save" href="/game-details" title="save">
+<i class="ti ti-heart"></i>
+</a>
+<a aria-label="share" href="/game-details" title="share">
+<i class="ti ti-share"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==== / game details section end ==== -->
+<!-- ==== footer start ==== -->
+<footer class="footer-two" data-background="{{ config.ASSETS_ROOT }}/images/footer/footer-bg.png">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="footer__newsletter footer__newsletter-two" data-aos="fade-up" data-aos-duration="600" data-background="{{ config.ASSETS_ROOT }}/images/newsletter-bg-two.png">
+<div class="row justify-content-center">
+<div class="col-12 col-lg-10 col-xl-8">
+<div class="footer__newsletter-content w-full text-center">
+<h2 class="title-animation fw-6 neutral-top mb-10">Join Our Newsletter</h2>
+<p>Subscribe to our newsletter for the latest updates, news, and exclusive
+                                    insights straight to your inbox.
+                                 </p>
+</div>
+<div class="footer__newsletter-form mt-35">
+<form action="#" method="post">
+<input id="subscribeEmail" name="subscribe-email" placeholder="Enter Email" required="" type="email"/>
+<button aria-label="subscribe to our newsletter" title="subscribe to our newsletter" type="submit"> <i class="fa-solid fa-paper-plane"></i>
+</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row gutter-60 pt-120 pb-120">
+<div class="col-12 col-lg-6 col-xl-3">
+<div class="footer__widget" data-aos="fade-up" data-aos-duration="600">
+<div class="footer__widget-intro">
+<a class="logo" href="/">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/logo.png"/>
+</a>
+</div>
+<div class="footer__widget-content mt-25">
+<p>Betwins is an innovative Online Crypto Gaming platform designed for players.</p>
+</div>
+<div class="social mt-35">
+<a aria-label="share us on facebook" href="https://www.facebook.com/" target="_blank" title="facebook">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+<a aria-label="share us on instagram" href="https://instagram.com/" target="_blank" title="instagram">
+<i class="fa-brands fa-instagram"></i>
+</a>
+<a aria-label="share us on twitter" href="https://x.com/" target="_blank" title="twitter">
+<i class="fa-brands fa-twitter"></i>
+</a>
+<a aria-label="share us on linkedin" href="https://www.linkedin.com/" target="_blank" title="linkedin">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-3 col-xl-2">
+<div class="footer__widget" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+<div class="footer__widget-intro">
+<h6 class="fw-6 neutral-top">Quick Links</h6>
+</div>
+<div class="footer__widget-content mt-25">
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/about-us">About Us</a></li>
+<li><a href="/games">Games</a></li>
+<li><a href="/lottery">Lottery</a></li>
+<li><a href="/blog">Blog</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-3 col-xl-2">
+<div class="footer__widget" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+<div class="footer__widget-intro">
+<h6 class="fw-6 neutral-top">Categories</h6>
+</div>
+<div class="footer__widget-content mt-25">
+<ul>
+<li><a href="/lottery-contest">Jackpot</a></li>
+<li><a href="/lottery-contest">Slots</a></li>
+<li><a href="/lottery-contest">Casino</a></li>
+<li><a href="/lottery-contest">Gambling</a></li>
+<li><a href="/lottery">Lottery</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-2">
+<div class="footer__widget" data-aos="fade-up" data-aos-delay="600" data-aos-duration="600">
+<div class="footer__widget-intro">
+<h6 class="fw-6 neutral-top">Quick Links</h6>
+</div>
+<div class="footer__widget-content mt-25">
+<ul>
+<li><a href="/faq">FAQ's</a></li>
+<li><a href="/contact-us">Contact Us</a></li>
+<li><a href="/sign-up">Create Account</a></li>
+<li><a href="/sign-in">Sign In</a></li>
+<li><a href="/404">Error</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-3">
+<div class="footer__widget" data-aos="fade-up" data-aos-delay="800" data-aos-duration="600">
+<div class="footer__widget-intro">
+<h6 class="fw-6 neutral-top">Get In Touch</h6>
+</div>
+<div class="footer__widget-content mt-25">
+<div class="footer__widget-group">
+<div class="icon">
+<i class="ti ti-phone-call"></i>
+</div>
+<div class="content">
+<p><a href="tel:505-555-0125">(505) 555-0125</a></p>
+<p class="mt-4"><a href="tel:225-555-0118">(225) 555-0118</a></p>
+</div>
+</div>
+<div class="footer__widget-group mt-16">
+<div class="icon">
+<i class="ti ti-mail-opened"></i>
+</div>
+<div class="content">
+<p><a href="mailto:example@betwins.com">example@betwins.com</a></p>
+<p class="mt-4"><a href="mailto:contact@betwins.com">contact@betwins.com</a></p>
+</div>
+</div>
+<div class="footer__widget-group mt-16">
+<div class="icon">
+<i class="ti ti-map-pin"></i>
+</div>
+<div class="content">
+<p><a href="https://www.google.com/maps/place/Kentucky,+USA/@37.8172108,-87.087054,8z/data=!3m1!4b1!4m6!3m5!1s0x8842734c8b1953c9:0x771f6f4ec5ccdffc!8m2!3d37.8393332!4d-84.2700179!16zL20vMDQ5OHk?entry=ttu" target="_blank">1901 Thornridge Cir. Shiloh, Hawaii 81063</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="footer__copyright">
+<div class="row align-items-center gutter-20">
+<div class="col-12 col-lg-5">
+<div class="footer__copyright-content">
+<p class="text-center text-lg-start">Copyright © <span id="copyrightYear"></span> <a href="/">Betwins</a>.
+                                    All rights
+                                    reserved.
+                                 </p>
+</div>
+</div>
+<div class="col-12 col-lg-7">
+<div class="footer__copyright-list">
+<ul class="justify-content-center justify-content-lg-end">
+<li><a href="/contact-us">Help &amp; Support</a></li>
+<li><span></span></li>
+<li><a href="/terms-conditions">Terms &amp; Conditions</a></li>
+<li><span></span></li>
+<li><a href="/privacy-policy">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="left-thumb" data-aos="fade-right" data-aos-duration="600">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/footer/footer-two-left.png"/>
+</div>
+<div class="right-thumb" data-aos="fade-left" data-aos-delay="300" data-aos-duration="600">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/footer/footer-two-right.png"/>
+</div>
+</footer>
+<!-- ==== / footer end ==== -->
+<!-- ==== mouse cursor start ==== -->
+<div class="mouseCursor cursor-outer"></div>
+<div class="mouseCursor cursor-inner">
+</div>
+<!-- ==== / mouse cursor end ==== -->
+<!-- ==== scroll to top start ==== -->
+<button aria-label="scroll indicator" class="progress-wrap" title="back to top">
+<span></span>
+<svg class="progress-circle svg-content" height="100%" viewbox="-1 -1 102 102" width="100%">
+<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+</svg>
+</button>
+<!-- ==== / scroll to top end ==== -->
+<!-- ==== template option start ==== -->
+<div class="color-palate">
+<div class="color-icon">
+<button class="open-color">
+<i class="ti ti-settings-filled"></i>
+</button>
+<button class="close-color">
+<i class="ti ti-x"></i>
+</button>
+</div>
+<div class="color-palate-inner">
+<div class="group">
+<h6 class="not-cursor">Cursor</h6>
+<ul class="cursor-version">
+<li class="active cursor-pointer animated-cursor">Animated</li>
+<li class="box cursor-pointer default-cursor">Default</li>
+</ul>
+</div>
+<div class="group">
+<h6 class="not-cursor">Direction</h6>
+<ul class="rtl-version">
+<li class="active cursor-pointer ltr-yes">LTR</li>
+<li class="cursor-pointer ltr-no">RTL</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- ==== / template option end ==== -->
+</div>
+<!-- ==== js dependencies start ==== -->
+<!-- jquery -->
+
+<!-- bootstrap five js -->
+
+<!-- nice select js -->
+
+<!-- magnific popup js -->
+
+<!-- swiper slider js -->
+
+<!-- viewport js -->
+
+<!-- odometer js -->
+
+<!-- vanilla tilt js -->
+
+<!-- aos js -->
+
+<!-- isotope js -->
+
+<!-- splittext js -->
+
+<!-- scrollto js -->
+
+<!-- scrolltrigger js -->
+
+<!-- gsap js -->
+
+<!-- ==== / js dependencies end ==== -->
+<!-- main js -->
+{% endblock content %}
+
+{% block scripts %}
+<script src="{{ config.ASSETS_ROOT }}/js/jquery-3.7.1.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/bootstrap.bundle.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/jquery.nice-select.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/jquery.magnific-popup.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/swiper-bundle.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/viewport.jquery.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/odometer.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/vanilla-tilt.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/aos.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/isotope.pkgd.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/SplitText.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/ScrollToPlugin.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/ScrollTrigger.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/gsap.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/custom.js"></script>
+{% endblock scripts %}

@@ -1,0 +1,431 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import heading, lucky_picker, tournament_card, post_card, counter_section, work_section, testimonial_section, sponsor_section, vip_cta %}
+
+{% block title %}Home{% endblock title %}
+{% block description %}Casino Royale is India's luxury casino & resort - live Teen Patti, roulette, blackjack, baccarat, poker, slots and crore-rupee jackpots with instant UPI payouts.{% endblock %}
+
+{% block content %}
+   <!-- ==== hero section start ==== -->
+   <section class="hero" data-background="{{ img('banner/hero-bg.png') }}">
+      <div class="container">
+         <div class="row">
+            <div class="col-12 col-lg-7 col-xl-7">
+               <div class="hero__content">
+                  <span class="fw-6 secondary-text text-xl sub-title"><strong>India's</strong> Luxury Casino &amp; Resort</span>
+                  <h1 class="title-animation fw-7 mt-25">
+                     Where Royalty Plays &amp; Fortunes Are Made
+                  </h1>
+                  <p class="text-xl mt-25">
+                     Step into Casino Royale - live Teen Patti, roulette, baccarat and blackjack,
+                     crore-rupee jackpots and instant UPI payouts, all wrapped in legendary
+                     Indian hospitality.
+                  </p>
+                  <div class="banner-action mt-40">
+                     <a aria-label="play games" class="btn--primary" href="/games" title="play games">Play Games <i
+                           class="ti ti-arrow-narrow-right"></i></a>
+                     <a aria-label="explore tournaments" class="btn--secondary" href="/tournaments"
+                        title="explore tournaments">Explore Tournaments <i class="ti ti-arrow-narrow-right"></i></a>
+                  </div>
+                  <div class="mt-60 hero__review">
+                     <p class="text-lg">Excellent</p>
+                     <div class="review">
+                        <i class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i
+                           class="ti ti-star-filled"></i><i class="ti ti-star-filled"></i><i
+                           class="ti ti-star-half-filled"></i>
+                     </div>
+                     <p class="text-lg">Rated 4.8 by 25,000+ guests.</p>
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 col-lg-5 col-xl-5">
+               <div class="hero__thumb-wrapper d-none d-lg-block">
+                  <div class="hero__thumb">
+                     <div class="main-img">
+                        <img alt="Roulette wheel, playing cards and casino chips" src="{{ img('casino/hero-thumb.svg') }}" />
+                     </div>
+                  </div>
+                  <div class="star-img">
+                     <img alt="" src="{{ img('banner/lotter-stars.png') }}" />
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="ball-img-one">
+         <img alt="" src="{{ img('casino/chip-red.svg') }}" />
+      </div>
+      <div class="ball-img-two">
+         <img alt="" src="{{ img('casino/chip-blue.svg') }}" />
+      </div>
+      <div class="ball-img-three">
+         <img alt="" src="{{ img('casino/chip-green.svg') }}" />
+      </div>
+      <div class="ball-img-four">
+         <img alt="" src="{{ img('casino/chip-gold.svg') }}" />
+      </div>
+      <div class="rocket">
+         <img alt="" src="{{ img('casino/dice.svg') }}" />
+      </div>
+      <div class="btc d-none d-sm-block">
+         <img alt="" src="{{ img('casino/premium.svg') }}" />
+      </div>
+   </section>
+   <!-- ==== / hero section end ==== -->
+
+   <!-- ==== fantasy section start ==== -->
+   <section class="fantasy pt-120 pb-120">
+      <div class="container">
+         {{ heading('Meet', 'Our Signature Gaming Floors', 'Five-Star Casino Entertainment', 'From the buzz of the slot floor to the hush of the Maharaja Salon - every corner of Casino Royale is designed for unforgettable nights.') }}
+         <div class="row gutter-24">
+            <div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+               <div class="fantasy__single tilt">
+                  <div class="intro">
+                     <h5 class="neutral-top fw-6 text-uppercase">
+                        <img alt="" src="{{ img('fantasy/ic-three.png') }}" />Live Casino
+                     </h5>
+                  </div>
+                  <div class="content mt-120">
+                     <p class="mb-15">
+                        Roulette, blackjack and baccarat with live dealers, 24 x 7
+                     </p>
+                     <a aria-label="play now" href="/live-casino" title="play now">Play Now <i
+                           class="ti ti-arrow-narrow-right"></i></a>
+                  </div>
+                  <div class="thumb">
+                     <img alt="" src="{{ img('fantasy/six.png') }}" />
+                  </div>
+               </div>
+               <div class="fantasy__single fantasy__single-alt tilt mt-24">
+                  <div class="intro">
+                     <h5 class="neutral-top fw-6 text-uppercase">
+                        <img alt="" src="{{ img('fantasy/ic-six.png') }}" />Slots
+                     </h5>
+                  </div>
+                  <div class="content mt-120">
+                     <p class="mb-15">
+                        Royal 777, Megaways and festival jackpots from ₹10 a spin
+                     </p>
+                     <a aria-label="play now" href="/games" title="play now">Play Now <i
+                           class="ti ti-arrow-narrow-right"></i></a>
+                  </div>
+                  <div class="thumb">
+                     <img alt="" src="{{ img('banner/lottery.png') }}" />
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+               <div class="fantasy__single single-two tilt fantasy__single-long">
+                  <div class="intro">
+                     <h5 class="neutral-top fw-6 text-uppercase">
+                        <img alt="" src="{{ img('fantasy/ic-one.png') }}" />Indian Cards
+                     </h5>
+                  </div>
+                  <div class="content mt-40">
+                     <p class="mb-15">
+                        Teen Patti, Andar Bahar and Dragon Tiger - dealt the desi way
+                     </p>
+                     <a aria-label="play now" href="/game-details/teen-patti-royale" title="play now">Play Now <i
+                           class="ti ti-arrow-narrow-right"></i></a>
+                  </div>
+                  <div class="thumb">
+                     <img alt="" src="{{ img('casino/f-cards.svg') }}" />
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
+               <div class="fantasy__single fantasy__single-alt single-three tilt">
+                  <div class="intro">
+                     <h5 class="neutral-top fw-6 text-uppercase">
+                        <img alt="" src="{{ img('fantasy/ic-four.png') }}" />Tournaments
+                     </h5>
+                  </div>
+                  <div class="content mt-120">
+                     <p class="mb-15">
+                        Poker, Teen Patti and slot championships with crore-rupee prizes
+                     </p>
+                     <a aria-label="play now" href="/tournaments" title="play now">Play Now <i
+                           class="ti ti-arrow-narrow-right"></i></a>
+                  </div>
+                  <div class="thumb">
+                     <img alt="" src="{{ img('fantasy/five.png') }}" />
+                  </div>
+               </div>
+               <div class="fantasy__single single-four tilt mt-24">
+                  <div class="intro">
+                     <h5 class="neutral-top fw-6 text-uppercase">
+                        <img alt="" src="{{ img('fantasy/ic-five.png') }}" />Jackpots
+                     </h5>
+                  </div>
+                  <div class="content mt-120">
+                     <p class="mb-15">
+                        Progressive jackpots now above ₹12 Crore and growing
+                     </p>
+                     <a aria-label="play now" href="/jackpots" title="play now">Play Now <i
+                           class="ti ti-arrow-narrow-right"></i></a>
+                  </div>
+                  <div class="thumb">
+                     <img alt="" src="{{ img('casino/f-chips.svg') }}" />
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-12">
+               <div class="mt-40 text-center">
+                  <a aria-label="explore categories" class="btn--secondary" href="/games" title="explore categories">All
+                     Games <i class="ti ti-arrow-narrow-right"></i></a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="left-thumb">
+         <img alt="" src="{{ img('fantasy/bottom-thumb.png') }}" />
+      </div>
+      <div class="rocket">
+         <img alt="" src="{{ img('fantasy/right-thumb.png') }}" />
+      </div>
+      <div class="right-thumb">
+         <img alt="" src="{{ img('fantasy/btc.png') }}" />
+      </div>
+   </section>
+   <!-- ==== / fantasy section end ==== -->
+
+   <!-- ==== lucky numbers section start ==== -->
+   <section class="lottery-details lottery-alternate lottery pt-120 pb-120"
+      data-background="{{ img('lottery-bg.png') }}">
+      <div class="container">
+         <div class="row gutter-20 align-items-center mb-55 rtl-header" data-aos="fade-up" data-aos-duration="600">
+            <div class="col-12 col-lg-7 col-xl-8 col-xxl-6">
+               <div class="section__content">
+                  <span class="fw-6 secondary-text text-xl"><strong>Pick,</strong> Your Lucky Numbers</span>
+                  <h2 class="title-animation fw-6 mt-25">
+                     Try Your Luck at Royal Keno
+                  </h2>
+               </div>
+            </div>
+            <div class="col-12 col-lg-5 col-xl-4 col-xxl-4 offset-xxl-2">
+               <div class="section__content-right">
+                  <p>
+                     Choose five lucky numbers and a Joker - a draw is held every five minutes, with a
+                     top prize of ₹5,00,000 on a ₹500 ticket.
+                  </p>
+                  <div class="mt-25">
+                     <a aria-label="explore all games" class="btn--secondary" href="/games"
+                        title="explore all games">Explore All Games <i class="ti ti-arrow-narrow-right"></i></a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-12">
+               <div class="lottery__type-wrapper mb-25">
+                  <div class="lottery__type-slider swiper">
+                     <div class="swiper-wrapper">
+                        {% for t in (content.LIVE_TABLES[:8] + content.LIVE_TABLES[:8]) %}
+                        <div class="swiper-slide">
+                           <div class="lottery__type lt-type-two">
+                              <div class="thumb">
+                                 <img alt="{{ t.title }}" src="{{ img(t.img) }}" />
+                              </div>
+                              <div class="content">
+                                 <h6 class="fw-6"><a href="/game-details/{{ t.slug }}">{{ t.title }}</a></h6>
+                                 <p class="mt-16 text-lg">
+                                    <i class="ti ti-wallet"></i>{{ t.limit.split(' - ')[0] }}+
+                                 </p>
+                              </div>
+                           </div>
+                        </div>
+                        {% endfor %}
+                     </div>
+                  </div>
+                  <div class="slider-navigation">
+                     <button aria-label="prev slide" class="prev-lottery slider-btn" title="prev slide" type="button">
+                        <i class="fa-solid fa-angle-left"></i>
+                     </button>
+                     <button aria-label="next slide" class="next-lottery slider-btn" title="next slide" type="button">
+                        <i class="fa-solid fa-angle-right"></i>
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row gutter-40">
+            <div class="col-12">
+               {{ lucky_picker() }}
+            </div>
+         </div>
+      </div>
+      <div class="left-thumb">
+         <img alt="" src="{{ img('right-wheel.png') }}" />
+      </div>
+      <div class="right-thumb">
+         <img alt="" src="{{ img('left-wheel.png') }}" />
+      </div>
+   </section>
+   <!-- ==== / lucky numbers section end ==== -->
+
+   <!-- ==== about section start ==== -->
+   <section class="about about-three about-alternate pt-120 pb-120">
+      <div class="container">
+         <div class="row align-items-center">
+            <div class="col-12 col-lg-5 col-xl-5">
+               <div class="about-three__wrapper">
+                  <div class="authentication__thumb text-center d-none d-lg-block"
+                     data-background="{{ img('authentication/thumb-sm.png') }}">
+                     <div class="circle-img">
+                        <img alt="" src="{{ img('authentication/circle.png') }}" />
+                     </div>
+                     <div class="thumb">
+                        <img alt="Roulette, cards and chips" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="600"
+                           src="{{ img('casino/about-thumb.svg') }}" />
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 col-lg-7 col-xl-6 offset-xl-1">
+               <div class="about__content" data-aos="fade-right" data-aos-duration="600">
+                  <div class="section__content text-start">
+                     <span class="fw-6 secondary-text text-xl"><strong>Play,</strong> Smart. Win Royally.</span>
+                     <h2 class="title-animation fw-6 mt-25">
+                        Trusted by Winners, Crafted for Connoisseurs
+                     </h2>
+                     <p class="mt-25">
+                        Casino Royale blends the grandeur of an Indian palace with the precision of a
+                        world-class casino - certified fair games, instant payouts and a team that
+                        treats every guest like royalty.
+                     </p>
+                  </div>
+                  <div class="list-group-items mt-40">
+                     <div class="list-group__single">
+                        <div class="thumb"><i class="ti ti-check"></i></div>
+                        <div class="content">
+                           <h6 class="fw-6">Certified Fair Play</h6>
+                           <p class="text-sm mt-10">
+                              Every game is audited by independent labs and every live round is recorded.
+                           </p>
+                        </div>
+                     </div>
+                     <div class="list-group__single">
+                        <div class="thumb"><i class="ti ti-check"></i></div>
+                        <div class="content">
+                           <h6 class="fw-6">Instant UPI Payouts</h6>
+                           <p class="text-sm mt-10">
+                              Withdraw to your bank or UPI ID - most payouts arrive in under 15 minutes.
+                           </p>
+                        </div>
+                     </div>
+                     <div class="list-group__single">
+                        <div class="thumb"><i class="ti ti-check"></i></div>
+                        <div class="content">
+                           <h6 class="fw-6">Bank-Grade Security</h6>
+                           <p class="text-sm mt-10">
+                              256-bit encryption, two-factor login and full KYC for every member.
+                           </p>
+                        </div>
+                     </div>
+                     <div class="list-group__single">
+                        <div class="thumb"><i class="ti ti-check"></i></div>
+                        <div class="content">
+                           <h6 class="fw-6">Responsible Gaming</h6>
+                           <p class="text-sm mt-10">
+                              Set limits, take a break or self-exclude - always in your control.
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="mt-40">
+                     <a aria-label="About Casino Royale" class="btn--primary" href="/about-us" title="About Casino Royale">Discover Our Story
+                        <i class="ti ti-arrow-narrow-right"></i></a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="left-thumb">
+         <img alt="" src="{{ img('spring-two.png') }}" />
+      </div>
+   </section>
+   <!-- ==== / about section end ==== -->
+
+   {{ counter_section() }}
+
+   <!-- ==== tournaments section start ==== -->
+   <section class="lottery-contest lottery pt-120 pb-120" data-background="{{ img('lottery-result.png') }}">
+      <div class="container">
+         {{ heading('Compete', 'for Crore-Rupee Prizes', 'Live Tournaments', 'From the ₹1 Crore Casino Royale Poker Championship to the Diwali Slots Showdown - there is a seat waiting for every kind of player.', col='col-xl-8', mb='mb-55') }}
+         <div class="row gutter-24 justify-content-center">
+            <div class="col-12 col-xl-10">
+               <div class="result__tab-btns text-start">
+                  <ul class="justify-content-center">
+                     {% for f in content.TOURNAMENT_FILTERS %}
+                     <li>
+                        <button{% if loop.first %} class="active"{% endif %} data-filter="{{ f.key }}">
+                           <i class="ti {{ f.icon }}"></i>{{ f.label }}
+                        </button>
+                     </li>
+                     {% endfor %}
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="row filter-wrapper mt-40" data-aos="fade-up" data-aos-duration="600">
+            {% for t in tournaments %}
+            {{ tournament_card(t) }}
+            {% endfor %}
+         </div>
+         <div class="row">
+            <div class="col-12">
+               <div class="mt-40 text-center" data-aos="fade-up" data-aos-duration="600">
+                  <a aria-label="View all tournaments" class="btn--secondary" href="/tournaments" title="View all tournaments">View All
+                     Tournaments <i class="ti ti-arrow-narrow-right"></i></a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="bottom-th">
+         <img alt="" src="{{ img('square.png') }}" />
+      </div>
+      <div class="right-th">
+         <img alt="" src="{{ img('left-th.png') }}" />
+      </div>
+      <div class="vr-img">
+         <img alt="" src="{{ img('vr.png') }}" />
+      </div>
+   </section>
+   <!-- ==== / tournaments section end ==== -->
+
+   {{ vip_cta() }}
+
+   {{ work_section() }}
+
+   {{ testimonial_section(photos='top-two', alt=True) }}
+
+   {{ sponsor_section() }}
+
+   <!-- ==== blog section start ==== -->
+   <section class="blog blog-two pt-120 pb-120">
+      <div class="container">
+         {{ heading('Latest', 'from the Casino Journal', 'Play Smarter, Play Longer', 'Strategy guides, game explainers and stories from the floor - everything you need to enjoy every hand a little more.', col='col-xl-8') }}
+         <div class="row gutter-24">
+            {% for p in posts %}
+            {{ post_card(p, delay=loop.index0 * 200) }}
+            {% endfor %}
+         </div>
+         <div class="row">
+            <div class="col-12">
+               <div class="mt-40 text-center" data-aos="fade-up" data-aos-duration="600">
+                  <a aria-label="View all articles" class="btn--secondary" href="/blog" title="View all articles">View All <i
+                        class="ti ti-arrow-narrow-right"></i></a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="left-th">
+         <img alt="" src="{{ img('left-th.png') }}" />
+      </div>
+      <div class="right-th">
+         <img alt="" src="{{ img('right-th.png') }}" />
+      </div>
+   </section>
+   <!-- ==== / blog section end ==== -->
+{% endblock content %}

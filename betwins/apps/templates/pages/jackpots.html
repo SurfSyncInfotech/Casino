@@ -1,0 +1,107 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner, heading, vip_cta, sponsor_section %}
+
+{% block title %}Progressive Jackpots | ₹12.4 Cr Mega Pot &amp; Hourly Drops{% endblock title %}
+{% block description %}Track live progressive casino jackpots at Casino Royale. Spin for the ₹12.4 Crore Casino Royale Mega Jackpot, Maharaja Grand, and hourly festive drops with instant UPI payouts.{% endblock %}
+
+{% block content %}
+{{ banner("Progressive Jackpots", [("Jackpots", "/jackpots")]) }}
+
+<!-- ==== headline jackpot showcase start ==== -->
+<section class="game pt-120 pb-120">
+   <div class="container">
+      {{ heading('Sovereign,', 'Fortune Tickers', 'The Casino Royale Mega Jackpot', 'A portion of every qualifying spin and bet across all our Goa tables and online salons feeds directly into the master progressive pools. When the golden segment strikes, fortunes are minted in crores.') }}
+
+      <!-- Main Headline Ticker Card -->
+      <div class="row justify-content-center mt-55">
+         <div class="col-12 col-xl-10">
+            <div class="p-4 p-md-5 rounded-4 tertiary-bg border border-secondary text-center position-relative overflow-hidden" data-aos="zoom-in" data-aos-duration="600">
+               <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill mb-3" style="background: rgba(106, 255, 179, 0.1); border: 1px solid var(--secondary-color); color: var(--secondary-color);">
+                  <i class="ti ti-crown"></i> <span>CURRENT HEADLINE PROGRESSIVE</span>
+               </div>
+               <h2 class="display-3 fw-8 text-secondary-color mt-2 mb-3">₹12,48,50,000</h2>
+               <p class="text-xl max-w-700 mx-auto opacity-75">
+                  The Casino Royale Mega Jackpot is now at an all-time record high. Triggers on any spin of ₹100 or more on the Casino Royale Jackpot Wheel.
+               </p>
+               <div class="d-flex justify-content-center gap-3 flex-wrap mt-30">
+                  <a aria-label="Spin Jackpot Wheel" class="btn--primary" href="/game-details/casino-royale-jackpot-wheel">
+                     Spin The Wheel Now <i class="ti ti-arrow-narrow-right"></i>
+                  </a>
+                  <a aria-label="View Rules" class="btn--secondary" href="/terms-conditions#termsPlay">
+                     Jackpot Rules &amp; TDS
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Jackpots Grid -->
+      <div class="row gutter-24 mt-60">
+         {% for j in content.JACKPOTS %}
+         <div class="col-12 col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}" data-aos-duration="600">
+            <div class="result__single tilt text-center">
+               <div class="contest__intro justify-content-center">
+                  <span class="text-uppercase fw-6">Active Pot</span>
+               </div>
+               <div class="thumb mt-20">
+                  <a href="/game-details/{{ j.game }}">
+                     <img alt="{{ j.title }}" src="{{ img(j.img) }}" style="max-height: 120px; width: auto; object-fit: contain;" />
+                  </a>
+               </div>
+               <div class="content mt-20">
+                  <h5 class="fw-6 neutral-top"><a href="/game-details/{{ j.game }}">{{ j.title }}</a></h5>
+                  <h4 class="fw-7 text-secondary-color mt-12">{{ j.amount }}</h4>
+                  <p class="text-xs opacity-75 mt-4">Must drop before reset</p>
+                  <div class="cta mt-25">
+                     <a aria-label="Play Game" class="btn--primary w-100 justify-content-center" href="/game-details/{{ j.game }}">
+                        Play Now <i class="ti ti-arrow-narrow-right"></i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</section>
+<!-- ==== / headline jackpot showcase end ==== -->
+
+<!-- ==== recent winners showcase start ==== -->
+<section class="lottery-result lottery-alternate-result lottery pt-120 pb-120" data-background="{{ img('lottery-bg.png') }}">
+   <div class="container">
+      {{ heading('Hall of Fame,', 'Verified Winners', 'Recent Mega Payouts', 'Congratulations to our latest winners who turned single bets into life-changing fortunes at Casino Royale.') }}
+
+      <div class="row gutter-24 mt-40">
+         {% for w in content.WINNERS %}
+         <div class="col-12 col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 80 }}" data-aos-duration="600">
+            <div class="result__single tilt">
+               <div>
+                  <h6 class="fw-6 neutral-top">{{ w.name }}</h6>
+                  <p class="text-xs secondary-text"><i class="ti ti-map-pin"></i> {{ w.city }}</p>
+               </div>
+               <div class="content mt-20 pt-16 border-top">
+                  <div class="d-flex justify-content-between text-xs opacity-75 mb-1">
+                     <span>Game</span>
+                     <span>{{ w.game }}</span>
+                  </div>
+                  <div class="d-flex justify-content-between text-xs opacity-75 mb-2">
+                     <span>Bet Size</span>
+                     <span>{{ w.bet }}</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center pt-2 border-top">
+                     <span class="text-xs fw-6">Payout</span>
+                     <span class="text-lg fw-7 text-secondary-color">{{ w.win }}</span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</section>
+<!-- ==== / recent winners showcase end ==== -->
+
+{{ vip_cta() }}
+
+{{ sponsor_section() }}
+{% endblock content %}

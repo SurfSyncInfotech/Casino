@@ -1,0 +1,114 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner, vip_cta %}
+
+{% block title %}Royale Casino Journal | Strategy Guides &amp; Goa Lifestyle{% endblock title %}
+{% block description %}Read the Casino Royale Casino Journal: in-depth strategy guides for Teen Patti, European Roulette, Blackjack basic strategy, Baccarat 101, and luxury Goa travel itineraries.{% endblock %}
+
+{% block content %}
+{{ banner("Royale Casino Journal", [("Blog", "/blog")]) }}
+
+<!-- ==== blog list section start ==== -->
+<section class="blog pt-120 pb-120">
+   <div class="container">
+      <div class="row gutter-40">
+         <div class="col-12 col-xl-8">
+            <div class="row gutter-30">
+               {% for p in posts %}
+               <div class="col-12" data-aos="fade-up" data-aos-delay="{{ (loop.index0 % 4) * 100 }}" data-aos-duration="600">
+                  <div class="blog__single blog__single-alter tilt">
+                     <div class="thumb position-relative overflow-hidden rounded-3">
+                        <a href="/blog-details/{{ p.slug }}">
+                           <img alt="{{ p.title }}" src="{{ img(p.wide or p.img) }}" style="width: 100%; height: auto; max-height: 380px; object-fit: cover;" />
+                        </a>
+                        <span class="tag text-sm" style="position: absolute; top: 20px; left: 20px; z-index: 2;">{{ p.cat }}</span>
+                     </div>
+                     <div class="content mt-24">
+                        <div class="d-flex align-items-center gap-3 text-xs opacity-75 mb-2">
+                           <span><i class="ti ti-calendar me-1"></i> {{ p.date }}</span>
+                           <span>&middot;</span>
+                           <span><i class="ti ti-message me-1"></i> {{ p.comments }} Comments</span>
+                           <span>&middot;</span>
+                           <span><i class="ti ti-crown me-1 text-secondary-color"></i> Royale Editorial</span>
+                        </div>
+                        <h4 class="fw-7 neutral-top">
+                           <a href="/blog-details/{{ p.slug }}">{{ p.title }}</a>
+                        </h4>
+                        <p class="mt-12 opacity-85 text-base">{{ p.excerpt }}</p>
+                        <div class="content__cta mt-25">
+                           <a aria-label="Read Full Guide" class="btn--primary" href="/blog-details/{{ p.slug }}">
+                              Read Full Guide <i class="ti ti-arrow-narrow-right"></i>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               {% endfor %}
+            </div>
+         </div>
+
+         <!-- Sidebar -->
+         <div class="col-12 col-xl-4">
+            <div class="blog__sidebar">
+               <!-- Search Widget -->
+               <div class="lottery-sidebar" data-aos="fade-up" data-aos-duration="600">
+                  <div class="lottery__result-form mb-30">
+                     <form action="/games" method="get">
+                        <div class="group-pst">
+                           <input name="q" placeholder="Search guides..." type="text" />
+                           <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+
+               <!-- Categories Widget -->
+               <div class="blog__sidebar-widget mb-30 p-4 rounded-4 tertiary-bg border border-secondary" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
+                  <h5 class="fw-6 neutral-top mb-20"><i class="ti ti-category text-secondary-color me-2"></i> Categories</h5>
+                  <ul class="list-unstyled mb-0" style="line-height: 2.2;">
+                     {% for cat in content.BLOG_CATEGORIES %}
+                     <li class="d-flex justify-content-between align-items-center border-bottom py-1">
+                        <a href="/blog?cat={{ cat }}" class="text-white hover-secondary">{{ cat }}</a>
+                        <span class="badge tertiary-bg border text-secondary-color">Guide</span>
+                     </li>
+                     {% endfor %}
+                  </ul>
+               </div>
+
+               <!-- Recent Articles Widget -->
+               <div class="blog__sidebar-widget mb-30 p-4 rounded-4 tertiary-bg border border-secondary" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+                  <h5 class="fw-6 neutral-top mb-20"><i class="ti ti-flame text-secondary-color me-2"></i> Featured Guides</h5>
+                  {% for rp in content.POSTS[:3] %}
+                  <div class="d-flex gap-3 align-items-center mb-3 pb-3 border-bottom">
+                     <a href="/blog-details/{{ rp.slug }}" style="min-width: 70px; width: 70px; height: 60px; overflow: hidden; border-radius: 8px;">
+                        <img alt="{{ rp.title }}" src="{{ img(rp.img) }}" style="width: 100%; height: 100%; object-fit: cover;" />
+                     </a>
+                     <div>
+                        <p class="text-xs text-secondary-color mb-1">{{ rp.date }}</p>
+                        <h6 class="text-sm fw-6 mb-0">
+                           <a href="/blog-details/{{ rp.slug }}" class="text-white hover-secondary">{{ rp.title }}</a>
+                        </h6>
+                     </div>
+                  </div>
+                  {% endfor %}
+               </div>
+
+               <!-- Tags Widget -->
+               <div class="blog__sidebar-widget p-4 rounded-4 tertiary-bg border border-secondary" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600">
+                  <h5 class="fw-6 neutral-top mb-16"><i class="ti ti-tags text-secondary-color me-2"></i> Popular Topics</h5>
+                  <div class="d-flex flex-wrap gap-2">
+                     {% for tag in content.BLOG_TAGS %}
+                     <a href="/games?q={{ tag }}" class="badge tertiary-bg border px-3 py-2 text-white hover-secondary rounded-pill">
+                        {{ tag }}
+                     </a>
+                     {% endfor %}
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ==== / blog list section end ==== -->
+
+{{ vip_cta() }}
+{% endblock content %}

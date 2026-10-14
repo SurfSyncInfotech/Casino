@@ -1,0 +1,245 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner, game_card, stars, vip_cta %}
+
+{% set g = game or content.GAMES[0] %}
+{% set rel_list = related or content.GAMES[1:4] %}
+
+{% block title %}{{ g.title }} | Rules, How to Play & Live Table{% endblock title %}
+{% block description %}{{ g.title }} at Casino Royale - {{ g.tagline }} RTP {{ g.rtp }}, min bet {{ g.bet_min }}, max bet {{ g.bet_max }} with instant UPI payouts.{% endblock %}
+
+{% block content %}
+{{ banner(g.title, [("Games", "/games")]) }}
+
+<!-- ==== game details section start ==== -->
+<section class="game-details pt-120 pb-120">
+   <div class="container">
+      <div class="row gutter-40">
+         <div class="col-12 col-xl-8">
+            <div class="blog__details-card lottery-details__card">
+               <!-- Poster & Headline -->
+               <div class="details__content lottery__poster" data-aos="fade-up" data-aos-duration="600">
+                  <div class="thumb text-center">
+                     <img alt="{{ g.title }}" src="{{ img(g.img) }}" style="max-height: 280px; width: auto; object-fit: contain;" />
+                  </div>
+                  <div class="content mt-30">
+                     <div class="d-flex align-items-center justify-content-between flex-wrap gap-2">
+                        <span class="text-uppercase fw-6 secondary-text"><i class="ti ti-crown"></i> {{ g.kind }} &middot; {{ g.badge }}</span>
+                        <div class="review d-flex align-items-center gap-2">
+                           <div class="rate text-secondary-color">{{ stars(g.rating) }}</div>
+                           <span class="text-sm"><strong>{{ g.rating }}</strong> ({{ g.ratings }} reviews)</span>
+                        </div>
+                     </div>
+                     <h3 class="fw-7 title-animation mt-12">{{ g.title }}</h3>
+                     <p class="text-lg secondary-text mt-8">{{ g.tagline }}</p>
+
+                     {% for p in g.intro %}
+                     <p class="mt-16">{{ p }}</p>
+                     {% endfor %}
+                  </div>
+               </div>
+
+               <!-- Game Stats Strip -->
+               <div class="details__content mt-35 mb-35">
+                  <div class="game-stats" data-aos="fade-up" data-aos-duration="600">
+                     <div>
+                        <strong>{{ g.rtp }}</strong>
+                        <span>Theoretical RTP</span>
+                     </div>
+                     <div>
+                        <strong>{{ g.bet_min }}</strong>
+                        <span>Min Bet</span>
+                     </div>
+                     <div>
+                        <strong>{{ g.bet_max }}</strong>
+                        <span>Max Limit</span>
+                     </div>
+                     <div>
+                        <strong>{{ g.playing }}</strong>
+                        <span>Active Guests</span>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="details__content mb-35">
+                  <hr class="divider" />
+               </div>
+
+               <!-- How to Play -->
+               <div class="details__content" data-aos="fade-up" data-aos-duration="600">
+                  <h4 class="title-animation neutral-top fw-6"><i class="ti ti-device-gamepad-2 text-secondary-color"></i> How to Play {{ g.title }}</h4>
+                  <p class="mt-16">Follow these four simple steps to get in on the action:</p>
+                  <ol class="steps-list mt-24">
+                     {% for step in g.how %}
+                     <li>
+                        <p class="text-base">{{ step }}</p>
+                     </li>
+                     {% endfor %}
+                  </ol>
+               </div>
+
+               <div class="details__content mt-35 mb-35">
+                  <hr class="divider" />
+               </div>
+
+               <!-- Key Highlights -->
+               <div class="details__content" data-aos="fade-up" data-aos-duration="600">
+                  <h4 class="title-animation neutral-top fw-6"><i class="ti ti-star text-secondary-color"></i> Table Highlights &amp; Features</h4>
+                  <ul class="details__list mt-20">
+                     {% for f in g.features %}
+                     <li><i class="ti ti-check text-secondary-color me-2"></i> {{ f }}</li>
+                     {% endfor %}
+                  </ul>
+               </div>
+
+               <div class="details__content mt-35 mb-35">
+                  <hr class="divider" />
+               </div>
+
+               <!-- Rules & Payouts -->
+               <div class="details__content" data-aos="fade-up" data-aos-duration="600">
+                  <h4 class="title-animation neutral-top fw-6"><i class="ti ti-gavel text-secondary-color"></i> Official Rules &amp; Payout Terms</h4>
+                  <ul class="rules-list mt-20">
+                     {% for r in g.rules %}
+                     <li class="mb-12"><i class="ti ti-chevron-right text-secondary-color me-1"></i> {{ r }}</li>
+                     {% endfor %}
+                  </ul>
+               </div>
+
+               <div class="details__content mt-35 mb-35">
+                  <hr class="divider" />
+               </div>
+
+               <!-- Guest Review Submission Form -->
+               <div class="details__content" data-aos="fade-up" data-aos-duration="600">
+                  <h4 class="title-animation neutral-top fw-6"><i class="ti ti-message-dots text-secondary-color"></i> Leave a Guest Review</h4>
+                  <p class="mt-10">Played {{ g.title }} at Casino Royale? Share your experience with our community.</p>
+
+                  <form class="mt-25" data-ajax-form="review" method="post">
+                     <input type="hidden" name="game" value="{{ g.slug }}" />
+                     <div class="mb-20">
+                        <label class="d-block mb-8 text-sm fw-6">Your Rating</label>
+                        <div class="review-game d-inline-flex gap-2 text-xl" style="cursor: pointer; color: var(--secondary-color);">
+                           <i class="ti ti-star-filled"></i>
+                           <i class="ti ti-star-filled"></i>
+                           <i class="ti ti-star-filled"></i>
+                           <i class="ti ti-star-filled"></i>
+                           <i class="ti ti-star-filled"></i>
+                        </div>
+                        <input type="hidden" name="rating" value="5" />
+                     </div>
+                     <div class="row gutter-20">
+                        <div class="col-12 col-md-6">
+                           <div class="input-wrapper">
+                              <label for="revName">Your Name</label>
+                              <div class="input-single">
+                                 <input id="revName" name="name" placeholder="Arjun Mehta" required="" type="text" />
+                                 <i class="fa-solid fa-user"></i>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                           <div class="input-wrapper">
+                              <label for="revCity">Your City</label>
+                              <div class="input-single">
+                                 <input id="revCity" name="city" placeholder="Mumbai" required="" type="text" />
+                                 <i class="fa-solid fa-location-dot"></i>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="input-wrapper mt-20">
+                        <label for="revComment">Review Details</label>
+                        <div class="input-single">
+                           <textarea id="revComment" name="comment" placeholder="Smooth dealing, excellent stream quality and fast payout..." required="" rows="4"></textarea>
+                        </div>
+                     </div>
+                     <div class="mt-25">
+                        <button aria-label="Submit Review" class="btn--primary" type="submit">Submit Review <i class="ti ti-arrow-narrow-right"></i></button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+
+         <!-- Sidebar -->
+         <div class="col-12 col-xl-4">
+            <div class="lottery-sidebar">
+               <!-- Take a seat / Buy-in box -->
+               <div class="lottery-card p-4" data-aos="fade-up" data-aos-duration="600">
+                  <div class="lottery-intro mb-20">
+                     <h5 class="fw-6 neutral-top"><i class="ti ti-armchair text-secondary-color"></i> Take Your Seat</h5>
+                     <p class="text-sm mt-6">Reserve your spot on our live floor or launch instant play.</p>
+                  </div>
+
+                  <form data-play-form="" data-min="{{ g.bet_min|replace('₹','')|replace(',','')|replace('L','00000')|replace('Cr','0000000')|trim }}" data-max="5000000">
+                     <div class="contest-group">
+                        <p class="text-sm fw-6 neutral-top">Select Stake / Buy-in</p>
+                        <div class="group-pst mt-8">
+                           <input name="amount" placeholder="{{ g.bet_min }}" value="{{ g.bet_min }}" type="text" />
+                        </div>
+                        <div class="d-flex justify-content-between text-xs mt-6 opacity-75">
+                           <span>Min: {{ g.bet_min }}</span>
+                           <span>Max: {{ g.bet_max }}</span>
+                        </div>
+                     </div>
+
+                     <div class="cta mt-25">
+                        <button aria-label="Take Seat" class="btn--primary w-100 justify-content-center" type="submit">
+                           Join Table / Take Seat <i class="ti ti-arrow-narrow-right"></i>
+                        </button>
+                     </div>
+                  </form>
+
+                  <div class="mt-20 pt-20 border-top text-xs text-center opacity-75">
+                     <i class="ti ti-shield-lock me-1"></i> Instant UPI &amp; NetBanking &middot; 21+ Adults Only
+                  </div>
+               </div>
+
+               <!-- Live Floor Specifications -->
+               <div class="lottery-card p-4 mt-24" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
+                  <h6 class="fw-6 mb-16"><i class="ti ti-device-tv text-secondary-color"></i> Table Specifications</h6>
+                  <ul class="list-unstyled mb-0" style="font-size: 14px; line-height: 2;">
+                     <li><strong>Floor:</strong> Mandovi Riverfront Deck, Goa</li>
+                     <li><strong>Dealers:</strong> Hindi, Marathi &amp; English</li>
+                     <li><strong>Shuffler:</strong> Certified Optical Shuffler</li>
+                     <li><strong>Resolution:</strong> 4K Ultra-HD 60 FPS</li>
+                     <li><strong>Payout Speed:</strong> &lt; 15 mins via UPI / IMPS</li>
+                     <li><strong>TDS Compliance:</strong> Deducted above threshold</li>
+                  </ul>
+               </div>
+
+               <!-- VIP Host Box -->
+               <div class="lottery-card p-4 mt-24 text-center" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+                  <div class="thumb-ic mb-12">
+                     <i class="ti ti-crown" style="font-size: 38px; color: var(--secondary-color);"></i>
+                  </div>
+                  <h6 class="fw-6">High Roller Privileges</h6>
+                  <p class="text-sm mt-8">Looking for private tables above ₹5,00,000 limits or private salon bookings?</p>
+                  <a aria-label="VIP Concierge" class="btn--secondary mt-16 w-100 justify-content-center" href="https://wa.me/{{ site.phones[1].href.replace('+','') }}" target="_blank" rel="noopener">
+                     <i class="fa-brands fa-whatsapp me-2"></i> Message VIP Desk
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Related Games -->
+      {% if rel_list %}
+      <div class="row mt-80">
+         <div class="col-12">
+            <div class="section__header text-center mb-40" data-aos="fade-up" data-aos-duration="600">
+               <span class="fw-6 secondary-text text-xl"><strong>More,</strong> Royale Games</span>
+               <h3 class="title-animation fw-6 mt-16">Other Popular Tables &amp; Slots</h3>
+            </div>
+         </div>
+         {% for r in rel_list %}
+         {{ game_card(r, loop.index0 * 150) }}
+         {% endfor %}
+      </div>
+      {% endif %}
+   </div>
+</section>
+<!-- ==== / game details section end ==== -->
+
+{{ vip_cta() }}
+{% endblock content %}

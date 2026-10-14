@@ -1,0 +1,186 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner, heading, story_section, sponsor_section %}
+
+{% block title %}Royale VIP Club | Sovereign Privileges &amp; Private Salons{% endblock title %}
+{% block description %}Ascend through Silver, Gold, Platinum and Maharaja tiers in India's most exclusive casino VIP club. Private salons, personal WhatsApp concierge, luxury suites in Goa, and up to 10% weekly cashback.{% endblock %}
+
+{% block content %}
+{{ banner("The Royale VIP Club", [("VIP Club", "/vip-club")]) }}
+
+<!-- ==== vip tiers section start ==== -->
+<section class="refer pt-120 pb-120">
+   <div class="container">
+      {{ heading('A Throne,', 'Reserved for Discerning Players', 'The Four Sovereign VIP Tiers', 'Every rupee you play earns Royale Loyalty Points. As you ascend our tiers, unlock dedicated hosts, private gaming salons, Goa resort suite retreats, and unmatched financial privileges.') }}
+
+      <div class="row gutter-24 mt-55">
+         {% for tier in content.VIP_TIERS %}
+         <div class="col-12 col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 150 }}" data-aos-duration="600">
+            <div class="tier-card text-center{% if tier.name == 'Maharaja' %} featured{% endif %}">
+               {% if tier.name == 'Maharaja' %}
+               <div class="ribbon">By Invitation</div>
+               {% elif tier.name == 'Platinum' %}
+               <div class="ribbon" style="background: var(--primary-color);">Elite</div>
+               {% endif %}
+
+               <div class="tier-icon">
+                  <i class="ti {{ tier.icon }}"></i>
+               </div>
+               <h4 class="fw-7 neutral-top">{{ tier.name }}</h4>
+               <p class="tier-points mt-2">{{ tier.points }}</p>
+
+               <ul>
+                  {% for p in tier.perks %}
+                  <li>{{ p }}</li>
+                  {% endfor %}
+               </ul>
+
+               <div class="mt-35">
+                  <a aria-label="Join {{ tier.name }}" class="btn--{{ 'primary' if tier.name in ['Platinum', 'Maharaja'] else 'secondary' }} w-100 justify-content-center" href="#vip-apply">
+                     {{ 'Request Invitation' if tier.name == 'Maharaja' else 'Join ' ~ tier.name }}
+                  </a>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</section>
+<!-- ==== / vip tiers section end ==== -->
+
+<!-- ==== vip benefits section start ==== -->
+<section class="choose choose-alternate pt-120 pb-120 tertiary-bg">
+   <div class="container">
+      {{ heading('Bespoke,', 'Luxury Hospitality', 'Exclusive Royale Privileges', 'Membership transcends the tables. From airport chauffeur service to bespoke festival celebrations, our concierge curates every facet of your stay.') }}
+
+      <div class="row gutter-24 mt-55">
+         {% for b in content.VIP_BENEFITS %}
+         <div class="col-12 col-md-6" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 150 }}" data-aos-duration="600">
+            <div class="benefit-card">
+               <div class="icon">
+                  <i class="ti {{ b.icon }}"></i>
+               </div>
+               <div class="content">
+                  <h5 class="fw-6 neutral-top">{{ b.title }}</h5>
+                  <p class="mt-8 text-base opacity-75">{{ b.text }}</p>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</section>
+<!-- ==== / vip benefits section end ==== -->
+
+<!-- ==== maharaja salon showcase start ==== -->
+<section class="about pt-120 pb-120">
+   <div class="container">
+      <div class="row align-items-center">
+         <div class="col-12 col-lg-6 col-xl-6">
+            <div class="about__content" data-aos="fade-right" data-aos-duration="600">
+               <span class="fw-6 secondary-text text-xl"><strong>The Crown Jewel</strong> of Goa Gaming</span>
+               <h2 class="title-animation fw-6 mt-25">
+                  Inside the <span>Maharaja Salon</span>
+               </h2>
+               <p class="mt-25">
+                  Perched on the top deck of Casino Royale with sweeping panoramic views of the Mandovi river and the Arabian sea breeze, the Maharaja Salon is India's most private and exclusive high-stakes salon.
+               </p>
+               <p class="mt-16">
+                  With custom table limits up to ₹25,00,000 per hand, dedicated senior croupiers, personal sommelier service, and bespoke dining from our master chefs, the Maharaja Salon caters exclusively to discerning connoisseurs.
+               </p>
+               <ul class="list-group-row mt-35">
+                  <li><i class="ti ti-check"></i>Seats strictly limited to 6 guests per table</li>
+                  <li><i class="ti ti-check"></i>Direct private elevator from VIP river jetty</li>
+                  <li><i class="ti ti-check"></i>Dedicated VIP Host on WhatsApp 24x7</li>
+                  <li><i class="ti ti-check"></i>Priority withdrawals processed under 15 minutes</li>
+               </ul>
+            </div>
+         </div>
+         <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
+            <div class="authentication__thumb text-center d-none d-lg-block">
+               <img alt="Maharaja Salon" src="{{ img('casino/hero-thumb.svg') }}" style="max-height: 420px; width: auto;" />
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ==== / maharaja salon showcase end ==== -->
+
+<!-- ==== vip application form start ==== -->
+<section class="contact pt-120 pb-120 tertiary-bg" id="vip-apply">
+   <div class="container">
+      {{ heading('Apply,', 'for VIP Status', 'Connect with the VIP Concierge Desk', 'Interested in bespoke table limits, salon reservations, or airport transfers in Goa? Submit your inquiry or chat directly with our Chief Concierge.') }}
+
+      <div class="row justify-content-center mt-55">
+         <div class="col-12 col-lg-8">
+            <div class="contact__form" data-aos="fade-up" data-aos-duration="600">
+               <form data-ajax-form="reservation" method="post">
+                  <div class="row gutter-20">
+                     <div class="col-12 col-md-6">
+                        <div class="input-wrapper">
+                           <label for="vipName">Full Name</label>
+                           <div class="input-single">
+                              <input id="vipName" name="name" placeholder="Vikram Singh" required="" type="text" />
+                              <i class="fa-solid fa-user"></i>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-12 col-md-6">
+                        <div class="input-wrapper">
+                           <label for="vipPhone">Mobile / WhatsApp Number</label>
+                           <div class="input-single">
+                              <input id="vipPhone" name="phone" placeholder="+91 98905 12345" required="" type="tel" />
+                              <i class="fa-solid fa-phone"></i>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row gutter-20 mt-20">
+                     <div class="col-12 col-md-6">
+                        <div class="input-wrapper">
+                           <label for="vipEmail">Email Address</label>
+                           <div class="input-single">
+                              <input id="vipEmail" name="email" placeholder="vikram@example.com" required="" type="email" />
+                              <i class="fa-solid fa-envelope"></i>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-12 col-md-6">
+                        <div class="input-wrapper">
+                           <label for="vipTier">Preferred Tier / Inquiry</label>
+                           <div class="input-single">
+                              <select id="vipTier" name="tier" class="form-control" style="background: transparent; color: #fff; border: 0;">
+                                 <option value="Maharaja Invitation" style="background: #1d1e24; color: #fff;">Maharaja Salon (Invitation)</option>
+                                 <option value="Platinum Tier" style="background: #1d1e24; color: #fff;">Platinum Elite</option>
+                                 <option value="Gold Tier" style="background: #1d1e24; color: #fff;">Gold Tier</option>
+                                 <option value="Goa Suite Reservation" style="background: #1d1e24; color: #fff;">Goa Suite Reservation</option>
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="input-wrapper mt-20">
+                     <label for="vipNotes">Special Preferences or Requests</label>
+                     <div class="input-single">
+                        <textarea id="vipNotes" name="notes" placeholder="Interested in private Baccarat table on Friday evening with chauffeur pickup from Dabolim airport..." rows="3"></textarea>
+                     </div>
+                  </div>
+                  <div class="d-flex align-items-center justify-content-between flex-wrap gap-3 mt-30">
+                     <button aria-label="Submit VIP Request" class="btn--primary" type="submit">
+                        Submit VIP Request <i class="ti ti-arrow-narrow-right"></i>
+                     </button>
+                     <a class="btn--secondary" href="https://wa.me/{{ site.phones[1].href.replace('+','') }}" target="_blank" rel="noopener">
+                        <i class="fa-brands fa-whatsapp me-2"></i> WhatsApp VIP Desk
+                     </a>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ==== / vip application form end ==== -->
+
+{{ story_section() }}
+
+{{ sponsor_section() }}
+{% endblock content %}

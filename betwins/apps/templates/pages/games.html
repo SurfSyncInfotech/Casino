@@ -1,0 +1,57 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner, game_card, vip_cta, sponsor_section %}
+
+{% block title %}Casino Games Library{% endblock title %}
+{% block description %}Explore India's premier collection of luxury casino games: Teen Patti Royale, Andar Bahar, European Roulette, Blackjack Elite, Baccarat Prestige, and Mega Jackpots with instant UPI payouts.{% endblock %}
+
+{% block content %}
+{{ banner("Casino Games Library", [("Games", "/games")]) }}
+
+<!-- ==== games library section start ==== -->
+<section class="game pt-120 pb-120">
+   <div class="container">
+      <div class="row gutter-24 align-items-center">
+         <div class="col-12 col-xl-8">
+            <div class="result__tab-btns text-start">
+               <ul>
+                  <li><button class="active" data-filter="*"><i class="ti ti-layout-grid"></i>All Games</button></li>
+                  <li><button data-filter=".indian"><i class="ti ti-cards"></i>Indian Cards</button></li>
+                  <li><button data-filter=".table"><i class="ti ti-poker-chip"></i>Table Games</button></li>
+                  <li><button data-filter=".slot"><i class="ti ti-diamond"></i>Slots</button></li>
+                  <li><button data-filter=".jackpot"><i class="ti ti-crown"></i>Jackpots</button></li>
+               </ul>
+            </div>
+         </div>
+         <div class="col-12 col-xl-4">
+            <div class="lottery-sidebar">
+               <div class="lottery__result-form">
+                  <form action="#" method="get" onsubmit="return false;">
+                     <div class="group-pst">
+                        <input class="js-grid-search" id="searchProduct" name="q" placeholder="Search games, e.g. Teen Patti, Roulette..." value="{{ query or '' }}" type="text" />
+                        <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="row gutter-24 mt-40 filter-wrapper">
+         {% for g in content.GAMES %}
+         {{ game_card(g, (loop.index0 % 6) * 100) }}
+         {% endfor %}
+      </div>
+
+      <div class="js-no-results d-none text-center mt-60 pt-40 pb-40">
+         <i class="ti ti-search-off" style="font-size: 54px; color: var(--secondary-color);"></i>
+         <h4 class="fw-6 mt-20">No matching casino games found</h4>
+         <p class="mt-10">Try a different title like Teen Patti, Roulette, Blackjack, or Baccarat.</p>
+      </div>
+   </div>
+</section>
+<!-- ==== / games library section end ==== -->
+
+{{ vip_cta() }}
+
+{{ sponsor_section() }}
+{% endblock content %}

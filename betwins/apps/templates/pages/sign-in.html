@@ -1,0 +1,83 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Member Sign In | Casino Royale Goa{% endblock title %}
+{% block description %}Sign in to your Casino Royale membership account to access the live gaming floors, review loyalty points, and manage your wallet.{% endblock %}
+
+{% block content %}
+<!-- ==== authentication section start ==== -->
+<section class="authentication pt-120 pb-120" data-background="{{ img('error-bg.jpg') }}">
+   <div class="container">
+      <div class="row align-items-center">
+         <div class="col-12 col-lg-6 col-xl-6">
+            <div class="authentication__inner" data-aos="fade-right" data-aos-duration="600">
+               <div class="authentication__intro mb-30">
+                  <a aria-label="back to home" class="btn--primary" href="/" title="back to home">
+                     <i class="ti ti-arrow-narrow-left"></i> Back To Home
+                  </a>
+               </div>
+               <div class="authentication__content mt-40">
+                  <span class="text-uppercase fw-6 secondary-text"><i class="ti ti-crown"></i> Royale Member Portal</span>
+                  <h3 class="title-animation neutral-top fw-7 mt-8">Welcome Back to Royalty</h3>
+                  <p class="mt-8 opacity-75">Sign in to access live dealer tables, review your loyalty tier, and request priority payouts.</p>
+               </div>
+
+               <div class="authentication__form mt-40">
+                  <form data-signin="" method="post">
+                     <div class="input-wrapper">
+                        <label for="authLogin">Registered Mobile or Email</label>
+                        <div class="input-single">
+                           <input id="authLogin" name="login" placeholder="+91 98765 43210 or email" required="" type="text" />
+                           <i class="fa-solid fa-user"></i>
+                        </div>
+                     </div>
+
+                     <div class="input-wrapper mt-30 password-group">
+                        <label for="authPassword">Password</label>
+                        <div class="input-single">
+                           <input id="authPassword" name="password" placeholder="Enter password" required="" type="password" />
+                           <i class="ti ti-eye-off show-pass"></i>
+                        </div>
+                     </div>
+
+                     <div class="d-flex justify-content-between align-items-center mt-16 text-sm">
+                        <div class="d-flex align-items-center gap-2">
+                           <input type="checkbox" id="rememberMe" style="accent-color: var(--secondary-color);" />
+                           <label for="rememberMe" class="opacity-75 mb-0">Remember me</label>
+                        </div>
+                        <a href="https://wa.me/{{ site.phones[1].href.replace('+','') }}?text=Hello%20Concierge,%20I%20need%20help%20recovering%20my%20login" class="text-secondary-color" target="_blank" rel="noopener">Forgot Password?</a>
+                     </div>
+
+                     <div class="mt-35">
+                        <button aria-label="Sign In" class="btn--primary w-100 justify-content-center" type="submit">
+                           Sign In to Account <i class="ti ti-arrow-narrow-right"></i>
+                        </button>
+                     </div>
+
+                     <p class="create-msg mt-24 text-center">
+                        Don't have a membership yet? <a href="/sign-up" class="text-secondary-color fw-6">Create Account</a>
+                     </p>
+
+                     <div class="mt-20 pt-20 border-top text-center text-xs opacity-75">
+                        <span class="age-badge" style="width: 26px; height: 26px; font-size: 11px;">21+</span>
+                        Restricted to adults aged 21 and above &middot; Instant OTP sign-in supported
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+
+         <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
+            <div class="authentication__thumb text-center d-none d-lg-block" data-background="{{ img('authentication/thumb-sm.png') }}">
+               <div class="circle-img">
+                  <img alt="" src="{{ img('authentication/circle.png') }}" />
+               </div>
+               <div class="thumb">
+                  <img alt="Casino Royale" data-aos="zoom-in" data-aos-duration="600" src="{{ img('casino/auth-thumb.svg') }}" />
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ==== / authentication section end ==== -->
+{% endblock content %}

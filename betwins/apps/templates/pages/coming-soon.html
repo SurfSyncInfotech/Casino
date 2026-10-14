@@ -1,0 +1,55 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Opening Soon | Casino Royale Luxury Casino Goa{% endblock title %}
+
+{% block content %}
+<!-- ==== coming soon section start ==== -->
+<section class="soon pt-120 pb-120" data-background="{{ img('error-bg.jpg') }}">
+   <div class="container">
+      <div class="row justify-content-center">
+         <div class="col-12 col-xl-10">
+            <div class="soon__inner text-center">
+               <div class="soon__logo mb-40">
+                  <a href="/">
+                     <img alt="{{ site.name }}" src="{{ img('casino/logo.svg') }}" style="max-width: 220px;" />
+                  </a>
+               </div>
+
+               <div class="countdown-wrapper my-40">
+                  <div class="time-countdown justify-content-center gap-3 flex-wrap">
+                     <div class="counter-column" data-aos="fade-up" data-aos-duration="600"><span class="count day">14</span>Days</div>
+                     <div class="counter-column" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600"><span class="count hour">18</span>Hours</div>
+                     <div class="counter-column" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600"><span class="count minute">45</span>Minutes</div>
+                     <div class="counter-column" data-aos="fade-up" data-aos-delay="600" data-aos-duration="600"><span class="count second">30</span>Seconds</div>
+                  </div>
+               </div>
+
+               <div class="soon__content mt-40" data-aos="fade-up" data-aos-duration="600">
+                  <span class="text-uppercase fw-6 secondary-text"><i class="ti ti-crown"></i> Exclusive Goa Riverfront Salon</span>
+                  <h3 class="title-animation fw-7 mt-8 mb-16">The Royal Deck is Unveiling Soon</h3>
+                  <p class="max-w-700 mx-auto opacity-75">
+                     We are putting the finishing touches on our new private riverfront salon. Subscribe to receive an exclusive invitation to the royal gala opening night.
+                  </p>
+
+                  <div class="row justify-content-center mt-35">
+                     <div class="col-12 col-md-8 col-lg-6">
+                        <form data-ajax-form="newsletter" method="post" class="d-flex gap-2">
+                           <input class="form-control" name="email" placeholder="Enter your email" required="" type="email" style="background: rgba(255,255,255,0.06); border: 1px solid var(--septenary-color); color: #fff; border-radius: 50px; padding: 12px 24px;" />
+                           <button class="btn--primary" type="submit" style="white-space: nowrap;">Notify Me</button>
+                        </form>
+                     </div>
+                  </div>
+
+                  <div class="mt-40">
+                     <a class="btn--secondary" href="/">
+                        <i class="ti ti-arrow-narrow-left me-1"></i> Return to Main Casino Floor
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ==== / coming soon section end ==== -->
+{% endblock content %}

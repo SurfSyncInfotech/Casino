@@ -1,0 +1,95 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner, live_card, heading, vip_cta, sponsor_section %}
+
+{% block title %}Live Casino Floor Goa | Live Teen Patti, Roulette &amp; Blackjack{% endblock title %}
+{% block description %}Stream ultra-HD live dealer casino tables broadcast directly from the Mandovi Riverfront in Panaji, Goa. Play Teen Patti, Andar Bahar, Roulette, Blackjack and Baccarat with Hindi and English-speaking dealers.{% endblock %}
+
+{% block content %}
+{{ banner("Live Casino Floor", [("Live Casino", "/live-casino")]) }}
+
+<!-- ==== live casino tables section start ==== -->
+<section class="game pt-120 pb-120">
+   <div class="container">
+      {{ heading('Direct,', 'from Mandovi Riverfront, Goa', 'The Authentic Royale Casino Floor', 'Experience live tables dealt by certified croupiers on authentic casino felt, broadcast in multi-camera 4K UHD. Chat with hostesses, place side bets, and receive instant payouts directly to your UPI account.', col='col-xl-12') }}
+
+      <div class="row gutter-24 align-items-center mt-55">
+         <div class="col-12 col-xl-8">
+            <div class="result__tab-btns text-start">
+               <ul>
+                  <li><button class="active" data-filter="*"><i class="ti ti-layout-grid"></i>All Tables</button></li>
+                  <li><button data-filter=".indian"><i class="ti ti-cards"></i>Indian Cards</button></li>
+                  <li><button data-filter=".roulette"><i class="ti ti-circle-dot"></i>Roulette</button></li>
+                  <li><button data-filter=".cards"><i class="ti ti-spade"></i>Cards</button></li>
+                  <li><button data-filter=".dice"><i class="ti ti-dice-5"></i>Dice &amp; Lucky</button></li>
+                  <li><button data-filter=".slots"><i class="ti ti-crown"></i>Slots &amp; Jackpot</button></li>
+               </ul>
+            </div>
+         </div>
+         <div class="col-12 col-xl-4">
+            <div class="lottery-sidebar">
+               <div class="lottery__result-form">
+                  <form action="#" method="get" onsubmit="return false;">
+                     <div class="group-pst">
+                        <input class="js-grid-search" id="searchTable" name="q" placeholder="Search tables, e.g. Teen Patti, VIP..." type="text" />
+                        <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="row gutter-24 mt-40 filter-wrapper">
+         {% for t in content.LIVE_TABLES %}
+         {{ live_card(t, (loop.index0 % 6) * 80, loop.index) }}
+         {% endfor %}
+      </div>
+
+      <div class="js-no-results d-none text-center mt-60 pt-40 pb-40">
+         <i class="ti ti-search-off" style="font-size: 54px; color: var(--secondary-color);"></i>
+         <h4 class="fw-6 mt-20">No matching tables currently found</h4>
+         <p class="mt-10">Try a different game or filter by Indian Cards or Roulette.</p>
+      </div>
+   </div>
+</section>
+<!-- ==== / live casino tables section end ==== -->
+
+<!-- ==== live winners section start ==== -->
+<section class="lottery-result lottery-alternate-result lottery pt-120 pb-120" data-background="{{ img('lottery-bg.png') }}">
+   <div class="container">
+      {{ heading('Recent,', 'Floor Champions', 'Live Winners Leaderboard', 'Real-time payouts from our Goa tables and online salons. Over ₹850 Crore in winnings settled directly to Indian bank accounts.') }}
+
+      <div class="row gutter-24 mt-40">
+         {% for name, av, ago, city in content.CHAMPIONS[:6] %}
+         <div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}" data-aos-duration="600">
+            <div class="result__single tilt">
+               <div class="contest__intro">
+                  <span>Verified Payout</span>
+                  <p class="text-xs text-secondary-color fw-6"><i class="ti ti-clock"></i> {{ ago }}</p>
+               </div>
+               <div class="mt-20">
+                  <h5 class="fw-6 neutral-top">{{ name }}</h5>
+                  <p class="text-sm secondary-text"><i class="ti ti-map-pin"></i> {{ city }}</p>
+               </div>
+               <div class="content mt-20">
+                  <div class="d-flex justify-content-between align-items-center py-2 border-top border-bottom">
+                     <span class="text-sm opacity-75">Gaming Floor</span>
+                     <span class="text-sm fw-6">Casino Royale Live Floor</span>
+                  </div>
+                  <div class="d-flex justify-content-between align-items-center py-2 mt-2">
+                     <span class="text-sm opacity-75">Payout Settlement</span>
+                     <span class="text-sm fw-7 text-secondary-color"><i class="ti ti-check"></i> Instant UPI Credited</span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</section>
+<!-- ==== / live winners section end ==== -->
+
+{{ vip_cta() }}
+
+{{ sponsor_section("Broadcasted with Licensed Studios & GLI Verified Cards") }}
+{% endblock content %}

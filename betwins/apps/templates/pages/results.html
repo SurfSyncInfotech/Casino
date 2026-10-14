@@ -1,0 +1,95 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner, heading, vip_cta, sponsor_section %}
+
+{% block title %}Draw Results Archive | Check Your Ticket Numbers{% endblock title %}
+{% block description %}Search and verify official Royal Keno and festive lucky draw winning numbers at Casino Royale Goa. Real-time draw archive with interactive ticket number verification.{% endblock %}
+
+{% block content %}
+{{ banner("Draw Results Archive", [("Draw Results", "/results")]) }}
+
+<!-- ==== results section start ==== -->
+<section class="lottery-result lottery-alternate-result lottery pt-120 pb-120" data-background="{{ img('lottery-result.png') }}">
+   <div class="container">
+      {{ heading('Official,', 'Winning Numbers', 'Recent Draw Results Archive', 'Search verified winning balls for Royal Keno, Diwali Dhamaka, and the Casino Royale Mega Draw. Enter your draw number below to check your ticket instantly.') }}
+
+      <!-- Interactive Ticket Checker -->
+      <div class="row mt-55 justify-content-center">
+         <div class="col-12 col-xl-10">
+            <div class="lottery-sidebar" data-aos="fade-up" data-aos-duration="600">
+               <div class="lottery-card p-4 p-lg-5">
+                  <h5 class="fw-6 neutral-top mb-20 text-center text-lg-start">
+                     <i class="ti ti-scan text-secondary-color me-2"></i> Verify Your Ticket Numbers
+                  </h5>
+                  <form data-check-form="" data-results='{{ content.RESULTS|tojson }}'>
+                     <div class="row gutter-20 align-items-end">
+                        <div class="col-12 col-lg-4">
+                           <div class="contest-group">
+                              <label class="text-sm fw-6 neutral-top d-block mb-2">Draw Code (e.g. KN-48213)</label>
+                              <div class="group-pst">
+                                 <input name="contest" placeholder="KN-48213" required="" type="text" value="KN-48213" />
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12 col-lg-5">
+                           <div class="contest-group">
+                              <label class="text-sm fw-6 neutral-top d-block mb-2">Your 5 Ticket Numbers</label>
+                              <div class="d-flex gap-2">
+                                 <input class="my-number form-control text-center text-white" style="background: rgba(255,255,255,0.05); border: 1px solid var(--septenary-color); border-radius: 8px; width: 50px; height: 50px; font-weight: 700;" max="40" min="1" placeholder="07" type="number" value="7" />
+                                 <input class="my-number form-control text-center text-white" style="background: rgba(255,255,255,0.05); border: 1px solid var(--septenary-color); border-radius: 8px; width: 50px; height: 50px; font-weight: 700;" max="40" min="1" placeholder="14" type="number" value="14" />
+                                 <input class="my-number form-control text-center text-white" style="background: rgba(255,255,255,0.05); border: 1px solid var(--septenary-color); border-radius: 8px; width: 50px; height: 50px; font-weight: 700;" max="40" min="1" placeholder="21" type="number" value="21" />
+                                 <input class="my-number form-control text-center text-white" style="background: rgba(255,255,255,0.05); border: 1px solid var(--septenary-color); border-radius: 8px; width: 50px; height: 50px; font-weight: 700;" max="40" min="1" placeholder="33" type="number" value="33" />
+                                 <input class="my-number form-control text-center text-white" style="background: rgba(255,255,255,0.05); border: 1px solid var(--septenary-color); border-radius: 8px; width: 50px; height: 50px; font-weight: 700;" max="40" min="1" placeholder="38" type="number" value="38" />
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                           <button aria-label="Verify Ticket" class="btn--primary w-100 justify-content-center" type="submit">
+                              Check Numbers <i class="ti ti-arrow-narrow-right"></i>
+                           </button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Recent Official Results Archive -->
+      <div class="row gutter-24 mt-40">
+         {% for r in content.RESULTS %}
+         <div class="col-12 col-lg-6 col-xl-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}" data-aos-duration="600">
+            <div class="result__single tilt">
+               <div class="result__number">
+                  <p class="text-sm fw-6 text-secondary-color"><i class="ti ti-circle-check"></i> Verified</p>
+               </div>
+               <div class="content pt-10">
+                  <div class="contest-number">
+                     <p class="text-xs fw-5 opacity-75">Draw ID</p>
+                     <p class="text-base fw-7 mt-1 text-secondary-color">{{ r.no }}</p>
+                  </div>
+                  <h5 class="fw-6 neutral-top mt-10">{{ r.title }}</h5>
+                  <div class="result__info mt-12">
+                     <p class="held"><i class="ti ti-calendar"></i> {{ r.date }}</p>
+                     <p class="time"><i class="ti ti-clock-hour-4"></i> {{ r.ago }}</p>
+                  </div>
+                  <div class="winning-list mt-30">
+                     <p class="fw-6 text-sm mb-2">Winning Numbers :</p>
+                     <ul class="champion">
+                        {% for num in r.numbers %}
+                        <li class="active">{{ "%02d" % num }}</li>
+                        {% endfor %}
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</section>
+<!-- ==== / results section end ==== -->
+
+{{ vip_cta() }}
+
+{{ sponsor_section() }}
+{% endblock content %}

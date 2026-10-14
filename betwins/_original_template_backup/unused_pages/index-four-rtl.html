@@ -1,0 +1,1947 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Untitled{% endblock title %}
+
+{% block styles %}
+<link href="{{ config.ASSETS_ROOT }}/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+<link href="{{ config.ASSETS_ROOT }}/images/favicon.png" rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="{{ config.ASSETS_ROOT }}/css/main.css" rel="stylesheet"/>
+<link href="{{ config.ASSETS_ROOT }}/css/responsive.css" rel="stylesheet"/>
+<link href="{{ config.ASSETS_ROOT }}/css/rtl-version.css" rel="stylesheet"/>
+<link href="{{ config.ASSETS_ROOT }}/css/template-settings.css" rel="stylesheet"/>
+{% endblock styles %}
+
+{% block content %}
+<!--[if lte IE 9]>
+      <p class="browserupgrade">
+         You are using an <strong>outdated</strong> browser. Please
+         <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+         your experience and security.
+      </p>
+      <![endif]-->
+<div class="page-wrapper a-cursor rtl">
+<!-- ==== preloader start ==== -->
+<div class="preloader">
+<i class="ti ti-device-gamepad-2"></i>
+<p>Betwins</p>
+</div>
+<!-- ==== / preloader end ==== -->
+<!-- ==== header start ==== -->
+<header class="header">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="main-header__menu-box">
+<nav class="navbar p-0">
+<div class="navbar__intro">
+<div class="navbar-logo">
+<a href="/">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/logo.png"/>
+</a>
+</div>
+<div class="navbar__intro-games">
+<button aria-label="dropdown menu"><i class="ti ti-layout-grid"></i>Top Games <i class="ti ti-chevron-down"></i></button>
+<ul class="sub-menu">
+<li>
+<a href="/games">Jackpot</a>
+</li>
+<li>
+<a href="/games">Slots</a>
+</li>
+<li>
+<a href="/games-two">Gambling</a>
+</li>
+<li>
+<a href="/games-two">Casino</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="navbar__menu d-none d-xl-block">
+<ul class="navbar__list">
+<li class="navbar__item navbar__item--has-children">
+<a aria-label="dropdown menu" class="navbar__dropdown-label dropdown-label-alter" href="#">Home</a>
+<ul class="navbar__sub-menu">
+<li>
+<a href="/">Home</a>
+</li>
+<li>
+<a href="/index-two">Home Two</a>
+</li>
+<li>
+<a href="/index-three">Home Three</a>
+</li>
+<li>
+<a href="/index-four">Home Four</a>
+</li>
+</ul>
+</li>
+<li class="navbar__item">
+<a href="/about-us">About Us</a>
+</li>
+<li class="navbar__item navbar__item--has-children">
+<a aria-label="dropdown menu" class="navbar__dropdown-label dropdown-label-alter" href="#">Games</a>
+<ul class="navbar__sub-menu">
+<li>
+<a href="/games">Games</a>
+</li>
+<li>
+<a href="/games-two">Games Two</a>
+</li>
+<li>
+<a href="/game-details">Game Details</a>
+</li>
+</ul>
+</li>
+<li class="navbar__item navbar__item--has-children">
+<a aria-label="dropdown menu" class="navbar__dropdown-label dropdown-label-alter" href="#">Lottery</a>
+<ul class="navbar__sub-menu">
+<li>
+<a href="/lottery">Lottery</a>
+</li>
+<li>
+<a href="/lottery-contest">Lottery Contest</a>
+</li>
+<li>
+<a href="/lottery-result">Lottery Results</a>
+</li>
+<li>
+<a href="/lottery-details">Lottery Details</a>
+</li>
+</ul>
+</li>
+<li class="navbar__item navbar__item--has-children">
+<a aria-label="dropdown menu" class="navbar__dropdown-label dropdown-label-alter" href="#">Pages</a>
+<ul class="navbar__sub-menu">
+<li>
+<a href="/faq">FAQ</a>
+</li>
+<li>
+<a href="/sign-in">Sign In</a>
+</li>
+<li>
+<a href="/sign-up">Create Account</a>
+</li>
+<li>
+<a href="/coming-soon">Coming Soon</a>
+</li>
+<li>
+<a href="/404">Error</a>
+</li>
+</ul>
+</li>
+<li class="navbar__item navbar__item--has-children">
+<a aria-label="dropdown menu" class="navbar__dropdown-label dropdown-label-alter" href="#">Blog</a>
+<ul class="navbar__sub-menu">
+<li>
+<a href="/blog">Blog List View</a>
+</li>
+<li>
+<a href="/blog-grid">Blog Grid View</a>
+</li>
+<li>
+<a href="/blog-details">Blog Details</a>
+</li>
+</ul>
+</li>
+<li class="navbar__item">
+<a href="/contact-us">Contact Us</a>
+</li>
+</ul>
+</div>
+<div class="navbar__options">
+<div class="navbar__mobile-options">
+<div class="navbar__mobile-icons">
+<div class="search-box">
+<button aria-label="search products" class="open-search" title="open search box">
+<i class="ti ti-search"></i>
+</button>
+</div>
+<div class="language-box">
+<button aria-label="select language" class="language-select" title="select language">
+<i class="ti ti-world"></i>
+</button>
+<ul>
+<li>EN</li>
+<li>FR</li>
+<li>CN</li>
+<li>PK</li>
+</ul>
+</div>
+</div>
+<div class="navbar__cta d-none d-sm-flex">
+<a aria-label="sign in" class="btn--secondary" href="/sign-in" title="sign in">Sign
+                                    In <i class="ti ti-arrow-narrow-right"></i></a>
+<a aria-label="create account" class="btn--primary" href="/sign-up" title="create account">Sign Up <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+<button aria-label="toggle mobile menu" class="open-offcanvas-nav d-flex d-xl-none" title="open offcanvas menu">
+<span class="icon-bar top-bar"></span>
+<span class="icon-bar middle-bar"></span>
+<span class="icon-bar bottom-bar"></span>
+</button>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- ==== / header end ==== -->
+<!-- ==== mobile menu start ==== -->
+<div class="mobile-menu d-block d-xl-none">
+<nav class="mobile-menu__wrapper">
+<div class="mobile-menu__header">
+<div class="logo">
+<a aria-label="home page" href="/" title="logo">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/logo.png"/>
+</a>
+</div>
+<button aria-label="close mobile menu" class="close-mobile-menu">
+<i class="ti ti-x"></i>
+</button>
+</div>
+<div class="mobile-menu__list"></div>
+<div class="mobile-menu__cta d-block d-md-none">
+<a aria-label="create account" class="btn--primary" href="/sign-up" title="create account">Sign
+                  Up <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+<div class="mobile-menu__social social">
+<a aria-label="share us on facebook" href="https://www.facebook.com/" target="_blank" title="facebook">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+<a aria-label="share us on instagram" href="https://instagram.com/" target="_blank" title="instagram">
+<i class="fa-brands fa-instagram"></i>
+</a>
+<a aria-label="share us on twitter" href="https://x.com/" target="_blank" title="twitter">
+<i class="fa-brands fa-twitter"></i>
+</a>
+<a aria-label="share us on linkedin" href="https://www.linkedin.com/" target="_blank" title="linkedin">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+</div>
+</nav>
+</div>
+<div class="mobile-menu__backdrop"></div>
+<!-- ==== / mobile menu end ==== -->
+<!-- ==== search popup start ==== -->
+<div class="search-popup">
+<button aria-label="close search box" class="close-search" title="close search box">
+<i class="fa-solid fa-xmark"></i>
+</button>
+<form action="#" method="post">
+<div class="search-popup__group">
+<input id="searchField" name="search-field" placeholder="Search...." required="" type="text"/>
+<button aria-label="search products" title="search products" type="submit">
+<i class="fa-solid fa-magnifying-glass"></i>
+</button>
+</div>
+</form>
+</div>
+<!-- ==== / search popup end ==== -->
+<!-- ==== banner section start ==== -->
+<section class="banner-three" data-background="{{ config.ASSETS_ROOT }}/images/banner/banner-three-bg.png">
+<div class="container">
+<div class="row">
+<div class="col-12 col-lg-7 col-xl-7 col-xxl-6">
+<div class="banner-three__content">
+<span class="fw-6 secondary-text text-xl sub-title"><strong>Play,</strong> Win, and Earn
+                        crypto</span>
+<h1 class="title-animation fw-7 mt-20">The Power of Crypto <span class="primary-text">Lotteries</span></h1>
+<div class="banner-three__group">
+<div class="left-content">
+<p class="fw-5">5M+ Active Player</p>
+<div class="join-users mt-16">
+<div class="single-user">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/avatar/seven.png"/>
+</div>
+<div class="single-user">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/avatar/five.png"/>
+</div>
+<div class="single-user">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/avatar/four.png"/>
+</div>
+<div class="single-user">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/avatar/six.png"/>
+</div>
+<div class="single-user">
+<p class="fw-7 text-sm">25+</p>
+</div>
+</div>
+</div>
+<span class="divide d-none d-sm-block"></span>
+<div class="right-content">
+<p class="text-lg">Step into a world where gaming and blockchain meet, giving you access to
+                                 the most thrilling crypto lotteries and gaming experiences.
+                              </p>
+</div>
+</div>
+<div class="banner-action mt-60">
+<a aria-label="play games" class="btn--primary" href="/games" title="play games">Play Games
+                           <i class="ti ti-arrow-narrow-right"></i></a>
+<a aria-label="explore lottery" class="btn--secondary" href="/lottery" title="explore lottery">Explore Lottery <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="banner-thumb" data-aos="fade-left" data-aos-duration="600">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/banner-three-thumb.png"/>
+</div>
+<div class="shape">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/shape.png"/>
+</div>
+<div class="rocket">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/rocket-xs.png"/>
+</div>
+<div class="right-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/banner-three-right.png"/>
+</div>
+</section>
+<!-- ==== / banner section end ==== -->
+<!-- ==== work section start ==== -->
+<section class="work work-alternate pt-120 pb-120">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-12 col-xl-9">
+<div class="section__header text-center mb-55" data-aos="fade-up" data-aos-duration="600">
+<span class="fw-6 secondary-text text-xl"><strong>Step,</strong> by Step Process</span>
+<h2 class="title-animation fw-6 mt-25">How It`s Works</h2>
+<p class="mt-16">We've made it easier than ever to dive into the world of crypto gaming. With just
+                           a few clicks, you can deposit your favorite cryptocurrency
+                        </p>
+</div>
+</div>
+</div>
+<div class="row gutter-60">
+<div class="col-12 col-md-6 col-xl-4">
+<div class="work__single text-center" data-aos="fade-up" data-aos-duration="600">
+<div class="alternate-wrapper">
+<div class="thumb">
+<span class="step">1st Step</span>
+</div>
+<div class="content mt-25">
+<h6 class="fw-6">Sign Up Instantly</h6>
+<p class="text-sm mt-12">Create your Betwins account in just a few minutes. Simply register
+                              </p>
+</div>
+</div>
+<div class="alternate-content">
+<div class="alt-thumb">
+<i class="ti ti-user"></i>
+</div>
+</div>
+<span class="bg-text">1</span>
+</div>
+</div>
+<div class="col-12 col-md-6 col-xl-4">
+<div class="work__single walt text-center" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+<div class="alternate-content">
+<div class="alt-thumb">
+<i class="ti ti-pig"></i>
+</div>
+</div>
+<div class="alternate-wrapper">
+<div class="thumb">
+<span class="step">2nd Step</span>
+</div>
+<div class="content mt-25">
+<h6 class="fw-6">Deposit Crypto Securely</h6>
+<p class="text-sm mt-12">Add funds to your account using popular cryptocurrencies like
+                                 Bitcoin.
+                              </p>
+</div>
+</div>
+<span class="bg-text">2</span>
+</div>
+</div>
+<div class="col-12 col-md-6 col-xl-4">
+<div class="work__single text-center" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+<div class="alternate-wrapper">
+<div class="thumb">
+<span class="step">3rd Step</span>
+</div>
+<div class="content mt-25">
+<h6 class="fw-6">Play &amp; Win Real Crypto</h6>
+<p class="text-sm mt-12">Browse hundreds of exciting games, from casino classics to live
+                                 betting.
+                              </p>
+</div>
+</div>
+<div class="alternate-content">
+<div class="alt-thumb">
+<i class="ti ti-trophy"></i>
+</div>
+</div>
+<span class="bg-text">3</span>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<hr class="divide"/>
+</div>
+</div>
+</div>
+<div class="left-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/spring.png"/>
+</div>
+<div class="right-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/left-th.png"/>
+</div>
+</section>
+<!-- ==== / work section end ==== -->
+<!-- ==== fantasy section start ==== -->
+<section class="fantasy pt-120 pb-120" data-background="{{ config.ASSETS_ROOT }}/images/lottery-details-bg.png">
+<div class="container">
+<div class="row gutter-20 align-items-center mb-55 rtl-header" data-aos="fade-up" data-aos-duration="600">
+<div class="col-12 col-lg-7 col-xl-8">
+<div class="section__content">
+<span class="fw-6 secondary-text text-xl"><strong>Meet,</strong> Our Recent Contests</span>
+<h2 class="title-animation fw-6 mt-20">Fantasy Sports with Cryptocurrency </h2>
+</div>
+</div>
+<div class="col-12 col-lg-5 col-xl-4">
+<div class="section__content-right">
+<p class="text-lg">Dive into a world where traditional gaming meets modern blockchain technology.
+                        </p>
+<div class="mt-25">
+<a aria-label="view all" class="btn--secondary" href="/games" title="view all">All
+                           Categories <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="row gutter-24">
+<div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-duration="600">
+<div class="fantasy__single fantasy__single-alt tilt">
+<div class="intro">
+<h5 class="neutral-top fw-6 text-uppercase"><img alt="Image" src="{{ config.ASSETS_ROOT }}/images/fantasy/ic-one.png"/>Casino</h5>
+</div>
+<div class="content mt-120">
+<p class="mb-15">Dive into our in-house games, live casino and slots</p>
+<a aria-label="play now" href="/game-details" title="play now">Play Now <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/fantasy/six.png"/>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+<div class="fantasy__single single-two tilt">
+<div class="intro">
+<h5 class="neutral-top fw-6 text-uppercase"><img alt="Image" src="{{ config.ASSETS_ROOT }}/images/fantasy/ic-two.png"/>Racing</h5>
+</div>
+<div class="content mt-120">
+<p class="mb-15">Dive into our in-house games, live casino and slots</p>
+<a aria-label="play now" href="/game-details" title="play now">Play Now <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/fantasy/one.png"/>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+<div class="fantasy__single tilt">
+<div class="intro">
+<h5 class="neutral-top fw-6 text-uppercase"><img alt="Image" src="{{ config.ASSETS_ROOT }}/images/fantasy/ic-two.png"/>SPORTS</h5>
+</div>
+<div class="content mt-120">
+<p class="mb-15">Dive into our in-house games, live casino and slots</p>
+<a aria-label="play now" href="/game-details" title="play now">Play Now <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/fantasy/five.png"/>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
+<div class="fantasy__single fantasy__single-alt single-three tilt">
+<div class="intro">
+<h5 class="neutral-top fw-6 text-uppercase"><img alt="Image" src="{{ config.ASSETS_ROOT }}/images/fantasy/ic-three.png"/>LOTTERY</h5>
+</div>
+<div class="content mt-120">
+<p class="mb-15">Dive into our in-house games, live casino and slots</p>
+<a aria-label="play now" href="/game-details" title="play now">Play Now <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/fantasy/four.png"/>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+<div class="fantasy__single tilt">
+<div class="intro">
+<h5 class="neutral-top fw-6 text-uppercase"><img alt="Image" src="{{ config.ASSETS_ROOT }}/images/fantasy/ic-five.png"/>UPDOWN</h5>
+</div>
+<div class="content mt-120">
+<p class="mb-15">Dive into our in-house games, live casino and slots</p>
+<a aria-label="play now" href="/game-details" title="play now">Play Now <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/fantasy/three.png"/>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+<div class="fantasy__single single-four tilt">
+<div class="intro">
+<h5 class="neutral-top fw-6 text-uppercase"><img alt="Image" src="{{ config.ASSETS_ROOT }}/images/fantasy/ic-six.png"/>BINGO</h5>
+</div>
+<div class="content mt-120">
+<p class="mb-15">Bet on Football, Cricket, NFL, eSports &amp; over 80 sports!</p>
+<a aria-label="play now" href="/game-details" title="play now">Play Now <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/fantasy/two.png"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="left-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/fantasy/bottom-thumb.png"/>
+</div>
+<div class="rocket">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/fantasy/right-thumb.png"/>
+</div>
+<div class="right-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/fantasy/btc.png"/>
+</div>
+</section>
+<!-- ==== / fantasy section end ==== -->
+<!-- ==== choose section start ==== -->
+<section class="choose choose-alternate pt-120 pb-120 tertiary-bg">
+<div class="container">
+<div class="row">
+<div class="col-12 col-lg-5 col-xl-5">
+<div class="choose__thumb d-none d-lg-block">
+<div class="winner">
+<img alt="Image" class="winner-img" src="{{ config.ASSETS_ROOT }}/images/winner.png"/>
+<div class="light">
+<img alt="Image" class="light-thumb" src="{{ config.ASSETS_ROOT }}/images/light.png"/>
+</div>
+</div>
+<div class="car">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/car.png"/>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-7 col-xl-6 offset-xl-1">
+<div class="choose__content">
+<div class="section__content text-start">
+<span class="fw-6 secondary-text text-xl"><strong>Trusted,</strong> by Thousands of
+                           Winners</span>
+<h2 class="title-animation fw-6 mt-25">Trusted Platform for Secure <span>Crypto</span>
+                              Bets
+                           </h2>
+<p class="mt-25">We stand out from the rest. Our platform is designed with you in mind
+                              providing a secure, fair, thrilling, and user-friendly experience.
+                           </p>
+</div>
+<div class="rating__group mt-40">
+<div class="left-group">
+<h3 class="fw-6">4.7<span class="secondary-text">K</span></h3>
+</div>
+<div class="divider"></div>
+<div class="right-group">
+<p class="text-lg">Rating Based On 2500+ Reviews</p>
+<div class="review mt-16">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+</div>
+</div>
+<ul class="list-group-row mt-40">
+<li><i class="ti ti-check"></i>Risk Management Consulting</li>
+<li><i class="ti ti-check"></i>Customer Relationship</li>
+<li><i class="ti ti-check"></i>Leadership Development</li>
+<li><i class="ti ti-check"></i>Supply Chain Optimization</li>
+</ul>
+<div class="mt-40">
+<a aria-label="Read More" class="btn--primary" href="/terms-conditions" title="Read More">Read More <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="left-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/spring.png"/>
+</div>
+<div class="rocket">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/rocket-xs.png"/>
+</div>
+<div class="right-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/left-th.png"/>
+</div>
+<div class="trophy">
+<img alt="Image" data-aos="fade-left" data-aos-duration="600" src="{{ config.ASSETS_ROOT }}/images/trophy.png"/>
+</div>
+</section>
+<!-- ==== / choose section end ==== -->
+<!-- ==== select lottery number section start ==== -->
+<section class="lottery-details lottery-alternate lottery pt-120 pb-120" data-background="{{ config.ASSETS_ROOT }}/images/lottery-bg.png">
+<div class="container">
+<div class="row gutter-20 align-items-center mb-55 rtl-header" data-aos="fade-up" data-aos-duration="600">
+<div class="col-12 col-lg-7 col-xl-8 col-xxl-6">
+<div class="section__content">
+<span class="fw-6 secondary-text text-xl"><strong>Pick,</strong> Lucky Numbers</span>
+<h2 class="title-animation fw-6 mt-25">
+                           Pick Your Winning Numbers
+                        </h2>
+</div>
+</div>
+<div class="col-12 col-lg-5 col-xl-4 col-xxl-4 offset-xxl-2">
+<div class="section__content-right">
+<p>
+                           Explore our featured games at Betwins, where every spin and
+                           every bet brings you closer to huge...
+                        </p>
+<div class="mt-25">
+<a aria-label="explore all games" class="btn--secondary" href="/games" title="explore all games">Explore All Games <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="lottery__type-wrapper mb-25">
+<div class="lottery__type-slider swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<div class="lottery__type lt-type-two">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/lottery/two.png"/>
+</div>
+<div class="content">
+<h6 class="fw-6"><a href="/lottery-details">Hot Lotto</a></h6>
+<p class="mt-16 text-lg">
+<i class="ti ti-wallet"></i>$657.54
+                                       </p>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="lottery__type lt-type-two">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/lottery/one.png"/>
+</div>
+<div class="content">
+<h6 class="fw-6"><a href="/lottery-details">Bingo Jackpot</a></h6>
+<p class="mt-16 text-lg">
+<i class="ti ti-wallet"></i>$957.54
+                                       </p>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="lottery__type lt-type-two">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/lottery/three.png"/>
+</div>
+<div class="content">
+<h6 class="fw-6"><a href="/lottery-details">Euro Millions</a></h6>
+<p class="mt-16 text-lg">
+<i class="ti ti-wallet"></i>$698.54
+                                       </p>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="lottery__type lt-type-two">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/lottery/four.png"/>
+</div>
+<div class="content">
+<h6 class="fw-6"><a href="/lottery-details">OZ Lotto Star</a></h6>
+<p class="mt-16 text-lg">
+<i class="ti ti-wallet"></i>$1257.54
+                                       </p>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="lottery__type lt-type-two">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/lottery/two.png"/>
+</div>
+<div class="content">
+<h6 class="fw-6"><a href="/lottery-details">Hot Lotto</a></h6>
+<p class="mt-16 text-lg">
+<i class="ti ti-wallet"></i>$657.54
+                                       </p>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="lottery__type lt-type-two">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/lottery/one.png"/>
+</div>
+<div class="content">
+<h6 class="fw-6"><a href="/lottery-details">Bingo Jackpot</a></h6>
+<p class="mt-16 text-lg">
+<i class="ti ti-wallet"></i>$957.54
+                                       </p>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="lottery__type lt-type-two">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/lottery/three.png"/>
+</div>
+<div class="content">
+<h6 class="fw-6"><a href="/lottery-details">Euro Millions</a></h6>
+<p class="mt-16 text-lg">
+<i class="ti ti-wallet"></i>$698.54
+                                       </p>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="lottery__type lt-type-two">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/lottery/four.png"/>
+</div>
+<div class="content">
+<h6 class="fw-6"><a href="/lottery-details">OZ Lotto Star</a></h6>
+<p class="mt-16 text-lg">
+<i class="ti ti-wallet"></i>$1257.54
+                                       </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slider-navigation">
+<button aria-label="prev slide" class="prev-lottery slider-btn" title="prev slide" type="button">
+<i class="fa-solid fa-angle-left"></i>
+</button>
+<button aria-label="next slide" class="next-lottery slider-btn" title="next slide" type="button">
+<i class="fa-solid fa-angle-right"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="row gutter-40">
+<div class="col-12">
+<div class="lottery-card" data-aos="fade-up" data-aos-duration="600">
+<div class="lt-alternate-card">
+<div class="lottery-intro mb-35">
+<h5 class="title-animation fw-6 neutral-top">
+                                 Pick Numbers
+                              </h5>
+<div class="lottery-intro__action">
+<button aria-label="quick pick" class="quick-pick" title="quick pick">
+                                 Quick Pick
+                                 </button>
+<button aria-label="clear all" class="clear-all" title="clear all">
+                                 Clear All
+                                 </button>
+<button aria-label="add numbers" class="add-numbers" title="add numbers">
+                                 Add Numbers
+                                 </button>
+</div>
+</div>
+<div class="pick-numbers">
+<div class="pick-number__single">
+<div class="pick-number__intro">
+<p class="text-xl fw-5 neutral-top">Picks 5 Numbers</p>
+</div>
+<ul class="pick-number-list quick-pick-list mt-20">
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>6</li>
+<li>7</li>
+<li>8</li>
+<li>9</li>
+<li>10</li>
+<li>11</li>
+<li>12</li>
+<li>13</li>
+<li>14</li>
+<li>15</li>
+<li>16</li>
+<li>17</li>
+<li>18</li>
+<li>19</li>
+<li>20</li>
+<li>21</li>
+<li>22</li>
+<li>23</li>
+<li>24</li>
+<li>25</li>
+<li>26</li>
+<li>27</li>
+<li>28</li>
+<li>29</li>
+<li>30</li>
+<li>31</li>
+<li>32</li>
+<li>33</li>
+<li>34</li>
+<li>35</li>
+<li>36</li>
+<li>37</li>
+<li>38</li>
+<li>39</li>
+<li>40</li>
+</ul>
+</div>
+<hr class="divider mt-10 mb-10"/>
+<div class="pick-number__single">
+<div class="pick-number__intro">
+<p class="text-xl fw-5 neutral-top">
+                                       Pick 1 Power Ball
+                                    </p>
+</div>
+<ul class="pick-number-list power-pick-list mt-20">
+<li>1</li>
+<li>2</li>
+<li>3</li>
+<li>4</li>
+<li>5</li>
+<li>6</li>
+<li>7</li>
+<li>8</li>
+<li>9</li>
+<li>10</li>
+<li>11</li>
+<li>12</li>
+<li>13</li>
+<li>14</li>
+<li>15</li>
+<li>16</li>
+<li>17</li>
+<li>18</li>
+<li>19</li>
+<li>20</li>
+<li>21</li>
+<li>22</li>
+<li>23</li>
+<li>24</li>
+<li>25</li>
+<li>26</li>
+<li>27</li>
+<li>28</li>
+<li>29</li>
+<li>30</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="lt-alternate-card mt-16" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+<div class="lottery-intro mb-35">
+<h5 class="title-animation fw-6 neutral-top">
+                                 Selected Numbers
+                              </h5>
+<div class="lottery-intro__action">
+<button aria-label="delete all" class="delete-all dlt" title="delete all">
+                                 Delete All
+                                 </button>
+</div>
+</div>
+<div class="lt-alternate-view">
+<div class="lt-alternate-single">
+<h6 class="fw-6">Lucky Numbers</h6>
+<div class="lt-luck-wrapper mt-16">
+<span class="lucky-number">00</span>
+<span class="lucky-number">00</span>
+<span class="lucky-number">00</span>
+<span class="lucky-number">00</span>
+<span class="lucky-number">00</span>
+</div>
+</div>
+<div class="lt-alternate-single">
+<h6 class="fw-6">Lucky Power Ball</h6>
+<div class="lt-luck-wrapper mt-16">
+<span class="lucky-power-number">00</span>
+</div>
+</div>
+</div>
+<hr class="divider mt-40 mb-40"/>
+<div class="price-meta mt-40">
+<div class="content">
+<h6 class="neutral-top fw-6 secondary-text">$945.58</h6>
+<p class="text-sm mt-6">Ticket Price</p>
+</div>
+<div class="cta">
+<button aria-label="buy ticket" class="btn--primary" title="buy ticket">
+                                 Buy Ticket
+                                 </button>
+</div>
+</div>
+</div>
+<hr class="divider mt-40 mb-30"/>
+<div class="lt-alternate-card mt-16" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+<div class="payment-methods">
+<p class="fw-6 text-xl">Payment methods we accept :</p>
+<div class="payment-methods__inner mt-24">
+<div class="payment-method-single">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/payment/visa.png"/>
+</div>
+<div class="payment-method-single">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/payment/apple.png"/>
+</div>
+<div class="payment-method-single">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/payment/bit.png"/>
+</div>
+<div class="payment-method-single">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/payment/dines.png"/>
+</div>
+<div class="payment-method-single">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/payment/discover.png"/>
+</div>
+<div class="payment-method-single">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/payment/gpay.png"/>
+</div>
+<div class="payment-method-single">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/payment/mastercard.png"/>
+</div>
+<div class="payment-method-single">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/payment/paypal.png"/>
+</div>
+<div class="payment-method-single">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/payment/verifone.png"/>
+</div>
+<div class="payment-method-single">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/payment/amex.png"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="left-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/right-wheel.png"/>
+</div>
+<div class="right-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/left-wheel.png"/>
+</div>
+</section>
+<!-- ==== / select lottery number section end ==== -->
+<!-- ==== lottery contest section start ==== -->
+<section class="lottery-contest lottery pt-120 pb-120" data-background="{{ config.ASSETS_ROOT }}/images/lottery-result.png">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-12 col-xl-8">
+<div class="section__header text-center mb-55" data-aos="fade-up" data-aos-duration="600">
+<span class="fw-6 secondary-text text-xl"><strong>Meet,</strong> Our Recent Contests</span>
+<h2 class="title-animation fw-6 mt-25">Recent Contests</h2>
+<p class="mt-16">We celebrate every win, no matter how big or small. Our platform is buzzing with
+                           excitement as players hit jackpots and score massive crypto payouts daily.
+                        </p>
+</div>
+</div>
+</div>
+<div class="row justify-content-center">
+<div class="col-12 col-xl-8">
+<div class="result__tab-btns-alt text-center" data-aos="fade-up" data-aos-duration="600">
+<ul>
+<li><button class="active" data-filter="*"><i class="ti ti-layout-grid"></i>All
+                              Categories</button>
+</li>
+<li><button data-filter=".car"><i class="ti ti-car"></i>Car</button></li>
+<li><button data-filter=".bike"><i class="ti ti-bike"></i>Bike</button></li>
+<li><button data-filter=".laptop"><i class="ti ti-device-laptop"></i>Laptop</button></li>
+<li><button data-filter=".watch"><i class="ti ti-device-watch"></i>Watch</button></li>
+<li><button data-filter=".cycle"><i class="ti ti-motorbike"></i>Cycle</button></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row filter-wrapper-two mt-40">
+<div class="col-12 col-lg-6 col-xl-4 filter-item-two car laptop">
+<div class="result__single tilt">
+<div class="contest__intro">
+<span>Exclusive</span>
+<button aria-label="save" title="save"><i class="ti ti-heart"></i></button>
+</div>
+<div class="thumb mt-20">
+<a href="/lottery-details">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/result/four.png"/>
+</a>
+</div>
+<div class="content">
+<div class="contest-number">
+<p class="text-sm fw-5">Contest</p>
+<p class="text-lg fw-6 mt-8">9T2</p>
+</div>
+<h5 class="fw-6 neutral-top"><a href="/lottery-details">Treasure Draw</a></h5>
+<div class="result__info mt-16">
+<p class="time">Ticket Price</p>
+<p class="held text-xl">$12.85</p>
+</div>
+<div class="result__info mt-16">
+<p><i class="ti ti-ticket"></i>95K+ Remaining</p>
+<p class="time"><i class="ti ti-clock-hour-4"></i> 5 Days</p>
+</div>
+<div class="cta mt-35">
+<a aria-label="view details" class="btn--primary" href="/lottery-details" title="view details">View Details <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-4 filter-item-two bike laptop watch cycle">
+<div class="result__single tilt">
+<div class="contest__intro">
+<span>Exclusive</span>
+<button aria-label="save" title="save"><i class="ti ti-heart"></i></button>
+</div>
+<div class="thumb mt-20">
+<a href="/lottery-details">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/result/one.png"/>
+</a>
+</div>
+<div class="content">
+<div class="contest-number">
+<p class="text-sm fw-5">Contest</p>
+<p class="text-lg fw-6 mt-8">9T2</p>
+</div>
+<h5 class="fw-6 neutral-top"><a href="/lottery-details">Drive &amp; Win</a></h5>
+<div class="result__info mt-16">
+<p class="time">Ticket Price</p>
+<p class="held text-xl">$12.85</p>
+</div>
+<div class="result__info mt-16">
+<p><i class="ti ti-ticket"></i>95K+ Remaining</p>
+<p class="time"><i class="ti ti-clock-hour-4"></i> 5 Days</p>
+</div>
+<div class="cta mt-35">
+<a aria-label="view details" class="btn--primary" href="/lottery-details" title="view details">View Details <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-4 filter-item-two car bike laptop watch">
+<div class="result__single tilt">
+<div class="contest__intro">
+<span>Exclusive</span>
+<button aria-label="save" title="save"><i class="ti ti-heart"></i></button>
+</div>
+<div class="thumb mt-20">
+<a href="/lottery-details">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/result/two.png"/>
+</a>
+</div>
+<div class="content">
+<div class="contest-number">
+<p class="text-sm fw-5">Contest</p>
+<p class="text-lg fw-6 mt-8">9T2</p>
+</div>
+<h5 class="fw-6 neutral-top"><a href="/lottery-details">Wheel Triumph</a></h5>
+<div class="result__info mt-16">
+<p class="time">Ticket Price</p>
+<p class="held text-xl">$12.85</p>
+</div>
+<div class="result__info mt-16">
+<p><i class="ti ti-ticket"></i>95K+ Remaining</p>
+<p class="time"><i class="ti ti-clock-hour-4"></i> 5 Days</p>
+</div>
+<div class="cta mt-35">
+<a aria-label="view details" class="btn--primary" href="/lottery-details" title="view details">View Details <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-4 filter-item-two car bike watch cycle">
+<div class="result__single tilt">
+<div class="contest__intro">
+<span>Exclusive</span>
+<button aria-label="save" title="save"><i class="ti ti-heart"></i></button>
+</div>
+<div class="thumb mt-20">
+<a href="/lottery-details">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/result/three.png"/>
+</a>
+</div>
+<div class="content">
+<div class="contest-number">
+<p class="text-sm fw-5">Contest</p>
+<p class="text-lg fw-6 mt-8">9T2</p>
+</div>
+<h5 class="fw-6 neutral-top"><a href="/lottery-details">Luxury Wheels </a></h5>
+<div class="result__info mt-16">
+<p class="time">Ticket Price</p>
+<p class="held text-xl">$12.85</p>
+</div>
+<div class="result__info mt-16">
+<p><i class="ti ti-ticket"></i>95K+ Remaining</p>
+<p class="time"><i class="ti ti-clock-hour-4"></i> 5 Days</p>
+</div>
+<div class="cta mt-35">
+<a aria-label="view details" class="btn--primary" href="/lottery-details" title="view details">View Details <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-4 filter-item-two car bike watch cycle">
+<div class="result__single tilt">
+<div class="contest__intro">
+<span>Exclusive</span>
+<button aria-label="save" title="save"><i class="ti ti-heart"></i></button>
+</div>
+<div class="thumb mt-20">
+<a href="/lottery-details">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/result/five.png"/>
+</a>
+</div>
+<div class="content">
+<div class="contest-number">
+<p class="text-sm fw-5">Contest</p>
+<p class="text-lg fw-6 mt-8">9T2</p>
+</div>
+<h5 class="fw-6 neutral-top"><a href="/lottery-details">Treasure Draw</a></h5>
+<div class="result__info mt-16">
+<p class="time">Ticket Price</p>
+<p class="held text-xl">$19.85</p>
+</div>
+<div class="result__info mt-16">
+<p><i class="ti ti-ticket"></i>95K+ Remaining</p>
+<p class="time"><i class="ti ti-clock-hour-4"></i> 5 Days</p>
+</div>
+<div class="cta mt-35">
+<a aria-label="view details" class="btn--primary" href="/lottery-details" title="view details">View Details <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-4 filter-item-two car bike laptop cycle">
+<div class="result__single tilt">
+<div class="contest__intro">
+<span>Exclusive</span>
+<button aria-label="save" title="save"><i class="ti ti-heart"></i></button>
+</div>
+<div class="thumb mt-20">
+<a href="/lottery-details">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/result/six.png"/>
+</a>
+</div>
+<div class="content">
+<div class="contest-number">
+<p class="text-sm fw-5">Contest</p>
+<p class="text-lg fw-6 mt-8">9T2</p>
+</div>
+<h5 class="fw-6 neutral-top"><a href="/lottery-details">Fast Lane Lottery</a></h5>
+<div class="result__info mt-16">
+<p class="time">Ticket Price</p>
+<p class="held text-xl">$12.85</p>
+</div>
+<div class="result__info mt-16">
+<p><i class="ti ti-ticket"></i>95K+ Remaining</p>
+<p class="time"><i class="ti ti-clock-hour-4"></i> 5 Days</p>
+</div>
+<div class="cta mt-35">
+<a aria-label="view details" class="btn--primary" href="/lottery-details" title="view details">View Details <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="cta mt-40 text-center">
+<a aria-label="view all" class="btn--secondary" href="/lottery-contest" title="view all">View
+                        All
+                        <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="bottom-th">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/square.png"/>
+</div>
+<div class="right-th">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/left-th.png"/>
+</div>
+</section>
+<!-- ==== / lottery contest section end ==== -->
+<!-- ==== testimonial section start ==== -->
+<section class="testimonial pt-120 pb-120">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-12 col-lg-5 col-xl-5">
+<div class="testimonial__thumb d-none d-lg-block">
+<div class="right-thumb text-end">
+<div class="right__thumb__inner">
+<img alt="Image" data-aos="zoom-in" data-aos-duration="600" src="{{ config.ASSETS_ROOT }}/images/testimonial/top.png"/>
+<div class="quote">
+<i class="ti ti-quote"></i>
+</div>
+</div>
+</div>
+<div class="left-thumb">
+<img alt="Image" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="600" src="{{ config.ASSETS_ROOT }}/images/testimonial/right.png"/>
+</div>
+<div class="bottom-thumb">
+<img alt="Image" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="600" src="{{ config.ASSETS_ROOT }}/images/testimonial/bottom.png"/>
+</div>
+<div class="bottom-left-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/testimonial/card.png"/>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-7 col-xl-6 offset-xl-1">
+<div class="testimonial__content">
+<div class="section__content text-start mb-40">
+<span class="fw-6 secondary-text text-xl"><strong>What,</strong> Our Players Say</span>
+<h2 class="title-animation fw-6 mt-25">Success Stories from Our <span>Winning</span> Players
+                           </h2>
+</div>
+<div class="testimonial__slider swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<div class="testimonial__slider-single">
+<div class="review mb-20">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+<blockquote class="text-xxl"><q>Betwins is hands down the best crypto gaming platform
+                                       I've
+                                       used! I've won big on several games, and the payouts were instant. Can't
+                                       recommend it enough!</q>
+</blockquote>
+<div class="author__info mt-35">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/avatar/one.png"/>
+</div>
+<div class="content">
+<p class="text-xl fw-6">Kiss Laura</p>
+<p>Product Designer</p>
+</div>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="testimonial__slider-single">
+<div class="review mb-20">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+<blockquote class="text-xxl"><q>Betwins is hands down the best crypto gaming platform
+                                       I've
+                                       used! I've won big on several games, and the payouts were instant. Can't
+                                       recommend it enough!</q>
+</blockquote>
+<div class="author__info mt-35">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/avatar/one.png"/>
+</div>
+<div class="content">
+<p class="text-xl fw-6">Kiss Laura</p>
+<p>Product Designer</p>
+</div>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="testimonial__slider-single">
+<div class="review mb-20">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+<blockquote class="text-xxl"><q>Betwins is hands down the best crypto gaming platform
+                                       I've
+                                       used! I've won big on several games, and the payouts were instant. Can't
+                                       recommend it enough!</q>
+</blockquote>
+<div class="author__info mt-35">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/avatar/one.png"/>
+</div>
+<div class="content">
+<p class="text-xl fw-6">Kiss Laura</p>
+<p>Product Designer</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slider-navigation">
+<button aria-label="prev slide" class="prev-testimonial slider-btn" title="prev slide" type="button">
+<i class="fa-solid fa-angle-left"></i>
+</button>
+<button aria-label="next slide" class="next-testimonial slider-btn" title="next slide" type="button">
+<i class="fa-solid fa-angle-right"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="left-bottom" data-aos="fade-right" data-aos-duration="600">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/art.png"/>
+</div>
+<div class="right-bottom" data-aos="fade-left" data-aos-delay="300" data-aos-duration="600">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/square.png"/>
+</div>
+<div class="right-thumb-th">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/right-th.png"/>
+</div>
+<div class="left-thumb-th">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/left-th.png"/>
+</div>
+<div class="chart-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/chart.png"/>
+</div>
+</section>
+<!-- ==== / testimonial section end ==== -->
+<!-- ==== lottery result section start ==== -->
+<section class="lottery-result lottery-alternate-result lottery pt-120 pb-120" data-background="{{ config.ASSETS_ROOT }}/images/lottery-winner.png">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-12 col-xl-9">
+<div class="section__header text-center mb-55" data-aos="fade-up" data-aos-duration="600">
+<span class="fw-6 secondary-text text-xl"><strong>Meet,</strong> our Latest Winners</span>
+<h2 class="title-animation fw-6 mt-20">Recent Winners</h2>
+<p class="mt-16">We celebrate every win, no matter how big or small. Our platform is buzzing with
+                           excitement as players hit jackpots and score massive crypto payouts daily.
+                        </p>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="lottery-sidebar" data-aos="fade-up" data-aos-duration="600">
+<div class="lottery-card">
+<form action="#" method="post">
+<div class="contest-group">
+<p class="text-lg fw-5 neutral-top">Contest Number</p>
+<div class="group-pst mt-12">
+<input id="contestNumber" name="contest-number" placeholder="Enter Number..." required="" type="number"/>
+</div>
+</div>
+<div class="contest-group">
+<p class="text-lg fw-5 neutral-top">Draw Date</p>
+<div class="group-pst mt-12">
+<input id="contestDate" name="contest-date" placeholder="25/12/24" required="" type="text"/>
+<i class="ti ti-calendar-check"></i>
+</div>
+</div>
+<div class="contest-group">
+<p class="text-lg fw-5 neutral-top">Enter lottery Number</p>
+<ul class="mt-12">
+<li>00</li>
+<li>00</li>
+<li>00</li>
+<li>00</li>
+<li>00</li>
+</ul>
+</div>
+<div class="cta">
+<p class="text-lg fw-5 neutral-top">Check My Number</p>
+<button aria-label="check number" class="btn--primary mt-12" title="check number" type="submit">Check My Number<i class="ti ti-arrow-narrow-right m-0"></i></button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div class="row gutter-24 mt-25">
+<div class="col-12 col-lg-6 col-xl-4">
+<div class="result__single tilt">
+<div class="result__number">
+<p class="text-lg fw-6 primary-text">#1</p>
+</div>
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/result/four.png"/>
+</div>
+<div class="content">
+<div class="contest-number">
+<p class="text-sm fw-5">Contest</p>
+<p class="text-lg fw-6 mt-8">9T2</p>
+</div>
+<h5 class="fw-6 neutral-top">Treasure Draw</h5>
+<div class="result__info mt-12">
+<p class="held"><i class="ti ti-hourglass-empty"></i>Draw held on : 27/11/24
+                              </p>
+<p class="time"><i class="ti ti-clock-hour-4"></i>27m ago.</p>
+</div>
+<div class="winning-list mt-35">
+<p class="fw-5">Winning No :</p>
+<ul class="champion">
+<li>12</li>
+<li>13</li>
+<li class="active">16</li>
+<li>19</li>
+<li>32</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-4">
+<div class="result__single tilt">
+<div class="result__number">
+<p class="text-lg fw-6 primary-text">#2</p>
+</div>
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/result/three.png"/>
+</div>
+<div class="content">
+<div class="contest-number">
+<p class="text-sm fw-5">Contest</p>
+<p class="text-lg fw-6 mt-8">5HG</p>
+</div>
+<h5 class="fw-6 neutral-top">Tech Titan Raffle</h5>
+<div class="result__info mt-12">
+<p class="held"><i class="ti ti-hourglass-empty"></i>Draw held on : 27/11/24
+                              </p>
+<p class="time"><i class="ti ti-clock-hour-4"></i>27m ago.</p>
+</div>
+<div class="winning-list mt-35">
+<p class="fw-5">Winning No :</p>
+<ul class="champion">
+<li>12</li>
+<li>13</li>
+<li class="active">16</li>
+<li>19</li>
+<li>32</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-4">
+<div class="result__single tilt">
+<div class="result__number">
+<p class="text-lg fw-6 primary-text">#3</p>
+</div>
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/result/five.png"/>
+</div>
+<div class="content">
+<div class="contest-number">
+<p class="text-sm fw-5">Contest</p>
+<p class="text-lg fw-6 mt-8">9GG</p>
+</div>
+<h5 class="fw-6 neutral-top">Wheel Triumph</h5>
+<div class="result__info mt-12">
+<p class="held"><i class="ti ti-hourglass-empty"></i>Draw held on : 27/11/24
+                              </p>
+<p class="time"><i class="ti ti-clock-hour-4"></i>27m ago.</p>
+</div>
+<div class="winning-list mt-35">
+<p class="fw-5">Winning No :</p>
+<ul class="champion">
+<li>12</li>
+<li>13</li>
+<li class="active">16</li>
+<li>19</li>
+<li>32</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-4">
+<div class="result__single tilt">
+<div class="result__number">
+<p class="text-lg fw-6 primary-text">#4</p>
+</div>
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/result/six.png"/>
+</div>
+<div class="content">
+<div class="contest-number">
+<p class="text-sm fw-5">Contest</p>
+<p class="text-lg fw-6 mt-8">C5G</p>
+</div>
+<h5 class="fw-6 neutral-top">Fast Lane Lottery</h5>
+<div class="result__info mt-12">
+<p class="held"><i class="ti ti-hourglass-empty"></i>Draw held on : 27/11/24
+                              </p>
+<p class="time"><i class="ti ti-clock-hour-4"></i>27m ago.</p>
+</div>
+<div class="winning-list mt-35">
+<p class="fw-5">Winning No :</p>
+<ul class="champion">
+<li>12</li>
+<li>13</li>
+<li class="active">16</li>
+<li>19</li>
+<li>32</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-4">
+<div class="result__single tilt">
+<div class="result__number">
+<p class="text-lg fw-6 primary-text">#5</p>
+</div>
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/result/one.png"/>
+</div>
+<div class="content">
+<div class="contest-number">
+<p class="text-sm fw-5">Contest</p>
+<p class="text-lg fw-6 mt-8">4TG</p>
+</div>
+<h5 class="fw-6 neutral-top">Treasure Draw</h5>
+<div class="result__info mt-12">
+<p class="held"><i class="ti ti-hourglass-empty"></i>Draw held on : 27/11/24
+                              </p>
+<p class="time"><i class="ti ti-clock-hour-4"></i>27m ago.</p>
+</div>
+<div class="winning-list mt-35">
+<p class="fw-5">Winning No :</p>
+<ul class="champion">
+<li>12</li>
+<li>13</li>
+<li class="active">16</li>
+<li>19</li>
+<li>32</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-4">
+<div class="result__single tilt">
+<div class="result__number">
+<p class="text-lg fw-6 primary-text">#6</p>
+</div>
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/result/two.png"/>
+</div>
+<div class="content">
+<div class="contest-number">
+<p class="text-sm fw-5">Contest</p>
+<p class="text-lg fw-6 mt-8">H6ZI</p>
+</div>
+<h5 class="fw-6 neutral-top">Drive &amp; Win</h5>
+<div class="result__info mt-12">
+<p class="held"><i class="ti ti-hourglass-empty"></i>Draw held on : 27/11/24
+                              </p>
+<p class="time"><i class="ti ti-clock-hour-4"></i>27m ago.</p>
+</div>
+<div class="winning-list mt-35">
+<p class="fw-5">Winning No :</p>
+<ul class="champion">
+<li>12</li>
+<li>13</li>
+<li class="active">16</li>
+<li>19</li>
+<li>32</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="mt-40 text-center">
+<a aria-label="view all" class="btn--primary" href="/lottery-result" title="view all">View All
+                        <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==== / lottery result section end ==== -->
+<!-- ==== blog section start ==== -->
+<section class="blog blog-two pt-120 pb-120">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-12 col-xl-8">
+<div class="section__header text-center mb-55" data-aos="fade-up" data-aos-duration="600">
+<span class="fw-6 secondary-text text-xl"><strong>Latest,</strong> Lottery News</span>
+<h2 class="title-animation fw-6 mt-25">
+                           Innovative Ways to Play
+                        </h2>
+<p class="mt-25">
+                           Explore our blog for the latest in lottery insights, tips, and
+                           success stories. Whether you're a seasoned player or just
+                           starting out
+                        </p>
+</div>
+</div>
+</div>
+<div class="row gutter-24">
+<div class="col-12 col-md-6 col-xxl-4">
+<div class="blog__single-wrapper" data-aos="fade-up" data-aos-duration="600">
+<div class="blog__single tilt">
+<div class="thumb">
+<a href="/blog-details">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/blog/one.png"/>
+</a>
+<span class="tag text-lg">Lottery</span>
+</div>
+<div class="content">
+<div class="content__inner">
+<h6 class="mt-20">
+<a href="/blog-details">High-Stakes Jackpot Draws Near, Are You Ready?</a>
+</h6>
+</div>
+<div class="content__cta mt-30">
+<a aria-label="view comments" href="/blog-details" title="view comments"><i class="ti ti-message-2"></i> 24 Comments</a>
+<span></span>
+<a aria-label="view details" class="btn--primary" href="/blog-details" title="view details">Read More <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-xxl-4">
+<div class="blog__single-wrapper" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+<div class="blog__single tilt">
+<div class="thumb">
+<a href="/blog-details">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/blog/four.png"/>
+</a>
+<span class="tag text-lg">Lottery</span>
+</div>
+<div class="content">
+<div class="content__inner">
+<h6 class="mt-20">
+<a href="/blog-details">Bringing Games to Life with Stunning Graphics</a>
+</h6>
+</div>
+<div class="content__cta mt-30">
+<a aria-label="view comments" href="/blog-details" title="view comments"><i class="ti ti-message-2"></i> 24 Comments</a>
+<span></span>
+<a aria-label="view details" class="btn--primary" href="/blog-details" title="view details">Read More <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-md-6 col-xxl-4">
+<div class="blog__single-wrapper" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+<div class="blog__single tilt">
+<div class="thumb">
+<a href="/blog-details">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/blog/two.png"/>
+</a>
+<span class="tag text-lg">Lottery</span>
+</div>
+<div class="content">
+<div class="content__inner">
+<h6 class="mt-20">
+<a href="/blog-details">Crafting Digital Worlds with Expertise</a>
+</h6>
+</div>
+<div class="content__cta mt-30">
+<a aria-label="view comments" href="/blog-details" title="view comments"><i class="ti ti-message-2"></i> 24 Comments</a>
+<span></span>
+<a aria-label="view details" class="btn--primary" href="/blog-details" title="view details">Read More <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="mt-40 text-center" data-aos="fade-up" data-aos-duration="600">
+<a aria-label="Play Lottery" class="btn--secondary" href="/lottery" title="Play Lottery">View All <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+</div>
+<div class="left-th">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/left-th.png"/>
+</div>
+<div class="right-th">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/right-th.png"/>
+</div>
+<div class="rc">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/rocket.png"/>
+</div>
+</section>
+<!-- ==== / blog section end ==== -->
+<!-- ==== footer start ==== -->
+<footer class="footer footer-three footer-three-alternate pt-120" data-background="{{ config.ASSETS_ROOT }}/images/footer/footer-bg.png">
+<div class="container">
+<div class="row align-items-center gutter-24">
+<div class="col-12 col-lg-7 col-xxl-6">
+<div class="footer__newsletter-content">
+<h4 class="title-animation neutral-top fw-6 mb-5">
+                           Subscribe to Our Newsletter
+                        </h4>
+<p>Regular inspections and feedback mechanisms</p>
+</div>
+</div>
+<div class="col-12 col-lg-5 col-xxl-5 offset-xxl-1">
+<div class="footer__newsletter-form">
+<form action="#" method="post">
+<input id="subscribeEmail" name="subscribe-email" placeholder="Enter Email" required="" type="email"/>
+<button aria-label="subscribe to our newsletter" class="btn--tertiary" title="subscribe to our newsletter" type="submit"> <i class="fa-solid fa-paper-plane"></i>
+</button>
+</form>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<hr class="divider"/>
+</div>
+</div>
+<div class="row gutter-60">
+<div class="col-12 col-lg-6 col-xl-3">
+<div class="footer__widget" data-aos="fade-up" data-aos-duration="600">
+<div class="footer__widget-intro">
+<a class="logo" href="/">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/logo.png"/>
+</a>
+</div>
+<div class="footer__widget-content mt-25">
+<p>Betwins is an innovative Online Crypto Gaming platform designed for players.</p>
+</div>
+<div class="social mt-35">
+<a aria-label="share us on facebook" href="https://www.facebook.com/" target="_blank" title="facebook">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+<a aria-label="share us on instagram" href="https://instagram.com/" target="_blank" title="instagram">
+<i class="fa-brands fa-instagram"></i>
+</a>
+<a aria-label="share us on twitter" href="https://x.com/" target="_blank" title="twitter">
+<i class="fa-brands fa-twitter"></i>
+</a>
+<a aria-label="share us on linkedin" href="https://www.linkedin.com/" target="_blank" title="linkedin">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-3 col-xl-2">
+<div class="footer__widget" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+<div class="footer__widget-intro">
+<h6 class="fw-6 neutral-top">Quick Links</h6>
+</div>
+<div class="footer__widget-content mt-25">
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/about-us">About Us</a></li>
+<li><a href="/games">Games</a></li>
+<li><a href="/lottery">Lottery</a></li>
+<li><a href="/blog">Blog</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-3 col-xl-2">
+<div class="footer__widget" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+<div class="footer__widget-intro">
+<h6 class="fw-6 neutral-top">Categories</h6>
+</div>
+<div class="footer__widget-content mt-25">
+<ul>
+<li><a href="/lottery-contest">Jackpot</a></li>
+<li><a href="/lottery-contest">Slots</a></li>
+<li><a href="/lottery-contest">Casino</a></li>
+<li><a href="/lottery-contest">Gambling</a></li>
+<li><a href="/lottery">Lottery</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-2">
+<div class="footer__widget" data-aos="fade-up" data-aos-delay="600" data-aos-duration="600">
+<div class="footer__widget-intro">
+<h6 class="fw-6 neutral-top">Quick Links</h6>
+</div>
+<div class="footer__widget-content mt-25">
+<ul>
+<li><a href="/faq">FAQ's</a></li>
+<li><a href="/contact-us">Contact Us</a></li>
+<li><a href="/sign-up">Create Account</a></li>
+<li><a href="/sign-in">Sign In</a></li>
+<li><a href="/404">Error</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-3">
+<div class="footer__widget" data-aos="fade-up" data-aos-delay="800" data-aos-duration="600">
+<div class="footer__widget-intro">
+<h6 class="fw-6 neutral-top">Get In Touch</h6>
+</div>
+<div class="footer__widget-content mt-25">
+<div class="footer__widget-group">
+<div class="icon">
+<i class="ti ti-phone-call"></i>
+</div>
+<div class="content">
+<p><a href="tel:505-555-0125">(505) 555-0125</a></p>
+<p class="mt-4"><a href="tel:225-555-0118">(225) 555-0118</a></p>
+</div>
+</div>
+<div class="footer__widget-group mt-16">
+<div class="icon">
+<i class="ti ti-mail-opened"></i>
+</div>
+<div class="content">
+<p><a href="mailto:example@betwins.com">example@betwins.com</a></p>
+<p class="mt-4"><a href="mailto:contact@betwins.com">contact@betwins.com</a></p>
+</div>
+</div>
+<div class="footer__widget-group mt-16">
+<div class="icon">
+<i class="ti ti-map-pin"></i>
+</div>
+<div class="content">
+<p><a href="https://www.google.com/maps/place/Kentucky,+USA/@37.8172108,-87.087054,8z/data=!3m1!4b1!4m6!3m5!1s0x8842734c8b1953c9:0x771f6f4ec5ccdffc!8m2!3d37.8393332!4d-84.2700179!16zL20vMDQ5OHk?entry=ttu" target="_blank">1901 Thornridge Cir. Shiloh, Hawaii 81063</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="footer__copyright mt-80">
+<div class="row align-items-center gutter-20">
+<div class="col-12 col-lg-5">
+<div class="footer__copyright-content">
+<p class="text-center text-lg-start">Copyright © <span id="copyrightYear"></span> <a href="/">Betwins</a>.
+                                    All rights
+                                    reserved.
+                                 </p>
+</div>
+</div>
+<div class="col-12 col-lg-7">
+<div class="footer__copyright-list">
+<ul class="justify-content-center justify-content-lg-end">
+<li><a href="/contact-us">Help &amp; Support</a></li>
+<li><span></span></li>
+<li><a href="/terms-conditions">Terms &amp; Conditions</a></li>
+<li><span></span></li>
+<li><a href="/privacy-policy">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="left-thumb" data-aos="fade-right" data-aos-duration="600">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/footer/footer-left.png"/>
+</div>
+<div class="right-thumb" data-aos="fade-left" data-aos-delay="300" data-aos-duration="600">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/footer/footer-right.png"/>
+</div>
+<div class="arrow">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/footer/arrow.png"/>
+</div>
+</footer>
+<!-- ==== / footer end ==== -->
+<!-- ==== mouse cursor start ==== -->
+<div class="mouseCursor cursor-outer"></div>
+<div class="mouseCursor cursor-inner">
+</div>
+<!-- ==== / mouse cursor end ==== -->
+<!-- ==== scroll to top start ==== -->
+<button aria-label="scroll indicator" class="progress-wrap" title="back to top">
+<span></span>
+<svg class="progress-circle svg-content" height="100%" viewbox="-1 -1 102 102" width="100%">
+<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+</svg>
+</button>
+<!-- ==== / scroll to top end ==== -->
+<!-- ==== template option start ==== -->
+<div class="color-palate">
+<div class="color-icon">
+<button class="open-color">
+<i class="ti ti-settings-filled"></i>
+</button>
+<button class="close-color">
+<i class="ti ti-x"></i>
+</button>
+</div>
+<div class="color-palate-inner">
+<div class="group">
+<h6 class="not-cursor">Cursor</h6>
+<ul class="cursor-version">
+<li class="active cursor-pointer animated-cursor">Animated</li>
+<li class="box cursor-pointer default-cursor">Default</li>
+</ul>
+</div>
+<div class="group">
+<h6 class="not-cursor">Direction</h6>
+<ul class="rtl-version">
+<li class="active cursor-pointer ltr-yes">LTR</li>
+<li class="cursor-pointer ltr-no">RTL</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- ==== / template option end ==== -->
+</div>
+<!-- ==== js dependencies start ==== -->
+<!-- jquery -->
+
+<!-- bootstrap five js -->
+
+<!-- nice select js -->
+
+<!-- magnific popup js -->
+
+<!-- swiper slider js -->
+
+<!-- viewport js -->
+
+<!-- odometer js -->
+
+<!-- vanilla tilt js -->
+
+<!-- aos js -->
+
+<!-- isotope js -->
+
+<!-- splittext js -->
+
+<!-- scrollto js -->
+
+<!-- scrolltrigger js -->
+
+<!-- gsap js -->
+
+<!-- ==== / js dependencies end ==== -->
+<!-- main js -->
+{% endblock content %}
+
+{% block scripts %}
+<script src="{{ config.ASSETS_ROOT }}/js/jquery-3.7.1.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/bootstrap.bundle.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/jquery.nice-select.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/jquery.magnific-popup.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/swiper-bundle.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/viewport.jquery.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/odometer.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/vanilla-tilt.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/aos.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/isotope.pkgd.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/SplitText.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/ScrollToPlugin.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/ScrollTrigger.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/gsap.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/custom.js"></script>
+{% endblock scripts %}

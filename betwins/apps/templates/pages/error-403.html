@@ -1,0 +1,34 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Access Denied (403) | Casino Royale Goa{% endblock title %}
+
+{% block content %}
+<section class="error pt-120 pb-120" data-background="{{ img('error-bg.jpg') }}">
+   <div class="container">
+      <div class="row justify-content-center">
+         <div class="col-12 col-lg-7 col-xl-6">
+            <div class="error__inner text-center">
+               <div class="error__thumb text-center" data-aos="zoom-in" data-aos-duration="600">
+                  <img alt="403 Restricted Salon" src="{{ img('error.png') }}" style="max-height: 280px; width: auto;" />
+               </div>
+               <div class="error__content text-center mt-40" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+                  <span class="text-uppercase fw-6 secondary-text"><i class="ti ti-lock"></i> Error 403</span>
+                  <h3 class="title-animation fw-7 mt-8 mb-16">Private Salon Restricted</h3>
+                  <p class="opacity-75">
+                     Access to this salon is restricted. Please sign in with your VIP credentials or contact the Chief Concierge on WhatsApp to request access.
+                  </p>
+                  <div class="d-flex justify-content-center gap-3 flex-wrap mt-35">
+                     <a aria-label="Back To Home" class="btn--primary" href="/" title="Back To Home">
+                        <i class="ti ti-arrow-narrow-left me-1"></i> Back To Home
+                     </a>
+                     <a aria-label="Sign In" class="btn--secondary" href="/sign-in" title="Sign In">
+                        Member Sign In <i class="ti ti-arrow-narrow-right ms-1"></i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+{% endblock content %}

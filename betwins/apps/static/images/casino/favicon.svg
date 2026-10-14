@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"><defs>
+<linearGradient id="gGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff3b8"/><stop offset=".45" stop-color="#ffba23"/><stop offset="1" stop-color="#a8650a"/></linearGradient>
+<linearGradient id="gRuby" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff7a85"/><stop offset=".5" stop-color="#d11a3a"/><stop offset="1" stop-color="#6a0b1e"/></linearGradient>
+<linearGradient id="gSapphire" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8fbaff"/><stop offset=".5" stop-color="#2563d8"/><stop offset="1" stop-color="#0c2a6e"/></linearGradient>
+<linearGradient id="gEmerald" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8ff5c0"/><stop offset=".5" stop-color="#14a366"/><stop offset="1" stop-color="#075238"/></linearGradient>
+<linearGradient id="gOnyx" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b5f6c"/><stop offset=".5" stop-color="#2a2c34"/><stop offset="1" stop-color="#0d0e12"/></linearGradient>
+<linearGradient id="gCyan" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e3fbff"/><stop offset=".5" stop-color="#9cecfe"/><stop offset="1" stop-color="#3c9db8"/></linearGradient>
+<linearGradient id="gCard" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#dfe3ee"/></linearGradient>
+<linearGradient id="gWood" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a4b1c"/><stop offset=".5" stop-color="#4e2610"/><stop offset="1" stop-color="#2b1208"/></linearGradient>
+<radialGradient id="gGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#9cecfe" stop-opacity=".45"/><stop offset=".6" stop-color="#9cecfe" stop-opacity=".08"/><stop offset="1" stop-color="#9cecfe" stop-opacity="0"/></radialGradient>
+<radialGradient id="gGlowGold" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffba23" stop-opacity=".5"/><stop offset=".6" stop-color="#ffba23" stop-opacity=".1"/><stop offset="1" stop-color="#ffba23" stop-opacity="0"/></radialGradient>
+<radialGradient id="gFelt" cx=".5" cy=".4" r=".8"><stop offset="0" stop-color="#1f7a55"/><stop offset="1" stop-color="#0a3523"/></radialGradient>
+<filter id="fShadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="10" stdDeviation="9" flood-color="#000" flood-opacity=".45"/></filter>
+<filter id="fSoft" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity=".4"/></filter>
+</defs>
+<rect width="64" height="64" rx="14" fill="#1d1e24"/>
+<path d="M32 6 L54 17 L54 40 L32 58 L10 40 L10 17 Z" fill="url(#gGold)" stroke="#8a520a" stroke-width="2" stroke-linejoin="round"/>
+<path d="M32 13 L47 20.5 L47 38 L32 50 L17 38 L17 20.5 Z" fill="#1d1e24"/>
+<path d="M21 38 L23 25 L28 31 L32 21 L36 31 L41 25 L43 38 Z" fill="url(#gGold)"/></svg>

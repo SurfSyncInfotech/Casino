@@ -1,0 +1,34 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Server Error (500) | Casino Royale Goa{% endblock title %}
+
+{% block content %}
+<section class="error pt-120 pb-120" data-background="{{ img('error-bg.jpg') }}">
+   <div class="container">
+      <div class="row justify-content-center">
+         <div class="col-12 col-lg-7 col-xl-6">
+            <div class="error__inner text-center">
+               <div class="error__thumb text-center" data-aos="zoom-in" data-aos-duration="600">
+                  <img alt="500 Server Error" src="{{ img('error.png') }}" style="max-height: 280px; width: auto;" />
+               </div>
+               <div class="error__content text-center mt-40" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+                  <span class="text-uppercase fw-6 secondary-text"><i class="ti ti-alert-triangle"></i> Error 500</span>
+                  <h3 class="title-animation fw-7 mt-8 mb-16">Floor Technical Pause</h3>
+                  <p class="opacity-75">
+                     Our gaming servers experienced an unexpected glitch. Our engineers are reviewing the situation. Please return to the lobby or try again shortly.
+                  </p>
+                  <div class="d-flex justify-content-center gap-3 flex-wrap mt-35">
+                     <a aria-label="Back To Home" class="btn--primary" href="/" title="Back To Home">
+                        <i class="ti ti-arrow-narrow-left me-1"></i> Back To Home
+                     </a>
+                     <a aria-label="Contact Concierge" class="btn--secondary" href="/contact-us" title="Contact Concierge">
+                        Contact Concierge <i class="ti ti-arrow-narrow-right ms-1"></i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+{% endblock content %}

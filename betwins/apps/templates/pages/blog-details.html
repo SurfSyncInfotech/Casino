@@ -1,0 +1,221 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner, vip_cta %}
+
+{% set cur_p = post or content.POSTS[0] %}
+
+{% block title %}{{ cur_p.title }} | Royale Casino Journal{% endblock title %}
+{% block description %}{{ cur_p.excerpt }}{% endblock %}
+
+{% block content %}
+{{ banner(cur_p.title, [("Blog", "/blog")]) }}
+
+<!-- ==== blog details section start ==== -->
+<section class="blog-details pt-120 pb-120">
+   <div class="container">
+      <div class="row gutter-40">
+         <div class="col-12 col-xl-8">
+            <div class="blog__details-card">
+               <!-- Poster image -->
+               <div class="details__poster" data-aos="fade-up" data-aos-duration="600">
+                  <img alt="{{ cur_p.title }}" src="{{ img(cur_p.wide or cur_p.img) }}" style="width: 100%; border-radius: 12px;" />
+               </div>
+
+               <!-- Article Header -->
+               <div class="details__content mt-40" data-aos="fade-up" data-aos-duration="600">
+                  <div class="d-flex align-items-center gap-3 text-xs opacity-75 mb-3">
+                     <span class="badge tertiary-bg border border-secondary text-secondary-color px-3 py-1">{{ cur_p.cat }}</span>
+                     <span><i class="ti ti-calendar me-1"></i> {{ cur_p.date }}</span>
+                     <span>&middot;</span>
+                     <span><i class="ti ti-message me-1"></i> {{ cur_p.comments }} Comments</span>
+                     <span>&middot;</span>
+                     <span><i class="ti ti-user me-1"></i> Royale Editorial &middot; Goa</span>
+                  </div>
+                  <h2 class="title-animation fw-7 neutral-top">{{ cur_p.title }}</h2>
+                  <p class="text-xl secondary-text mt-12">{{ cur_p.excerpt }}</p>
+               </div>
+
+               <div class="details__content my-35">
+                  <hr class="divider" />
+               </div>
+
+               <!-- Article Sections -->
+               {% for sec_title, paragraphs in cur_p.sections %}
+               <div class="details__content mt-35" data-aos="fade-up" data-aos-duration="600">
+                  <h4 class="title-animation fw-6 neutral-top mb-16">{{ sec_title }}</h4>
+                  {% for para in paragraphs %}
+                  <p class="mb-16 text-base opacity-85" style="line-height: 1.8;">{{ para }}</p>
+                  {% endfor %}
+               </div>
+               {% endfor %}
+
+               <!-- Highlight Callout Box -->
+               <div class="details__content mt-40 p-4 rounded-4 tertiary-bg border border-secondary" data-aos="fade-up" data-aos-duration="600">
+                  <div class="d-flex gap-3 align-items-start">
+                     <i class="ti ti-quote text-secondary-color" style="font-size: 36px; min-width: 36px;"></i>
+                     <div>
+                        <p class="text-lg fw-5 fst-italic">
+                           "True gaming mastery lies in understanding the variance, respecting your bankroll, and savouring the elegance of every decision at the felt."
+                        </p>
+                        <p class="text-sm text-secondary-color mt-2 mb-0">— Master Croupier Desk, Casino Royale Goa</p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Tags & Share Footer -->
+               <div class="details__content details__footer mt-40 pt-30 border-top d-flex justify-content-between align-items-center flex-wrap gap-3">
+                  <div class="details-tag d-flex align-items-center gap-2">
+                     <span class="text-sm fw-6">Tags:</span>
+                     <div class="tag-wrapper d-flex gap-2">
+                        <a href="/games" class="badge tertiary-bg border text-white hover-secondary px-3 py-1">Casino</a>
+                        <a href="/games" class="badge tertiary-bg border text-white hover-secondary px-3 py-1">{{ cur_p.cat }}</a>
+                        <a href="/about-us" class="badge tertiary-bg border text-white hover-secondary px-3 py-1">Goa</a>
+                     </div>
+                  </div>
+                  <div class="social d-flex align-items-center gap-2">
+                     <span class="text-sm fw-6 me-2">Share:</span>
+                     {% for s in site.social[:4] %}
+                     <a aria-label="{{ s.name }}" href="{{ s.href }}" target="_blank" rel="noopener"><i class="{{ s.icon }}"></i></a>
+                     {% endfor %}
+                  </div>
+               </div>
+
+               <!-- Previous / Next Navigation -->
+               <div class="details__content mt-40 pt-30 border-top d-flex justify-content-between align-items-center flex-wrap gap-3">
+                  {% if prev_post %}
+                  <a class="btn--secondary" href="/blog-details/{{ prev_post.slug }}">
+                     <i class="ti ti-arrow-narrow-left me-2"></i> Previous Guide
+                  </a>
+                  {% else %}
+                  <div></div>
+                  {% endif %}
+
+                  {% if next_post %}
+                  <a class="btn--primary" href="/blog-details/{{ next_post.slug }}">
+                     Next Guide <i class="ti ti-arrow-narrow-right ms-2"></i>
+                  </a>
+                  {% endif %}
+               </div>
+
+               <!-- Comments Section -->
+               <div class="details__content mt-60" id="comments" data-aos="fade-up" data-aos-duration="600">
+                  <h4 class="title-animation neutral-top fw-6 mb-30"><i class="ti ti-messages text-secondary-color me-2"></i> Comments ({{ cur_p.comments }})</h4>
+
+                  <div class="comment__wrapper">
+                     <div class="comment__single p-3 rounded-3 tertiary-bg mb-20 border">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                           <div class="d-flex align-items-center gap-2">
+                              <span class="fw-7 text-white">Rohan Deshmukh</span>
+                              <span class="text-xs text-secondary-color"><i class="ti ti-map-pin"></i> Pune</span>
+                           </div>
+                           <span class="text-xs opacity-50">3 days ago</span>
+                        </div>
+                        <p class="text-sm opacity-85 mb-2">Extremely well-explained strategy. The tips on hand odds and bankroll caps made an immediate difference at my last session.</p>
+                        <div class="comment__single-action">
+                           <button class="single btn btn-sm text-secondary-color p-0" type="button"><i class="ti ti-thumb-up"></i> 14</button>
+                        </div>
+                     </div>
+
+                     <div class="comment__single p-3 rounded-3 tertiary-bg mb-20 border ms-4">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                           <div class="d-flex align-items-center gap-2">
+                              <span class="fw-7 text-white">Royale Concierge</span>
+                              <span class="badge border border-secondary text-secondary-color text-xs">Official</span>
+                           </div>
+                           <span class="text-xs opacity-50">2 days ago</span>
+                        </div>
+                        <p class="text-sm opacity-85 mb-2">Glad to hear that, Rohan! Looking forward to welcoming you back to the Mandovi floor this weekend.</p>
+                     </div>
+                  </div>
+
+                  <!-- Post a Comment Form -->
+                  <div class="mt-40 p-4 rounded-4 tertiary-bg border border-secondary">
+                     <h5 class="fw-6 neutral-top mb-16">Leave a Thought</h5>
+                     <form data-ajax-form="comment" method="post">
+                        <input type="hidden" name="article" value="{{ cur_p.slug }}" />
+                        <div class="row gutter-20">
+                           <div class="col-12 col-md-6">
+                              <div class="input-wrapper">
+                                 <label for="comName">Your Name</label>
+                                 <div class="input-single">
+                                    <input id="comName" name="name" placeholder="Priya Nair" required="" type="text" />
+                                    <i class="fa-solid fa-user"></i>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="col-12 col-md-6">
+                              <div class="input-wrapper">
+                                 <label for="comEmail">Your Email</label>
+                                 <div class="input-single">
+                                    <input id="comEmail" name="email" placeholder="priya@example.com" required="" type="email" />
+                                    <i class="fa-solid fa-envelope"></i>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="input-wrapper mt-20">
+                           <label for="comMessage">Your Comment</label>
+                           <div class="input-single">
+                              <textarea id="comMessage" name="comment" placeholder="Share your experience or inquiry..." required="" rows="3"></textarea>
+                           </div>
+                        </div>
+                        <div class="mt-20">
+                           <button class="btn--primary" type="submit">Submit Comment <i class="ti ti-arrow-narrow-right"></i></button>
+                        </div>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- Sidebar -->
+         <div class="col-12 col-xl-4">
+            <div class="blog__sidebar">
+               <!-- Categories Widget -->
+               <div class="blog__sidebar-widget mb-30 p-4 rounded-4 tertiary-bg border border-secondary" data-aos="fade-up" data-aos-duration="600">
+                  <h5 class="fw-6 neutral-top mb-20"><i class="ti ti-category text-secondary-color me-2"></i> Categories</h5>
+                  <ul class="list-unstyled mb-0" style="line-height: 2.2;">
+                     {% for cat in content.BLOG_CATEGORIES %}
+                     <li class="d-flex justify-content-between align-items-center border-bottom py-1">
+                        <a href="/blog?cat={{ cat }}" class="text-white hover-secondary">{{ cat }}</a>
+                        <span class="badge tertiary-bg border text-secondary-color">Guide</span>
+                     </li>
+                     {% endfor %}
+                  </ul>
+               </div>
+
+               <!-- Recent Articles -->
+               <div class="blog__sidebar-widget mb-30 p-4 rounded-4 tertiary-bg border border-secondary" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
+                  <h5 class="fw-6 neutral-top mb-20"><i class="ti ti-flame text-secondary-color me-2"></i> Other Guides</h5>
+                  {% for rp in (recent or content.POSTS[:3]) %}
+                  <div class="d-flex gap-3 align-items-center mb-3 pb-3 border-bottom">
+                     <a href="/blog-details/{{ rp.slug }}" style="min-width: 70px; width: 70px; height: 60px; overflow: hidden; border-radius: 8px;">
+                        <img alt="{{ rp.title }}" src="{{ img(rp.img) }}" style="width: 100%; height: 100%; object-fit: cover;" />
+                     </a>
+                     <div>
+                        <p class="text-xs text-secondary-color mb-1">{{ rp.date }}</p>
+                        <h6 class="text-sm fw-6 mb-0">
+                           <a href="/blog-details/{{ rp.slug }}" class="text-white hover-secondary">{{ rp.title }}</a>
+                        </h6>
+                     </div>
+                  </div>
+                  {% endfor %}
+               </div>
+
+               <!-- VIP Assistance Box -->
+               <div class="lottery-card p-4 text-center" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+                  <i class="ti ti-crown text-secondary-color" style="font-size: 38px;"></i>
+                  <h5 class="fw-6 mt-12">Looking for High-Roller Action?</h5>
+                  <p class="text-sm mt-8 opacity-75">Join the Maharaja Salon with private tables, dedicated hosts and bespoke limits.</p>
+                  <a class="btn--primary mt-20 w-100 justify-content-center" href="/vip-club">
+                     Explore VIP Club <i class="ti ti-arrow-narrow-right"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ==== / blog details section end ==== -->
+
+{{ vip_cta() }}
+{% endblock content %}

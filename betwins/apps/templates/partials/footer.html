@@ -1,0 +1,190 @@
+   <!-- ==== footer start ==== -->
+   <footer class="footer" data-background="{{ img('footer/footer-bg-two.png') }}">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <div class="footer__newsletter" data-aos="fade-up" data-aos-duration="600"
+                  data-background="{{ img('newsletter-bg.png') }}">
+                  <div class="row align-items-center gutter-24">
+                     <div class="col-12 col-lg-6">
+                        <div class="footer__newsletter-content">
+                           <h4 class="title-animation fw-5 neutral-top">
+                              Get invitations to tournaments, jackpots &amp; festive offers
+                           </h4>
+                        </div>
+                     </div>
+                     <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
+                        <div class="footer__newsletter-form">
+                           <form action="/forms/newsletter" data-ajax-form="newsletter" method="post">
+                              <input id="subscribeEmail" name="email" placeholder="Enter your email" required="" type="email" />
+                              <button aria-label="subscribe to our newsletter" title="subscribe to our newsletter"
+                                 type="submit">
+                                 <i class="fa-solid fa-paper-plane"></i>
+                              </button>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row gutter-60 pt-120 pb-120">
+            <div class="col-12 col-lg-6 col-xl-3">
+               <div class="footer__widget" data-aos="fade-up" data-aos-duration="600">
+                  <div class="footer__widget-intro">
+                     <a class="logo" href="/">
+                        <img alt="{{ site.name }}" src="{{ img('casino/logo.svg') }}" />
+                     </a>
+                  </div>
+                  <div class="footer__widget-content mt-25">
+                     <p>{{ site.about_short }}</p>
+                  </div>
+                  <div class="social mt-35">
+                     {% for s in site.social %}
+                     <a aria-label="{{ s.name }}" href="{{ s.href }}" target="_blank" rel="noopener" title="{{ s.name }}">
+                        <i class="{{ s.icon }}"></i>
+                     </a>
+                     {% endfor %}
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 col-lg-3 col-xl-2">
+               <div class="footer__widget" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+                  <div class="footer__widget-intro">
+                     <h6 class="fw-6 neutral-top">Explore</h6>
+                  </div>
+                  <div class="footer__widget-content mt-25">
+                     <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/about-us">About Us</a></li>
+                        <li><a href="/vip-club">VIP Club</a></li>
+                        <li><a href="/blog">Casino Journal</a></li>
+                        <li><a href="/blog-grid">Guides &amp; News</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 col-lg-3 col-xl-2">
+               <div class="footer__widget" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+                  <div class="footer__widget-intro">
+                     <h6 class="fw-6 neutral-top">Play</h6>
+                  </div>
+                  <div class="footer__widget-content mt-25">
+                     <ul>
+                        <li><a href="/games">All Games</a></li>
+                        <li><a href="/live-casino">Live Casino</a></li>
+                        <li><a href="/tournaments">Tournaments</a></li>
+                        <li><a href="/jackpots">Jackpots</a></li>
+                        <li><a href="/lucky-draw">Lucky Draw</a></li>
+                        <li><a href="/results">Draw Results</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-2">
+               <div class="footer__widget" data-aos="fade-up" data-aos-delay="600" data-aos-duration="600">
+                  <div class="footer__widget-intro">
+                     <h6 class="fw-6 neutral-top">Support</h6>
+                  </div>
+                  <div class="footer__widget-content mt-25">
+                     <ul>
+                        <li><a href="/faq">FAQ's</a></li>
+                        <li><a href="/contact-us">Contact Us</a></li>
+                        <li><a href="/responsible-gaming">Responsible Gaming</a></li>
+                        <li><a href="/sign-up">Create Account</a></li>
+                        <li><a href="/sign-in">Sign In</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-3">
+               <div class="footer__widget" data-aos="fade-up" data-aos-delay="800" data-aos-duration="600">
+                  <div class="footer__widget-intro">
+                     <h6 class="fw-6 neutral-top">Get In Touch</h6>
+                  </div>
+                  <div class="footer__widget-content mt-25">
+                     <div class="footer__widget-group">
+                        <div class="icon">
+                           <i class="ti ti-phone-call"></i>
+                        </div>
+                        <div class="content">
+                           {% for p in site.phones %}
+                           <p{% if not loop.first %} class="mt-4"{% endif %}><a href="tel:{{ p.href }}">{{ p.label }}</a></p>
+                           {% endfor %}
+                        </div>
+                     </div>
+                     <div class="footer__widget-group mt-16">
+                        <div class="icon">
+                           <i class="ti ti-mail-opened"></i>
+                        </div>
+                        <div class="content">
+                           {% for e in site.emails %}
+                           <p{% if not loop.first %} class="mt-4"{% endif %}><a href="mailto:{{ e.label }}">{{ e.label }}</a></p>
+                           {% endfor %}
+                        </div>
+                     </div>
+                     <div class="footer__widget-group mt-16">
+                        <div class="icon">
+                           <i class="ti ti-map-pin"></i>
+                        </div>
+                        <div class="content">
+                           <p>
+                              <a href="{{ site.map_link }}" target="_blank" rel="noopener">{{ site.address }}</a>
+                           </p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-12">
+               <div class="footer__copyright">
+                  <div class="row align-items-center gutter-20">
+                     <div class="col-12 col-lg-5">
+                        <div class="footer__copyright-content">
+                           <p class="text-center text-lg-start">
+                              Copyright © <span id="copyrightYear"></span>
+                              <a href="/">{{ site.name }}</a>. All rights reserved.
+                           </p>
+                        </div>
+                     </div>
+                     <div class="col-12 col-lg-7">
+                        <div class="footer__copyright-list">
+                           <ul class="justify-content-center justify-content-lg-end">
+                              <li><a href="/contact-us">Help &amp; Support</a></li>
+                              <li><span></span></li>
+                              <li><a href="/terms-conditions">Terms &amp; Conditions</a></li>
+                              <li><span></span></li>
+                              <li><a href="/privacy-policy">Privacy Policy</a></li>
+                              <li><span></span></li>
+                              <li><a href="/responsible-gaming">Responsible Gaming</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-12">
+               <p class="footer__disclaimer">
+                  <span class="age-badge">{{ site.min_age }}+</span>
+                  Gaming involves financial risk and may be addictive. Entry and registration are restricted to adults aged
+                  {{ site.min_age }} and above with valid ID, and are available only where permitted by law. Please play
+                  responsibly. Need help? Call Tele-MANAS <a href="tel:14416">14416</a>.
+               </p>
+            </div>
+         </div>
+      </div>
+      <div class="left-thumb" data-aos="fade-right" data-aos-duration="600">
+         <img alt="" src="{{ img('footer/footer-left.png') }}" />
+      </div>
+      <div class="right-thumb" data-aos="fade-left" data-aos-delay="300" data-aos-duration="600">
+         <img alt="" src="{{ img('footer/footer-right.png') }}" />
+      </div>
+      <div class="arrow">
+         <img alt="" src="{{ img('footer/arrow.png') }}" />
+      </div>
+   </footer>
+   <!-- ==== / footer end ==== -->

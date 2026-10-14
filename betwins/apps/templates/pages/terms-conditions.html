@@ -1,0 +1,63 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner %}
+
+{% block title %}Terms &amp; Conditions | Casino Royale Goa{% endblock title %}
+{% block description %}Terms and conditions for playing at Casino Royale Casino & Resort. Age 21+ requirement, mandatory KYC, game rules, Income Tax TDS deductions, and Panaji Goa legal jurisdiction.{% endblock %}
+
+{% block content %}
+{{ banner("Terms & Conditions", [("Terms & Conditions", "/terms-conditions")]) }}
+
+<!-- ==== terms conditions section start ==== -->
+<section class="privacy pt-120 pb-120">
+   <div class="container">
+      <div class="row gutter-40">
+         <div class="col-12 col-xl-8">
+            <div class="blog__details-card">
+               <div class="details__content" data-aos="fade-up" data-aos-duration="600">
+                  <div class="d-inline-flex align-items-center gap-2 mb-3">
+                     <span class="age-badge">21+</span>
+                     <span class="text-sm fw-6 text-secondary-color text-uppercase">Terms of Service &amp; Member Agreement</span>
+                  </div>
+                  <h3 class="title-animation neutral-top fw-7">Royale Terms of Service</h3>
+                  <p class="mt-20 text-base opacity-85" style="line-height: 1.8;">
+                     Welcome to Casino Royale Entertainment Pvt. Ltd. By accessing our gaming floor in Panaji, Goa or registering an account on our platform, you agree to comply with the terms and legal stipulations set forth herein.
+                  </p>
+                  <p class="mt-12 text-xs opacity-50">Last updated: October 2026 &middot; Jurisdiction: Panaji, Goa, India</p>
+               </div>
+
+               {% for sec_id, icon, title, label, paragraphs in content.TERMS %}
+               <div class="details__content mt-35 mb-35">
+                  <hr class="divider" />
+               </div>
+
+               <div class="details__content" id="{{ sec_id }}" data-aos="fade-up" data-aos-duration="600">
+                  <h4 class="title-animation neutral-top fw-6"><i class="ti {{ icon }} text-secondary-color me-2"></i> {{ title }}</h4>
+                  {% for p in paragraphs %}
+                  <p class="mt-16 text-base opacity-85" style="line-height: 1.8;">{{ p }}</p>
+                  {% endfor %}
+               </div>
+               {% endfor %}
+
+               <div class="details__content mt-40 pt-30 border-top">
+                  <p class="text-sm opacity-75">
+                     Disputes are handled initially by our Grievance Officer at <a href="mailto:grievance@rajwaderoyale.in" class="text-secondary-color">grievance@rajwaderoyale.in</a> and are subject to the exclusive jurisdiction of the competent courts in Panaji, Goa.
+                  </p>
+               </div>
+            </div>
+         </div>
+
+         <!-- Sidebar -->
+         <div class="col-12 col-xl-4">
+            <div class="privacy__sidebar blog__sidebar-widget sticky-top" style="top: 100px;">
+               {% for sec_id, icon, title, label, paragraphs in content.TERMS %}
+               <a class="privacy-btn{% if loop.first %} active{% endif %}" href="#{{ sec_id }}">
+                  <i class="ti {{ icon }}"></i> {{ label }}
+               </a>
+               {% endfor %}
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ==== / terms conditions section end ==== -->
+{% endblock content %}

@@ -1,0 +1,1848 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Untitled{% endblock title %}
+
+{% block styles %}
+<link href="{{ config.ASSETS_ROOT }}/images/favicon.png" rel="shortcut icon" type="image/x-icon"/>
+<link href="{{ config.ASSETS_ROOT }}/images/favicon.png" rel="icon" type="image/x-icon"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="{{ config.ASSETS_ROOT }}/css/main.css" rel="stylesheet"/>
+<link href="{{ config.ASSETS_ROOT }}/css/responsive.css" rel="stylesheet"/>
+<link href="{{ config.ASSETS_ROOT }}/css/rtl-version.css" rel="stylesheet"/>
+<link href="{{ config.ASSETS_ROOT }}/css/template-settings.css" rel="stylesheet"/>
+{% endblock styles %}
+
+{% block content %}
+<!--[if lte IE 9]>
+      <p class="browserupgrade">
+         You are using an <strong>outdated</strong> browser. Please
+         <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+         your experience and security.
+      </p>
+      <![endif]-->
+<div class="page-wrapper a-cursor">
+<!-- ==== preloader start ==== -->
+<div class="preloader">
+<i class="ti ti-device-gamepad-2"></i>
+<p>Betwins</p>
+</div>
+<!-- ==== / preloader end ==== -->
+<!-- ==== header start ==== -->
+<header class="header">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="main-header__menu-box">
+<nav class="navbar p-0">
+<div class="navbar__intro">
+<div class="navbar-logo">
+<a href="/">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/logo.png"/>
+</a>
+</div>
+<div class="navbar__intro-games">
+<button aria-label="dropdown menu"><i class="ti ti-layout-grid"></i>Top Games <i class="ti ti-chevron-down"></i></button>
+<ul class="sub-menu">
+<li>
+<a href="/games">Jackpot</a>
+</li>
+<li>
+<a href="/games">Slots</a>
+</li>
+<li>
+<a href="/games-two">Gambling</a>
+</li>
+<li>
+<a href="/games-two">Casino</a>
+</li>
+</ul>
+</div>
+</div>
+<div class="navbar__menu d-none d-xl-block">
+<ul class="navbar__list">
+<li class="navbar__item navbar__item--has-children">
+<a aria-label="dropdown menu" class="navbar__dropdown-label dropdown-label-alter" href="#">Home</a>
+<ul class="navbar__sub-menu">
+<li>
+<a href="/">Home</a>
+</li>
+<li>
+<a href="/index-two">Home Two</a>
+</li>
+<li>
+<a href="/index-three">Home Three</a>
+</li>
+<li>
+<a href="/index-four">Home Four</a>
+</li>
+</ul>
+</li>
+<li class="navbar__item">
+<a href="/about-us">About Us</a>
+</li>
+<li class="navbar__item navbar__item--has-children">
+<a aria-label="dropdown menu" class="navbar__dropdown-label dropdown-label-alter" href="#">Games</a>
+<ul class="navbar__sub-menu">
+<li>
+<a href="/games">Games</a>
+</li>
+<li>
+<a href="/games-two">Games Two</a>
+</li>
+<li>
+<a href="/game-details">Game Details</a>
+</li>
+</ul>
+</li>
+<li class="navbar__item navbar__item--has-children">
+<a aria-label="dropdown menu" class="navbar__dropdown-label dropdown-label-alter" href="#">Lottery</a>
+<ul class="navbar__sub-menu">
+<li>
+<a href="/lottery">Lottery</a>
+</li>
+<li>
+<a href="/lottery-contest">Lottery Contest</a>
+</li>
+<li>
+<a href="/lottery-result">Lottery Results</a>
+</li>
+<li>
+<a href="/lottery-details">Lottery Details</a>
+</li>
+</ul>
+</li>
+<li class="navbar__item navbar__item--has-children">
+<a aria-label="dropdown menu" class="navbar__dropdown-label dropdown-label-alter" href="#">Pages</a>
+<ul class="navbar__sub-menu">
+<li>
+<a href="/faq">FAQ</a>
+</li>
+<li>
+<a href="/sign-in">Sign In</a>
+</li>
+<li>
+<a href="/sign-up">Create Account</a>
+</li>
+<li>
+<a href="/coming-soon">Coming Soon</a>
+</li>
+<li>
+<a href="/404">Error</a>
+</li>
+</ul>
+</li>
+<li class="navbar__item navbar__item--has-children">
+<a aria-label="dropdown menu" class="navbar__dropdown-label dropdown-label-alter" href="#">Blog</a>
+<ul class="navbar__sub-menu">
+<li>
+<a href="/blog">Blog List View</a>
+</li>
+<li>
+<a href="/blog-grid">Blog Grid View</a>
+</li>
+<li>
+<a href="/blog-details">Blog Details</a>
+</li>
+</ul>
+</li>
+<li class="navbar__item">
+<a href="/contact-us">Contact Us</a>
+</li>
+</ul>
+</div>
+<div class="navbar__options">
+<div class="navbar__mobile-options">
+<div class="navbar__mobile-icons">
+<div class="search-box">
+<button aria-label="search products" class="open-search" title="open search box">
+<i class="ti ti-search"></i>
+</button>
+</div>
+<div class="language-box">
+<button aria-label="select language" class="language-select" title="select language">
+<i class="ti ti-world"></i>
+</button>
+<ul>
+<li>EN</li>
+<li>FR</li>
+<li>CN</li>
+<li>PK</li>
+</ul>
+</div>
+</div>
+<div class="navbar__cta d-none d-sm-flex">
+<a aria-label="sign in" class="btn--secondary" href="/sign-in" title="sign in">Sign
+                                    In <i class="ti ti-arrow-narrow-right"></i></a>
+<a aria-label="create account" class="btn--primary" href="/sign-up" title="create account">Sign Up <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+<button aria-label="toggle mobile menu" class="open-offcanvas-nav d-flex d-xl-none" title="open offcanvas menu">
+<span class="icon-bar top-bar"></span>
+<span class="icon-bar middle-bar"></span>
+<span class="icon-bar bottom-bar"></span>
+</button>
+</div>
+</nav>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- ==== / header end ==== -->
+<!-- ==== mobile menu start ==== -->
+<div class="mobile-menu d-block d-xl-none">
+<nav class="mobile-menu__wrapper">
+<div class="mobile-menu__header">
+<div class="logo">
+<a aria-label="home page" href="/" title="logo">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/logo.png"/>
+</a>
+</div>
+<button aria-label="close mobile menu" class="close-mobile-menu">
+<i class="ti ti-x"></i>
+</button>
+</div>
+<div class="mobile-menu__list"></div>
+<div class="mobile-menu__cta d-block d-md-none">
+<a aria-label="create account" class="btn--primary" href="/sign-up" title="create account">Sign
+                  Up <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+<div class="mobile-menu__social social">
+<a aria-label="share us on facebook" href="https://www.facebook.com/" target="_blank" title="facebook">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+<a aria-label="share us on instagram" href="https://instagram.com/" target="_blank" title="instagram">
+<i class="fa-brands fa-instagram"></i>
+</a>
+<a aria-label="share us on twitter" href="https://x.com/" target="_blank" title="twitter">
+<i class="fa-brands fa-twitter"></i>
+</a>
+<a aria-label="share us on linkedin" href="https://www.linkedin.com/" target="_blank" title="linkedin">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+</div>
+</nav>
+</div>
+<div class="mobile-menu__backdrop"></div>
+<!-- ==== / mobile menu end ==== -->
+<!-- ==== search popup start ==== -->
+<div class="search-popup">
+<button aria-label="close search box" class="close-search" title="close search box">
+<i class="fa-solid fa-xmark"></i>
+</button>
+<form action="#" method="post">
+<div class="search-popup__group">
+<input id="searchField" name="search-field" placeholder="Search...." required="" type="text"/>
+<button aria-label="search products" title="search products" type="submit">
+<i class="fa-solid fa-magnifying-glass"></i>
+</button>
+</div>
+</form>
+</div>
+<!-- ==== / search popup end ==== -->
+<!-- ==== banner section start ==== -->
+<section class="common-banner">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="common-banner__content">
+<h2 class="title-animation text-uppercase neutral-top fw-6">FAQ</h2>
+<nav aria-label="breadcrumb" class="mt-20">
+<ol class="breadcrumb">
+<li class="breadcrumb-item">
+<a href="/">Home</a>
+</li>
+<li aria-current="page" class="breadcrumb-item active">
+                                 FAQ
+                              </li>
+</ol>
+</nav>
+</div>
+</div>
+</div>
+</div>
+<div class="banner-bg">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/cmn-banner-bg.png"/>
+</div>
+<div class="thumb-wrapper">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/cmn-banner-thumb.png"/>
+</div>
+<div class="btc d-none d-sm-block">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/btc.png"/>
+</div>
+<div class="coin-up d-none d-sm-block">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/coin-up.png"/>
+</div>
+<div class="rocket">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/rocket.png"/>
+</div>
+</div>
+<div class="coin-down">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/coin-down.png"/>
+</div>
+<div class="point">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/point.png"/>
+</div>
+<div class="bg-r">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/bg-r.png"/>
+</div>
+<div class="bg-l">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/bg-l.png"/>
+</div>
+</section>
+<!-- ==== / banner section end ==== -->
+<!-- ==== faq section start ==== -->
+<section class="faq pt-120 pb-120">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-12 col-xl-9">
+<div class="section__header text-center mb-55" data-aos="fade-up" data-aos-duration="600">
+<span class="fw-6 secondary-text text-xl"><strong>Answers,</strong> to Common
+                        Inquiries</span>
+<h2 class="title-animation fw-6 mt-25">Find Answers to Your Questions</h2>
+<p class="mt-25">Welcome to our FAQs section! Here, we've compiled answers to some of the
+                           most common questions our users ask.
+                        </p>
+</div>
+</div>
+</div>
+<div class="row justify-content-center">
+<div class="col-12 col-xl-7">
+<div class="faq__tab-btns mb-40" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+<ul>
+<li><button class="faq-tab-btn active" data-target="#allfaq"><i class="ti ti-layout-grid"></i>All Categories</button></li>
+<li><button class="faq-tab-btn" data-target="#slotfaq"><i class="ti ti-gavel"></i>Slot</button>
+</li>
+<li><button class="faq-tab-btn" data-target="#casinofaq"><i class="ti ti-poker-chip"></i>Casino</button></li>
+<li><button class="faq-tab-btn" data-target="#jackpotfaq"><i class="ti ti-dice-5"></i>Jackpot</button></li>
+<li><button class="faq-tab-btn" data-target="#lotteryfaq"><i class="ti ti-ticket"></i>Lottery</button></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="faq__tab" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+<div class="faq__tab-single" id="allfaq">
+<div class="faq__content-inner">
+<div class="accordion" id="accordionall">
+<div class="row gutter-24">
+<div class="col-12 col-lg-6">
+<div class="accordion-item">
+<p class="accordion-header" id="headingallOne">
+<button aria-controls="collapseallOne" aria-expanded="true" class="accordion-button" data-bs-target="#collapseallOne" data-bs-toggle="collapse" type="button">
+                                             What is crypto gaming?
+                                             </button>
+</p>
+<div aria-labelledby="headingallOne" class="accordion-collapse collapse show" data-bs-parent="#accordionall" id="collapseallOne">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingallTwo">
+<button aria-controls="collapseallTwo" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseallTwo" data-bs-toggle="collapse" type="button">
+                                             How does a crypto lottery work?
+                                             </button>
+</p>
+<div aria-labelledby="headingallTwo" class="accordion-collapse collapse" data-bs-parent="#accordionall" id="collapseallTwo">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingallThree">
+<button aria-controls="collapseallThree" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseallThree" data-bs-toggle="collapse" type="button">
+                                             Is crypto gaming safe?
+                                             </button>
+</p>
+<div aria-labelledby="headingallThree" class="accordion-collapse collapse" data-bs-parent="#accordionall" id="collapseallThree">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingallFour">
+<button aria-controls="collapseallFour" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseallFour" data-bs-toggle="collapse" type="button">
+                                             What cryptocurrencies are supported?
+                                             </button>
+</p>
+<div aria-labelledby="headingallFour" class="accordion-collapse collapse" data-bs-parent="#accordionall" id="collapseallFour">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingallFive">
+<button aria-controls="collapseallFive" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseallFive" data-bs-toggle="collapse" type="button">
+                                             Are crypto games legal?
+                                             </button>
+</p>
+<div aria-labelledby="headingallFive" class="accordion-collapse collapse" data-bs-parent="#accordionall" id="collapseallFive">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6">
+<div class="accordion-item">
+<p class="accordion-header" id="headingallSix">
+<button aria-controls="collapseallSix" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseallSix" data-bs-toggle="collapse" type="button">
+                                             What is the minimum deposit required?
+                                             </button>
+</p>
+<div aria-labelledby="headingallSix" class="accordion-collapse collapse" data-bs-parent="#accordionall" id="collapseallSix">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingallSeven">
+<button aria-controls="collapseallSeven" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseallSeven" data-bs-toggle="collapse" type="button">
+                                             How are winnings paid out?
+                                             </button>
+</p>
+<div aria-labelledby="headingallSeven" class="accordion-collapse collapse" data-bs-parent="#accordionall" id="collapseallSeven">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingallEight">
+<button aria-controls="collapseallEight" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseallEight" data-bs-toggle="collapse" type="button">
+                                             What happens if I lose access to my account?
+                                             </button>
+</p>
+<div aria-labelledby="headingallEight" class="accordion-collapse collapse" data-bs-parent="#accordionall" id="collapseallEight">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingallNine">
+<button aria-controls="collapseallNine" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseallNine" data-bs-toggle="collapse" type="button">
+                                             What is provably fair gaming?
+                                             </button>
+</p>
+<div aria-labelledby="headingallNine" class="accordion-collapse collapse" data-bs-parent="#accordionall" id="collapseallNine">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingallTen">
+<button aria-controls="collapseallTen" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseallTen" data-bs-toggle="collapse" type="button">
+                                             Are my funds secure on these platforms?
+                                             </button>
+</p>
+<div aria-labelledby="headingallTen" class="accordion-collapse collapse" data-bs-parent="#accordionall" id="collapseallTen">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="faq__tab-single" id="slotfaq">
+<div class="faq__content-inner">
+<div class="accordion" id="accordionslot">
+<div class="row gutter-24">
+<div class="col-12 col-lg-6">
+<div class="accordion-item">
+<p class="accordion-header" id="headingslotOne">
+<button aria-controls="collapseslotOne" aria-expanded="true" class="accordion-button" data-bs-target="#collapseslotOne" data-bs-toggle="collapse" type="button">
+                                             What is crypto gaming?
+                                             </button>
+</p>
+<div aria-labelledby="headingslotOne" class="accordion-collapse collapse show" data-bs-parent="#accordionslot" id="collapseslotOne">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingslotTwo">
+<button aria-controls="collapseslotTwo" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseslotTwo" data-bs-toggle="collapse" type="button">
+                                             How does a crypto lottery work?
+                                             </button>
+</p>
+<div aria-labelledby="headingslotTwo" class="accordion-collapse collapse" data-bs-parent="#accordionslot" id="collapseslotTwo">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingslotThree">
+<button aria-controls="collapseslotThree" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseslotThree" data-bs-toggle="collapse" type="button">
+                                             Is crypto gaming safe?
+                                             </button>
+</p>
+<div aria-labelledby="headingslotThree" class="accordion-collapse collapse" data-bs-parent="#accordionslot" id="collapseslotThree">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingslotFour">
+<button aria-controls="collapseslotFour" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseslotFour" data-bs-toggle="collapse" type="button">
+                                             What cryptocurrencies are supported?
+                                             </button>
+</p>
+<div aria-labelledby="headingslotFour" class="accordion-collapse collapse" data-bs-parent="#accordionslot" id="collapseslotFour">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingslotFive">
+<button aria-controls="collapseslotFive" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseslotFive" data-bs-toggle="collapse" type="button">
+                                             Are crypto games legal?
+                                             </button>
+</p>
+<div aria-labelledby="headingslotFive" class="accordion-collapse collapse" data-bs-parent="#accordionslot" id="collapseslotFive">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6">
+<div class="accordion-item">
+<p class="accordion-header" id="headingslotSix">
+<button aria-controls="collapseslotSix" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseslotSix" data-bs-toggle="collapse" type="button">
+                                             What is the minimum deposit required?
+                                             </button>
+</p>
+<div aria-labelledby="headingslotSix" class="accordion-collapse collapse" data-bs-parent="#accordionslot" id="collapseslotSix">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingslotSeven">
+<button aria-controls="collapseslotSeven" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseslotSeven" data-bs-toggle="collapse" type="button">
+                                             How are winnings paid out?
+                                             </button>
+</p>
+<div aria-labelledby="headingslotSeven" class="accordion-collapse collapse" data-bs-parent="#accordionslot" id="collapseslotSeven">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingslotEight">
+<button aria-controls="collapseslotEight" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseslotEight" data-bs-toggle="collapse" type="button">
+                                             What happens if I lose access to my account?
+                                             </button>
+</p>
+<div aria-labelledby="headingslotEight" class="accordion-collapse collapse" data-bs-parent="#accordionslot" id="collapseslotEight">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingslotNine">
+<button aria-controls="collapseslotNine" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseslotNine" data-bs-toggle="collapse" type="button">
+                                             What is provably fair gaming?
+                                             </button>
+</p>
+<div aria-labelledby="headingslotNine" class="accordion-collapse collapse" data-bs-parent="#accordionslot" id="collapseslotNine">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingslotTen">
+<button aria-controls="collapseslotTen" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapseslotTen" data-bs-toggle="collapse" type="button">
+                                             Are my funds secure on these platforms?
+                                             </button>
+</p>
+<div aria-labelledby="headingslotTen" class="accordion-collapse collapse" data-bs-parent="#accordionslot" id="collapseslotTen">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="faq__tab-single" id="casinofaq">
+<div class="faq__content-inner">
+<div class="accordion" id="accordioncasino">
+<div class="row gutter-24">
+<div class="col-12 col-lg-6">
+<div class="accordion-item">
+<p class="accordion-header" id="headingcasinoOne">
+<button aria-controls="collapsecasinoOne" aria-expanded="true" class="accordion-button" data-bs-target="#collapsecasinoOne" data-bs-toggle="collapse" type="button">
+                                             What is crypto gaming?
+                                             </button>
+</p>
+<div aria-labelledby="headingcasinoOne" class="accordion-collapse collapse show" data-bs-parent="#accordioncasino" id="collapsecasinoOne">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingcasinoTwo">
+<button aria-controls="collapsecasinoTwo" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsecasinoTwo" data-bs-toggle="collapse" type="button">
+                                             How does a crypto lottery work?
+                                             </button>
+</p>
+<div aria-labelledby="headingcasinoTwo" class="accordion-collapse collapse" data-bs-parent="#accordioncasino" id="collapsecasinoTwo">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingcasinoThree">
+<button aria-controls="collapsecasinoThree" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsecasinoThree" data-bs-toggle="collapse" type="button">
+                                             Is crypto gaming safe?
+                                             </button>
+</p>
+<div aria-labelledby="headingcasinoThree" class="accordion-collapse collapse" data-bs-parent="#accordioncasino" id="collapsecasinoThree">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingcasinoFour">
+<button aria-controls="collapsecasinoFour" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsecasinoFour" data-bs-toggle="collapse" type="button">
+                                             What cryptocurrencies are supported?
+                                             </button>
+</p>
+<div aria-labelledby="headingcasinoFour" class="accordion-collapse collapse" data-bs-parent="#accordioncasino" id="collapsecasinoFour">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingcasinoFive">
+<button aria-controls="collapsecasinoFive" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsecasinoFive" data-bs-toggle="collapse" type="button">
+                                             Are crypto games legal?
+                                             </button>
+</p>
+<div aria-labelledby="headingcasinoFive" class="accordion-collapse collapse" data-bs-parent="#accordioncasino" id="collapsecasinoFive">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6">
+<div class="accordion-item">
+<p class="accordion-header" id="headingcasinoSix">
+<button aria-controls="collapsecasinoSix" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsecasinoSix" data-bs-toggle="collapse" type="button">
+                                             What is the minimum deposit required?
+                                             </button>
+</p>
+<div aria-labelledby="headingcasinoSix" class="accordion-collapse collapse" data-bs-parent="#accordioncasino" id="collapsecasinoSix">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingcasinoSeven">
+<button aria-controls="collapsecasinoSeven" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsecasinoSeven" data-bs-toggle="collapse" type="button">
+                                             How are winnings paid out?
+                                             </button>
+</p>
+<div aria-labelledby="headingcasinoSeven" class="accordion-collapse collapse" data-bs-parent="#accordioncasino" id="collapsecasinoSeven">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingcasinoEight">
+<button aria-controls="collapsecasinoEight" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsecasinoEight" data-bs-toggle="collapse" type="button">
+                                             What happens if I lose access to my account?
+                                             </button>
+</p>
+<div aria-labelledby="headingcasinoEight" class="accordion-collapse collapse" data-bs-parent="#accordioncasino" id="collapsecasinoEight">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingcasinoNine">
+<button aria-controls="collapsecasinoNine" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsecasinoNine" data-bs-toggle="collapse" type="button">
+                                             What is provably fair gaming?
+                                             </button>
+</p>
+<div aria-labelledby="headingcasinoNine" class="accordion-collapse collapse" data-bs-parent="#accordioncasino" id="collapsecasinoNine">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingcasinoTen">
+<button aria-controls="collapsecasinoTen" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsecasinoTen" data-bs-toggle="collapse" type="button">
+                                             Are my funds secure on these platforms?
+                                             </button>
+</p>
+<div aria-labelledby="headingcasinoTen" class="accordion-collapse collapse" data-bs-parent="#accordioncasino" id="collapsecasinoTen">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="faq__tab-single" id="jackpotfaq">
+<div class="faq__content-inner">
+<div class="accordion" id="accordionjackpot">
+<div class="row gutter-24">
+<div class="col-12 col-lg-6">
+<div class="accordion-item">
+<p class="accordion-header" id="headingjackpotOne">
+<button aria-controls="collapsejackpotOne" aria-expanded="true" class="accordion-button" data-bs-target="#collapsejackpotOne" data-bs-toggle="collapse" type="button">
+                                             What is crypto gaming?
+                                             </button>
+</p>
+<div aria-labelledby="headingjackpotOne" class="accordion-collapse collapse show" data-bs-parent="#accordionjackpot" id="collapsejackpotOne">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingjackpotTwo">
+<button aria-controls="collapsejackpotTwo" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsejackpotTwo" data-bs-toggle="collapse" type="button">
+                                             How does a crypto lottery work?
+                                             </button>
+</p>
+<div aria-labelledby="headingjackpotTwo" class="accordion-collapse collapse" data-bs-parent="#accordionjackpot" id="collapsejackpotTwo">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingjackpotThree">
+<button aria-controls="collapsejackpotThree" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsejackpotThree" data-bs-toggle="collapse" type="button">
+                                             Is crypto gaming safe?
+                                             </button>
+</p>
+<div aria-labelledby="headingjackpotThree" class="accordion-collapse collapse" data-bs-parent="#accordionjackpot" id="collapsejackpotThree">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingjackpotFour">
+<button aria-controls="collapsejackpotFour" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsejackpotFour" data-bs-toggle="collapse" type="button">
+                                             What cryptocurrencies are supported?
+                                             </button>
+</p>
+<div aria-labelledby="headingjackpotFour" class="accordion-collapse collapse" data-bs-parent="#accordionjackpot" id="collapsejackpotFour">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingjackpotFive">
+<button aria-controls="collapsejackpotFive" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsejackpotFive" data-bs-toggle="collapse" type="button">
+                                             Are crypto games legal?
+                                             </button>
+</p>
+<div aria-labelledby="headingjackpotFive" class="accordion-collapse collapse" data-bs-parent="#accordionjackpot" id="collapsejackpotFive">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6">
+<div class="accordion-item">
+<p class="accordion-header" id="headingjackpotSix">
+<button aria-controls="collapsejackpotSix" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsejackpotSix" data-bs-toggle="collapse" type="button">
+                                             What is the minimum deposit required?
+                                             </button>
+</p>
+<div aria-labelledby="headingjackpotSix" class="accordion-collapse collapse" data-bs-parent="#accordionjackpot" id="collapsejackpotSix">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingjackpotSeven">
+<button aria-controls="collapsejackpotSeven" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsejackpotSeven" data-bs-toggle="collapse" type="button">
+                                             How are winnings paid out?
+                                             </button>
+</p>
+<div aria-labelledby="headingjackpotSeven" class="accordion-collapse collapse" data-bs-parent="#accordionjackpot" id="collapsejackpotSeven">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingjackpotEight">
+<button aria-controls="collapsejackpotEight" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsejackpotEight" data-bs-toggle="collapse" type="button">
+                                             What happens if I lose access to my account?
+                                             </button>
+</p>
+<div aria-labelledby="headingjackpotEight" class="accordion-collapse collapse" data-bs-parent="#accordionjackpot" id="collapsejackpotEight">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingjackpotNine">
+<button aria-controls="collapsejackpotNine" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsejackpotNine" data-bs-toggle="collapse" type="button">
+                                             What is provably fair gaming?
+                                             </button>
+</p>
+<div aria-labelledby="headingjackpotNine" class="accordion-collapse collapse" data-bs-parent="#accordionjackpot" id="collapsejackpotNine">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headingjackpotTen">
+<button aria-controls="collapsejackpotTen" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapsejackpotTen" data-bs-toggle="collapse" type="button">
+                                             Are my funds secure on these platforms?
+                                             </button>
+</p>
+<div aria-labelledby="headingjackpotTen" class="accordion-collapse collapse" data-bs-parent="#accordionjackpot" id="collapsejackpotTen">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="faq__tab-single" id="lotteryfaq">
+<div class="faq__content-inner">
+<div class="accordion" id="accordionlottery">
+<div class="row gutter-24">
+<div class="col-12 col-lg-6">
+<div class="accordion-item">
+<p class="accordion-header" id="headinglotteryOne">
+<button aria-controls="collapselotteryOne" aria-expanded="true" class="accordion-button" data-bs-target="#collapselotteryOne" data-bs-toggle="collapse" type="button">
+                                             What is crypto gaming?
+                                             </button>
+</p>
+<div aria-labelledby="headinglotteryOne" class="accordion-collapse collapse show" data-bs-parent="#accordionlottery" id="collapselotteryOne">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headinglotteryTwo">
+<button aria-controls="collapselotteryTwo" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapselotteryTwo" data-bs-toggle="collapse" type="button">
+                                             How does a crypto lottery work?
+                                             </button>
+</p>
+<div aria-labelledby="headinglotteryTwo" class="accordion-collapse collapse" data-bs-parent="#accordionlottery" id="collapselotteryTwo">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headinglotteryThree">
+<button aria-controls="collapselotteryThree" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapselotteryThree" data-bs-toggle="collapse" type="button">
+                                             Is crypto gaming safe?
+                                             </button>
+</p>
+<div aria-labelledby="headinglotteryThree" class="accordion-collapse collapse" data-bs-parent="#accordionlottery" id="collapselotteryThree">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headinglotteryFour">
+<button aria-controls="collapselotteryFour" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapselotteryFour" data-bs-toggle="collapse" type="button">
+                                             What cryptocurrencies are supported?
+                                             </button>
+</p>
+<div aria-labelledby="headinglotteryFour" class="accordion-collapse collapse" data-bs-parent="#accordionlottery" id="collapselotteryFour">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headinglotteryFive">
+<button aria-controls="collapselotteryFive" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapselotteryFive" data-bs-toggle="collapse" type="button">
+                                             Are crypto games legal?
+                                             </button>
+</p>
+<div aria-labelledby="headinglotteryFive" class="accordion-collapse collapse" data-bs-parent="#accordionlottery" id="collapselotteryFive">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6">
+<div class="accordion-item">
+<p class="accordion-header" id="headinglotterySix">
+<button aria-controls="collapselotterySix" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapselotterySix" data-bs-toggle="collapse" type="button">
+                                             What is the minimum deposit required?
+                                             </button>
+</p>
+<div aria-labelledby="headinglotterySix" class="accordion-collapse collapse" data-bs-parent="#accordionlottery" id="collapselotterySix">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headinglotterySeven">
+<button aria-controls="collapselotterySeven" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapselotterySeven" data-bs-toggle="collapse" type="button">
+                                             How are winnings paid out?
+                                             </button>
+</p>
+<div aria-labelledby="headinglotterySeven" class="accordion-collapse collapse" data-bs-parent="#accordionlottery" id="collapselotterySeven">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headinglotteryEight">
+<button aria-controls="collapselotteryEight" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapselotteryEight" data-bs-toggle="collapse" type="button">
+                                             What happens if I lose access to my account?
+                                             </button>
+</p>
+<div aria-labelledby="headinglotteryEight" class="accordion-collapse collapse" data-bs-parent="#accordionlottery" id="collapselotteryEight">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headinglotteryNine">
+<button aria-controls="collapselotteryNine" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapselotteryNine" data-bs-toggle="collapse" type="button">
+                                             What is provably fair gaming?
+                                             </button>
+</p>
+<div aria-labelledby="headinglotteryNine" class="accordion-collapse collapse" data-bs-parent="#accordionlottery" id="collapselotteryNine">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+<div class="accordion-item">
+<p class="accordion-header" id="headinglotteryTen">
+<button aria-controls="collapselotteryTen" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#collapselotteryTen" data-bs-toggle="collapse" type="button">
+                                             Are my funds secure on these platforms?
+                                             </button>
+</p>
+<div aria-labelledby="headinglotteryTen" class="accordion-collapse collapse" data-bs-parent="#accordionlottery" id="collapselotteryTen">
+<div class="accordion-body">
+<p>
+                                                   Reputable platforms use blockchain for security and
+                                                   transparency. Look for platforms with smart contract
+                                                   verification.
+                                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==== / faq section end ==== -->
+<!-- ==== refer section start ==== -->
+<section class="refer pt-120 pb-120" data-background="{{ config.ASSETS_ROOT }}/images/faq/faq-bg.png">
+<div class="container">
+<div class="row align-items-center rtl-header">
+<div class="col-12 col-lg-6 col-xl-6">
+<div class="refer__content" data-aos="fade-right" data-aos-duration="600">
+<div class="section__content text-start">
+<span class="fw-6 secondary-text text-xl"><strong>Refer,</strong> And Earn</span>
+<h2 class="title-animation fw-6 mt-25">Maximize Your Earnings with <span>Referrals</span></h2>
+<p class="mt-16">Your gaming doesn't stop at just playing—you can earn big by referring friends
+                              too! Our Refer &amp; Earn program is designed to reward you.
+                           </p>
+</div>
+<div class="refer__content-group mt-35">
+<div class="refer__content-single">
+<p class="text-xl fw-5"><i class="fa-solid fa-circle-arrow-right"></i> Unlimited Earnings
+                                 Potential
+                              </p>
+<p class="text-sm mt-8">There's no cap on how much you can earn with referrals. The more
+                                 friends you invite.
+                              </p>
+</div>
+<div class="divider d-none d-xl-block"></div>
+<div class="refer__content-single">
+<p class="text-xl fw-5"><i class="fa-solid fa-circle-arrow-right"></i> Instant Crypto Payouts
+                              </p>
+<p class="text-sm mt-8">For each successful referral, you'll receive instant crypto rewards.
+                              </p>
+</div>
+</div>
+<div class="mt-40">
+<a aria-label="join now" class="btn--primary" href="/sign-up" title="join now">Join Now <i class="ti ti-arrow-narrow-right"></i></a>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
+<div class="refer__thumb d-none d-lg-block">
+<div class="thumb" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="600">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/faq/faq-thumb.png"/>
+</div>
+<div class="circle">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/faq/circle.png"/>
+</div>
+<div class="btc">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/faq/btc.png"/>
+</div>
+<div class="eth">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/faq/eth.png"/>
+</div>
+<div class="arrow">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/faq/arrow.png"/>
+</div>
+<div class="btc-alt">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/faq/btc.png"/>
+</div>
+<div class="eth-alt">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/faq/eth.png"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="btc-out">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/faq/btc.png"/>
+</div>
+<div class="arrow-out">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/faq/arrow.png"/>
+</div>
+<div class="left-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/faq/left-thumb.png"/>
+</div>
+<div class="right-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/faq/right-thumb.png"/>
+</div>
+</section>
+<!-- ==== / refer section end ==== -->
+<!-- ==== work section start ==== -->
+<section class="work work-alternate pt-120 pb-120">
+<div class="container">
+<div class="row justify-content-center">
+<div class="col-12 col-xl-9">
+<div class="section__header text-center mb-55" data-aos="fade-up" data-aos-duration="600">
+<span class="fw-6 secondary-text text-xl"><strong>Step,</strong> by Step Process</span>
+<h2 class="title-animation fw-6 mt-25">How It`s Works</h2>
+<p class="mt-16">We've made it easier than ever to dive into the world of crypto gaming. With just
+                           a few clicks, you can deposit your favorite cryptocurrency
+                        </p>
+</div>
+</div>
+</div>
+<div class="row gutter-60">
+<div class="col-12 col-md-6 col-xl-4">
+<div class="work__single text-center" data-aos="fade-up" data-aos-duration="600">
+<div class="alternate-wrapper">
+<div class="thumb">
+<span class="step">1st Step</span>
+</div>
+<div class="content mt-25">
+<h6 class="fw-6">Sign Up Instantly</h6>
+<p class="text-sm mt-12">Create your Betwins account in just a few minutes. Simply register</p>
+</div>
+</div>
+<div class="alternate-content">
+<div class="alt-thumb">
+<i class="ti ti-user"></i>
+</div>
+</div>
+<span class="bg-text">1</span>
+</div>
+</div>
+<div class="col-12 col-md-6 col-xl-4">
+<div class="work__single walt text-center" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+<div class="alternate-content">
+<div class="alt-thumb">
+<i class="ti ti-pig"></i>
+</div>
+</div>
+<div class="alternate-wrapper">
+<div class="thumb">
+<span class="step">2nd Step</span>
+</div>
+<div class="content mt-25">
+<h6 class="fw-6">Deposit Crypto Securely</h6>
+<p class="text-sm mt-12">Add funds to your account using popular cryptocurrencies like Bitcoin.</p>
+</div>
+</div>
+<span class="bg-text">2</span>
+</div>
+</div>
+<div class="col-12 col-md-6 col-xl-4">
+<div class="work__single text-center" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+<div class="alternate-wrapper">
+<div class="thumb">
+<span class="step">3rd Step</span>
+</div>
+<div class="content mt-25">
+<h6 class="fw-6">Play &amp; Win Real Crypto</h6>
+<p class="text-sm mt-12">Browse hundreds of exciting games, from casino classics to live betting.</p>
+</div>
+</div>
+<div class="alternate-content">
+<div class="alt-thumb">
+<i class="ti ti-trophy"></i>
+</div>
+</div>
+<span class="bg-text">3</span>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<hr class="divide"/>
+</div>
+</div>
+</div>
+<div class="left-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/spring.png"/>
+</div>
+<div class="right-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/left-th.png"/>
+</div>
+</section>
+<!-- ==== / work section end ==== -->
+<!-- ==== sponsor section start ==== -->
+<div class="sponsor pt-80 pb-80 tertiary-bg">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="sponsor__inner text-center">
+<h6 class="neutral-top fw-6"> Trusted By Over <span class="secondary-text">12,500</span> Best
+                           Partner
+                        </h6>
+<div class="sponsor__slider swiper mt-35">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<div class="sponsor__slider-single text-center">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/sponsor/one.png"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="sponsor__slider-single text-center">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/sponsor/two.png"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="sponsor__slider-single text-center">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/sponsor/three.png"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="sponsor__slider-single text-center">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/sponsor/four.png"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="sponsor__slider-single text-center">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/sponsor/five.png"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="sponsor__slider-single text-center">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/sponsor/six.png"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="sponsor__slider-single text-center">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/sponsor/seven.png"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="sponsor__slider-single text-center">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/sponsor/one.png"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="sponsor__slider-single text-center">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/sponsor/two.png"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="sponsor__slider-single text-center">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/sponsor/three.png"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="sponsor__slider-single text-center">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/sponsor/four.png"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="sponsor__slider-single text-center">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/sponsor/five.png"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="sponsor__slider-single text-center">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/sponsor/six.png"/>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="sponsor__slider-single text-center">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/sponsor/seven.png"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ==== / sponsor section end ==== -->
+<!-- ==== testimonial section start ==== -->
+<section class="testimonial pt-120 pb-120">
+<div class="container">
+<div class="row align-items-center">
+<div class="col-12 col-lg-5 col-xl-5">
+<div class="testimonial__thumb d-none d-lg-block">
+<div class="right-thumb text-end">
+<div class="right__thumb__inner">
+<img alt="Image" data-aos="zoom-in" data-aos-duration="600" src="{{ config.ASSETS_ROOT }}/images/testimonial/top.png"/>
+<div class="quote">
+<i class="ti ti-quote"></i>
+</div>
+</div>
+</div>
+<div class="left-thumb">
+<img alt="Image" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="600" src="{{ config.ASSETS_ROOT }}/images/testimonial/right.png"/>
+</div>
+<div class="bottom-thumb">
+<img alt="Image" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="600" src="{{ config.ASSETS_ROOT }}/images/testimonial/bottom.png"/>
+</div>
+<div class="bottom-left-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/testimonial/card.png"/>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-7 col-xl-6 offset-xl-1">
+<div class="testimonial__content">
+<div class="section__content text-start mb-40">
+<span class="fw-6 secondary-text text-xl"><strong>What,</strong> Our Players Say</span>
+<h2 class="title-animation fw-6 mt-25">Success Stories from Our <span>Winning</span> Players
+                           </h2>
+</div>
+<div class="testimonial__slider swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<div class="testimonial__slider-single">
+<div class="review mb-20">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+<blockquote class="text-xxl"><q>Betwins is hands down the best crypto gaming platform I've
+                                       used! I've won big on several games, and the payouts were instant. Can't
+                                       recommend it enough!</q>
+</blockquote>
+<div class="author__info mt-35">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/avatar/one.png"/>
+</div>
+<div class="content">
+<p class="text-xl fw-6">Kiss Laura</p>
+<p>Product Designer</p>
+</div>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="testimonial__slider-single">
+<div class="review mb-20">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+<blockquote class="text-xxl"><q>Betwins is hands down the best crypto gaming platform I've
+                                       used! I've won big on several games, and the payouts were instant. Can't
+                                       recommend it enough!</q>
+</blockquote>
+<div class="author__info mt-35">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/avatar/one.png"/>
+</div>
+<div class="content">
+<p class="text-xl fw-6">Kiss Laura</p>
+<p>Product Designer</p>
+</div>
+</div>
+</div>
+</div>
+<div class="swiper-slide">
+<div class="testimonial__slider-single">
+<div class="review mb-20">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+<blockquote class="text-xxl"><q>Betwins is hands down the best crypto gaming platform I've
+                                       used! I've won big on several games, and the payouts were instant. Can't
+                                       recommend it enough!</q>
+</blockquote>
+<div class="author__info mt-35">
+<div class="thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/avatar/one.png"/>
+</div>
+<div class="content">
+<p class="text-xl fw-6">Kiss Laura</p>
+<p>Product Designer</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="slider-navigation">
+<button aria-label="prev slide" class="prev-testimonial slider-btn" title="prev slide" type="button">
+<i class="fa-solid fa-angle-left"></i>
+</button>
+<button aria-label="next slide" class="next-testimonial slider-btn" title="next slide" type="button">
+<i class="fa-solid fa-angle-right"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="left-bottom" data-aos="fade-right" data-aos-duration="600">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/banner/bg-l.png"/>
+</div>
+<div class="right-bottom" data-aos="fade-left" data-aos-delay="300" data-aos-duration="600">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/square.png"/>
+</div>
+<div class="right-thumb-th">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/right-th.png"/>
+</div>
+<div class="left-thumb-th">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/left-th.png"/>
+</div>
+<div class="chart-thumb">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/chart.png"/>
+</div>
+</section>
+<!-- ==== / testimonial section end ==== -->
+<!-- ==== footer start ==== -->
+<footer class="footer-two" data-background="{{ config.ASSETS_ROOT }}/images/footer/footer-bg.png">
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="footer__newsletter footer__newsletter-two" data-aos="fade-up" data-aos-duration="600" data-background="{{ config.ASSETS_ROOT }}/images/newsletter-bg-two.png">
+<div class="row justify-content-center">
+<div class="col-12 col-lg-10 col-xl-8">
+<div class="footer__newsletter-content w-full text-center">
+<h2 class="title-animation fw-6 neutral-top mb-10">Join Our Newsletter</h2>
+<p>Subscribe to our newsletter for the latest updates, news, and exclusive
+                                    insights straight to your inbox.
+                                 </p>
+</div>
+<div class="footer__newsletter-form mt-35">
+<form action="#" method="post">
+<input id="subscribeEmail" name="subscribe-email" placeholder="Enter Email" required="" type="email"/>
+<button aria-label="subscribe to our newsletter" title="subscribe to our newsletter" type="submit"> <i class="fa-solid fa-paper-plane"></i>
+</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row gutter-60 pt-120 pb-120">
+<div class="col-12 col-lg-6 col-xl-3">
+<div class="footer__widget" data-aos="fade-up" data-aos-duration="600">
+<div class="footer__widget-intro">
+<a class="logo" href="/">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/logo.png"/>
+</a>
+</div>
+<div class="footer__widget-content mt-25">
+<p>Betwins is an innovative Online Crypto Gaming platform designed for players.</p>
+</div>
+<div class="social mt-35">
+<a aria-label="share us on facebook" href="https://www.facebook.com/" target="_blank" title="facebook">
+<i class="fa-brands fa-facebook-f"></i>
+</a>
+<a aria-label="share us on instagram" href="https://instagram.com/" target="_blank" title="instagram">
+<i class="fa-brands fa-instagram"></i>
+</a>
+<a aria-label="share us on twitter" href="https://x.com/" target="_blank" title="twitter">
+<i class="fa-brands fa-twitter"></i>
+</a>
+<a aria-label="share us on linkedin" href="https://www.linkedin.com/" target="_blank" title="linkedin">
+<i class="fa-brands fa-linkedin-in"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-3 col-xl-2">
+<div class="footer__widget" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+<div class="footer__widget-intro">
+<h6 class="fw-6 neutral-top">Quick Links</h6>
+</div>
+<div class="footer__widget-content mt-25">
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/about-us">About Us</a></li>
+<li><a href="/games">Games</a></li>
+<li><a href="/lottery">Lottery</a></li>
+<li><a href="/blog">Blog</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-3 col-xl-2">
+<div class="footer__widget" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+<div class="footer__widget-intro">
+<h6 class="fw-6 neutral-top">Categories</h6>
+</div>
+<div class="footer__widget-content mt-25">
+<ul>
+<li><a href="/lottery-contest">Jackpot</a></li>
+<li><a href="/lottery-contest">Slots</a></li>
+<li><a href="/lottery-contest">Casino</a></li>
+<li><a href="/lottery-contest">Gambling</a></li>
+<li><a href="/lottery">Lottery</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-2">
+<div class="footer__widget" data-aos="fade-up" data-aos-delay="600" data-aos-duration="600">
+<div class="footer__widget-intro">
+<h6 class="fw-6 neutral-top">Quick Links</h6>
+</div>
+<div class="footer__widget-content mt-25">
+<ul>
+<li><a href="/faq">FAQ's</a></li>
+<li><a href="/contact-us">Contact Us</a></li>
+<li><a href="/sign-up">Create Account</a></li>
+<li><a href="/sign-in">Sign In</a></li>
+<li><a href="/404">Error</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-12 col-lg-6 col-xl-3">
+<div class="footer__widget" data-aos="fade-up" data-aos-delay="800" data-aos-duration="600">
+<div class="footer__widget-intro">
+<h6 class="fw-6 neutral-top">Get In Touch</h6>
+</div>
+<div class="footer__widget-content mt-25">
+<div class="footer__widget-group">
+<div class="icon">
+<i class="ti ti-phone-call"></i>
+</div>
+<div class="content">
+<p><a href="tel:505-555-0125">(505) 555-0125</a></p>
+<p class="mt-4"><a href="tel:225-555-0118">(225) 555-0118</a></p>
+</div>
+</div>
+<div class="footer__widget-group mt-16">
+<div class="icon">
+<i class="ti ti-mail-opened"></i>
+</div>
+<div class="content">
+<p><a href="mailto:example@betwins.com">example@betwins.com</a></p>
+<p class="mt-4"><a href="mailto:contact@betwins.com">contact@betwins.com</a></p>
+</div>
+</div>
+<div class="footer__widget-group mt-16">
+<div class="icon">
+<i class="ti ti-map-pin"></i>
+</div>
+<div class="content">
+<p><a href="https://www.google.com/maps/place/Kentucky,+USA/@37.8172108,-87.087054,8z/data=!3m1!4b1!4m6!3m5!1s0x8842734c8b1953c9:0x771f6f4ec5ccdffc!8m2!3d37.8393332!4d-84.2700179!16zL20vMDQ5OHk?entry=ttu" target="_blank">1901 Thornridge Cir. Shiloh, Hawaii 81063</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="footer__copyright">
+<div class="row align-items-center gutter-20">
+<div class="col-12 col-lg-5">
+<div class="footer__copyright-content">
+<p class="text-center text-lg-start">Copyright © <span id="copyrightYear"></span> <a href="/">Betwins</a>.
+                                    All rights
+                                    reserved.
+                                 </p>
+</div>
+</div>
+<div class="col-12 col-lg-7">
+<div class="footer__copyright-list">
+<ul class="justify-content-center justify-content-lg-end">
+<li><a href="/contact-us">Help &amp; Support</a></li>
+<li><span></span></li>
+<li><a href="/terms-conditions">Terms &amp; Conditions</a></li>
+<li><span></span></li>
+<li><a href="/privacy-policy">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="left-thumb" data-aos="fade-right" data-aos-duration="600">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/footer/footer-two-left.png"/>
+</div>
+<div class="right-thumb" data-aos="fade-left" data-aos-delay="300" data-aos-duration="600">
+<img alt="Image" src="{{ config.ASSETS_ROOT }}/images/footer/footer-two-right.png"/>
+</div>
+</footer>
+<!-- ==== / footer end ==== -->
+<!-- ==== mouse cursor start ==== -->
+<div class="mouseCursor cursor-outer"></div>
+<div class="mouseCursor cursor-inner">
+</div>
+<!-- ==== / mouse cursor end ==== -->
+<!-- ==== scroll to top start ==== -->
+<button aria-label="scroll indicator" class="progress-wrap" title="back to top">
+<span></span>
+<svg class="progress-circle svg-content" height="100%" viewbox="-1 -1 102 102" width="100%">
+<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"></path>
+</svg>
+</button>
+<!-- ==== / scroll to top end ==== -->
+<!-- ==== template option start ==== -->
+<div class="color-palate">
+<div class="color-icon">
+<button class="open-color">
+<i class="ti ti-settings-filled"></i>
+</button>
+<button class="close-color">
+<i class="ti ti-x"></i>
+</button>
+</div>
+<div class="color-palate-inner">
+<div class="group">
+<h6 class="not-cursor">Cursor</h6>
+<ul class="cursor-version">
+<li class="active cursor-pointer animated-cursor">Animated</li>
+<li class="box cursor-pointer default-cursor">Default</li>
+</ul>
+</div>
+<div class="group">
+<h6 class="not-cursor">Direction</h6>
+<ul class="rtl-version">
+<li class="active cursor-pointer ltr-yes">LTR</li>
+<li class="cursor-pointer ltr-no">RTL</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- ==== / template option end ==== -->
+</div>
+<!-- ==== js dependencies start ==== -->
+<!-- jquery -->
+
+<!-- bootstrap five js -->
+
+<!-- nice select js -->
+
+<!-- magnific popup js -->
+
+<!-- swiper slider js -->
+
+<!-- viewport js -->
+
+<!-- odometer js -->
+
+<!-- vanilla tilt js -->
+
+<!-- aos js -->
+
+<!-- isotope js -->
+
+<!-- splittext js -->
+
+<!-- scrollto js -->
+
+<!-- scrolltrigger js -->
+
+<!-- gsap js -->
+
+<!-- ==== / js dependencies end ==== -->
+<!-- main js -->
+{% endblock content %}
+
+{% block scripts %}
+<script src="{{ config.ASSETS_ROOT }}/js/jquery-3.7.1.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/bootstrap.bundle.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/jquery.nice-select.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/jquery.magnific-popup.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/swiper-bundle.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/viewport.jquery.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/odometer.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/vanilla-tilt.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/aos.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/isotope.pkgd.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/SplitText.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/ScrollToPlugin.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/ScrollTrigger.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/gsap.min.js"></script>
+<script src="{{ config.ASSETS_ROOT }}/js/custom.js"></script>
+{% endblock scripts %}

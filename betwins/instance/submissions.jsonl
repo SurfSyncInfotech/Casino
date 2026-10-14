@@ -1,0 +1,15 @@
+{"kind": "contact", "at": "2026-10-13 17:01:02", "data": {"email": "arjun@example.com", "message": "Inquiry for high stakes salon", "name": "Arjun Mehta", "phone": "+91 98905 12345"}}
+{"kind": "newsletter", "at": "2026-10-13 17:01:02", "data": {"email": "newsletter@example.com"}}
+{"kind": "signup", "at": "2026-10-13 17:01:02", "data": {"email": "rohan@example.com", "first_name": "Rohan", "last_name": "Deshmukh", "phone": "+91 98765 43210"}}
+{"kind": "reservation", "at": "2026-10-13 17:01:02", "data": {"email": "vikram@example.com", "name": "Vikram Singh", "phone": "+91 98905 12345", "tier": "Maharaja Invitation"}}
+{"kind": "review", "at": "2026-10-13 17:01:02", "data": {"comment": "Splendid croupiers!", "game": "teen-patti-royale", "name": "Priya Nair", "rating": "5"}}
+{"kind": "comment", "at": "2026-10-13 17:01:02", "data": {"article": "teen-patti-strategy-guide", "comment": "Insightful mathematical breakdown", "email": "aarav@example.com", "name": "Aarav Sharma"}}
+{"kind": "signup", "at": "2026-10-14 09:36:39", "data": {"first_name": "Test", "last_name": "Test", "phone": "9876543210", "email": "test@example.in"}}
+{"kind": "contact", "at": "2026-10-14 09:37:22", "data": {"email": "a@b.in", "name": "T"}}
+{"kind": "newsletter", "at": "2026-10-14 09:37:22", "data": {"email": "a@b.in", "name": "T"}}
+{"kind": "signup", "at": "2026-10-14 09:37:22", "data": {"email": "a@b.in", "name": "T"}}
+{"kind": "review", "at": "2026-10-14 09:37:22", "data": {"email": "a@b.in", "name": "T"}}
+{"kind": "comment", "at": "2026-10-14 09:37:22", "data": {"email": "a@b.in", "name": "T"}}
+{"kind": "reservation", "at": "2026-10-14 09:37:22", "data": {"email": "a@b.in", "name": "T"}}
+{"kind": "signup", "at": "2026-10-14 09:49:14", "data": {"first_name": "Radhika", "last_name": "Awasthi", "phone": "9876780909", "email": "radhika@gmail.com"}}
+{"kind": "signup", "at": "2026-10-14 09:49:58", "data": {"first_name": "fdf", "last_name": "fr", "phone": "9878987890", "email": "ggfhj@gmail.com"}}

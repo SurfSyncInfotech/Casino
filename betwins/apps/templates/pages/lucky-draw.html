@@ -1,0 +1,74 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner, heading, lucky_picker, vip_cta, sponsor_section %}
+
+{% block title %}Lucky Draw &amp; Royal Keno | Live Draws Every 5 Minutes{% endblock title %}
+{% block description %}Participate in Royal Keno and the Diwali Dhamaka lucky draws at Casino Royale Goa. Pick 5 lucky numbers plus 1 Joker number for a chance at ₹5,00,000 top prizes with instant UPI payouts.{% endblock %}
+
+{% block content %}
+{{ banner("Lucky Draw & Royal Keno", [("Lucky Draw", "/lucky-draw")]) }}
+
+<!-- ==== lucky numbers picker section start ==== -->
+<section class="lottery-details lottery-alternate lottery pt-120 pb-120" data-background="{{ img('lottery-bg.png') }}">
+   <div class="container">
+      {{ heading('Fortune,', 'Strikes Every 5 Minutes', 'Royal Keno & Festive Lucky Draws', 'Select 5 Lucky Numbers (1-40) and 1 Joker Number (1-30). Watch the balls drop live in our certified lottery studio or review results on the draw archive.') }}
+
+      <div class="row gutter-40 mt-55 justify-content-center">
+         <div class="col-12 col-xl-10">
+            {{ lucky_picker() }}
+         </div>
+      </div>
+
+      <!-- Payout Tier Information -->
+      <div class="row gutter-24 mt-80">
+         <div class="col-12 text-center mb-30">
+            <h3 class="fw-7 title-animation">Official Keno Payout Structure</h3>
+            <p class="mt-8 opacity-75">Multipliers based on a standard ₹500 entry ticket:</p>
+         </div>
+
+         <div class="col-12 col-md-6 col-xl-3">
+            <div class="p-4 rounded-4 tertiary-bg border border-secondary text-center h-100">
+               <span class="badge border border-secondary text-secondary-color px-3 py-1 mb-3">GRAND PRIZE</span>
+               <h4 class="fw-7 text-secondary-color">5 + Joker</h4>
+               <h3 class="fw-8 mt-2">₹5,00,000</h3>
+               <p class="text-xs opacity-75 mt-2">1,000x multiplier</p>
+            </div>
+         </div>
+         <div class="col-12 col-md-6 col-xl-3">
+            <div class="p-4 rounded-4 tertiary-bg border border-secondary text-center h-100">
+               <span class="badge border border-secondary text-secondary-color px-3 py-1 mb-3">TIER 2</span>
+               <h4 class="fw-7 text-secondary-color">5 Matches</h4>
+               <h3 class="fw-8 mt-2">₹50,000</h3>
+               <p class="text-xs opacity-75 mt-2">100x multiplier</p>
+            </div>
+         </div>
+         <div class="col-12 col-md-6 col-xl-3">
+            <div class="p-4 rounded-4 tertiary-bg border border-secondary text-center h-100">
+               <span class="badge border border-secondary text-secondary-color px-3 py-1 mb-3">TIER 3</span>
+               <h4 class="fw-7 text-secondary-color">4 + Joker</h4>
+               <h3 class="fw-8 mt-2">₹12,500</h3>
+               <p class="text-xs opacity-75 mt-2">25x multiplier</p>
+            </div>
+         </div>
+         <div class="col-12 col-md-6 col-xl-3">
+            <div class="p-4 rounded-4 tertiary-bg border border-secondary text-center h-100">
+               <span class="badge border border-secondary text-secondary-color px-3 py-1 mb-3">TIER 4</span>
+               <h4 class="fw-7 text-secondary-color">3 + Joker</h4>
+               <h3 class="fw-8 mt-2">₹2,500</h3>
+               <p class="text-xs opacity-75 mt-2">5x multiplier</p>
+            </div>
+         </div>
+      </div>
+
+      <div class="text-center mt-50">
+         <a class="btn--secondary" href="/results">
+            <i class="ti ti-archive me-2"></i> View Past Draw Results Archive <i class="ti ti-arrow-narrow-right ms-2"></i>
+         </a>
+      </div>
+   </div>
+</section>
+<!-- ==== / lucky numbers picker section end ==== -->
+
+{{ vip_cta() }}
+
+{{ sponsor_section() }}
+{% endblock content %}

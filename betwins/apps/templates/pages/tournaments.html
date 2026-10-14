@@ -1,0 +1,82 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner, tournament_card, heading, vip_cta, sponsor_section %}
+
+{% block title %}Royale Tournaments | ₹1 Cr Poker &amp; Teen Patti Championships{% endblock title %}
+{% block description %}Compete in India's richest casino tournaments at Casino Royale Goa. Guaranteed prize pools exceeding ₹1 Crore in the Casino Royale Poker Championship, Teen Patti Maharaja Cup, and Diwali Slots Showdown.{% endblock %}`
+
+{% block content %}
+{{ banner("Royale Tournaments", [("Tournaments", "/tournaments")]) }}
+
+<!-- ==== tournaments lobby section start ==== -->
+<section class="lottery-contest lottery pt-120 pb-120" data-background="{{ img('lottery-result.png') }}">
+   <div class="container">
+      {{ heading('High-Stakes,', 'Championship Showdowns', 'India\'s Richest Casino Tournaments', 'Battle the sharpest players in India across No-Limit Texas Hold\'em, Teen Patti knockouts, Roulette points races, and festive slots showdowns. Compete for sovereign trophies, gold coins, and guaranteed prize pools in crores.') }}
+
+      <div class="row gutter-24 align-items-center mt-55">
+         <div class="col-12 col-xl-8">
+            <div class="result__tab-btns text-start">
+               <ul>
+                  <li><button class="active" data-filter="*"><i class="ti ti-layout-grid"></i>All Events</button></li>
+                  <li><button data-filter=".poker"><i class="ti ti-spade"></i>Poker</button></li>
+                  <li><button data-filter=".teenpatti"><i class="ti ti-cards"></i>Teen Patti</button></li>
+                  <li><button data-filter=".slots"><i class="ti ti-diamond"></i>Slots</button></li>
+                  <li><button data-filter=".roulette"><i class="ti ti-circle-dot"></i>Roulette</button></li>
+                  <li><button data-filter=".blackjack"><i class="ti ti-dice-5"></i>Blackjack</button></li>
+               </ul>
+            </div>
+         </div>
+         <div class="col-12 col-xl-4">
+            <div class="lottery-sidebar">
+               <div class="lottery__result-form">
+                  <form action="#" method="get" onsubmit="return false;">
+                     <div class="group-pst">
+                        <input class="js-grid-search" id="searchTournament" name="q" placeholder="Search events, e.g. Poker, Cup..." type="text" />
+                        <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <div class="row filter-wrapper mt-40" data-aos="fade-up" data-aos-duration="600">
+         {% for t in content.TOURNAMENTS %}
+         {{ tournament_card(t, (loop.index0 % 6) * 100) }}
+         {% endfor %}
+      </div>
+
+      <div class="js-no-results d-none text-center mt-60 pt-40 pb-40">
+         <i class="ti ti-search-off" style="font-size: 54px; color: var(--secondary-color);"></i>
+         <h4 class="fw-6 mt-20">No matching tournaments found</h4>
+         <p class="mt-10">Check back regularly as new championship dates are announced every Monday.</p>
+      </div>
+
+      <!-- Championship Guarantee Banner -->
+      <div class="row mt-80">
+         <div class="col-12">
+            <div class="p-4 p-lg-5 tertiary-bg rounded-4 border border-secondary" data-aos="fade-up" data-aos-duration="600">
+               <div class="row align-items-center">
+                  <div class="col-12 col-lg-8">
+                     <span class="text-secondary-color text-uppercase fw-7 text-sm"><i class="ti ti-trophy"></i> Guaranteed Prize Pools</span>
+                     <h3 class="fw-7 mt-8">The Casino Royale Poker Championship (RPC) 2026</h3>
+                     <p class="mt-12 text-base opacity-75">
+                        Guaranteed ₹1,00,00,000 prize pool, 5 flights, and the prestigious solid gold Maharaja bracelet. Registration now open for Day 1A and Day 1B at the Royale Theatre, Goa.
+                     </p>
+                  </div>
+                  <div class="col-12 col-lg-4 text-lg-end mt-4 mt-lg-0">
+                     <a aria-label="Reserve Seat" class="btn--primary" href="/tournament-details/casino-royale-poker-championship">
+                        Reserve Your Seat <i class="ti ti-arrow-narrow-right"></i>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ==== / tournaments lobby section end ==== -->
+
+{{ vip_cta() }}
+
+{{ sponsor_section() }}
+{% endblock content %}

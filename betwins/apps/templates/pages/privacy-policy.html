@@ -1,0 +1,63 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner %}
+
+{% block title %}Privacy Policy | Casino Royale Goa{% endblock title %}
+{% block description %}Casino Royale Privacy Policy compliant with the Digital Personal Data Protection Act 2023, Information Technology Act 2000, and Prevention of Money Laundering Act (PMLA).{% endblock %}
+
+{% block content %}
+{{ banner("Privacy Policy", [("Privacy Policy", "/privacy-policy")]) }}
+
+<!-- ==== privacy policy section start ==== -->
+<section class="privacy pt-120 pb-120">
+   <div class="container">
+      <div class="row gutter-40">
+         <div class="col-12 col-xl-8">
+            <div class="blog__details-card">
+               <div class="details__content" data-aos="fade-up" data-aos-duration="600">
+                  <div class="d-inline-flex align-items-center gap-2 mb-3">
+                     <i class="ti ti-shield-check text-secondary-color" style="font-size: 24px;"></i>
+                     <span class="text-sm fw-6 text-secondary-color text-uppercase">DPDP Act 2023 &amp; IT Act Compliant</span>
+                  </div>
+                  <h3 class="title-animation neutral-top fw-7">Privacy &amp; Data Protection Policy</h3>
+                  <p class="mt-20 text-base opacity-85" style="line-height: 1.8;">
+                     Casino Royale Entertainment Pvt. Ltd. ("Casino Royale", "we", "our", or "us") respects your privacy and is committed to protecting your personal information. This policy describes our practices regarding the collection, use, disclosure, and protection of data provided by our members and guests.
+                  </p>
+                  <p class="mt-12 text-xs opacity-50">Last updated: October 2026 &middot; Regulated under Indian Law</p>
+               </div>
+
+               {% for sec_id, icon, title, label, paragraphs in content.PRIVACY %}
+               <div class="details__content mt-35 mb-35">
+                  <hr class="divider" />
+               </div>
+
+               <div class="details__content" id="{{ sec_id }}" data-aos="fade-up" data-aos-duration="600">
+                  <h4 class="title-animation neutral-top fw-6"><i class="ti {{ icon }} text-secondary-color me-2"></i> {{ title }}</h4>
+                  {% for p in paragraphs %}
+                  <p class="mt-16 text-base opacity-85" style="line-height: 1.8;">{{ p }}</p>
+                  {% endfor %}
+               </div>
+               {% endfor %}
+
+               <div class="details__content mt-40 pt-30 border-top">
+                  <p class="text-sm opacity-75">
+                     For any inquiries or to exercise your rights under the Digital Personal Data Protection Act, contact our designated Data Protection Officer at <a href="mailto:privacy@rajwaderoyale.in" class="text-secondary-color">privacy@rajwaderoyale.in</a>.
+                  </p>
+               </div>
+            </div>
+         </div>
+
+         <!-- Sidebar -->
+         <div class="col-12 col-xl-4">
+            <div class="privacy__sidebar blog__sidebar-widget sticky-top" style="top: 100px;">
+               {% for sec_id, icon, title, label, paragraphs in content.PRIVACY %}
+               <a class="privacy-btn{% if loop.first %} active{% endif %}" href="#{{ sec_id }}">
+                  <i class="ti {{ icon }}"></i> {{ label }}
+               </a>
+               {% endfor %}
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ==== / privacy policy section end ==== -->
+{% endblock content %}

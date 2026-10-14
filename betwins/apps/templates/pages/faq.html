@@ -1,0 +1,83 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner, heading, faq_panel, vip_cta, sponsor_section %}
+
+{% block title %}Frequently Asked Questions | Casino Royale Goa{% endblock title %}
+{% block description %}Got questions about 21+ age verification, PMLA KYC, instant UPI withdrawals, TDS certificates, live Goa floor streams, or responsible play? Find detailed answers here.{% endblock %}
+
+{% block content %}
+{{ banner("Frequently Asked Questions", [("FAQ", "/faq")]) }}
+
+<!-- ==== faq section start ==== -->
+<section class="faq pt-120 pb-120">
+   <div class="container">
+      {{ heading('Clear,', 'Answers & Guidelines', 'Everything You Need to Know', 'Browse common questions regarding registration, KYC compliance under Indian law, instant UPI payouts, game fairness audits, and responsible gaming limits.') }}
+
+      <div class="row justify-content-center mt-55">
+         <div class="col-12 col-xl-10">
+            <!-- FAQ Tab Buttons -->
+            <div class="faq__tab-btns mb-40 text-center" data-aos="fade-up" data-aos-duration="600">
+               <ul class="d-flex justify-content-center flex-wrap gap-2">
+                  <li><button class="faq-tab-btn active" data-target="#allfaq"><i class="ti ti-layout-grid me-1"></i> All Questions</button></li>
+                  <li><button class="faq-tab-btn" data-target="#accountfaq"><i class="ti ti-user-check me-1"></i> Account &amp; KYC</button></li>
+                  <li><button class="faq-tab-btn" data-target="#paymentsfaq"><i class="ti ti-currency-rupee me-1"></i> Payments &amp; TDS</button></li>
+                  <li><button class="faq-tab-btn" data-target="#gamesfaq"><i class="ti ti-poker-chip me-1"></i> Games &amp; Tables</button></li>
+                  <li><button class="faq-tab-btn" data-target="#safetyfaq"><i class="ti ti-shield-check me-1"></i> Fair Play &amp; Safety</button></li>
+               </ul>
+            </div>
+
+            <!-- FAQ Panels -->
+            <div class="faq__tab" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+               <!-- All FAQs -->
+               {{ faq_panel('allfaq', 'acc-all', content.FAQS, active=True) }}
+
+               <!-- Account & KYC -->
+               {% set account_faqs = [] %}
+               {% for cat, q, a in content.FAQS %}{% if cat == 'account' %}{% set _ = account_faqs.append((cat, q, a)) %}{% endif %}{% endfor %}
+               {{ faq_panel('accountfaq', 'acc-account', account_faqs) }}
+
+               <!-- Payments & TDS -->
+               {% set payment_faqs = [] %}
+               {% for cat, q, a in content.FAQS %}{% if cat == 'payments' %}{% set _ = payment_faqs.append((cat, q, a)) %}{% endif %}{% endfor %}
+               {{ faq_panel('paymentsfaq', 'acc-payments', payment_faqs) }}
+
+               <!-- Games & Tables -->
+               {% set game_faqs = [] %}
+               {% for cat, q, a in content.FAQS %}{% if cat == 'games' %}{% set _ = game_faqs.append((cat, q, a)) %}{% endif %}{% endfor %}
+               {{ faq_panel('gamesfaq', 'acc-games', game_faqs) }}
+
+               <!-- Fair Play & Safety -->
+               {% set safety_faqs = [] %}
+               {% for cat, q, a in content.FAQS %}{% if cat == 'safety' %}{% set _ = safety_faqs.append((cat, q, a)) %}{% endif %}{% endfor %}
+               {{ faq_panel('safetyfaq', 'acc-safety', safety_faqs) }}
+            </div>
+         </div>
+      </div>
+
+      <!-- Still have questions callout -->
+      <div class="row justify-content-center mt-80">
+         <div class="col-12 col-xl-10">
+            <div class="p-4 p-md-5 rounded-4 tertiary-bg border border-secondary text-center" data-aos="fade-up" data-aos-duration="600">
+               <i class="ti ti-headset text-secondary-color" style="font-size: 42px;"></i>
+               <h4 class="fw-7 mt-16">Still Have Questions for Our Floor Team?</h4>
+               <p class="text-base opacity-75 mt-8 max-w-700 mx-auto">
+                  Our Indian concierge and player support desks are awake and standing by 24 hours a day, 365 days a year.
+               </p>
+               <div class="d-flex justify-content-center gap-3 flex-wrap mt-25">
+                  <a class="btn--primary" href="https://wa.me/{{ site.phones[1].href.replace('+','') }}" target="_blank" rel="noopener">
+                     <i class="fa-brands fa-whatsapp me-2"></i> WhatsApp VIP Desk
+                  </a>
+                  <a class="btn--secondary" href="/contact-us">
+                     Contact Goa Concierge
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ==== / faq section end ==== -->
+
+{{ vip_cta() }}
+
+{{ sponsor_section() }}
+{% endblock content %}

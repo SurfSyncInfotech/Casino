@@ -1,0 +1,106 @@
+/* ==============
+ ========= css table of contents =========
+
+ * template name: Betwins
+ * version: 1.0
+ * description: Online Crypto Gaming & Lottery HTML5 Template
+ * author: wowtheme7
+ * author-url: https://themeforest.net/user/wowtheme7
+
+ 01. abstracts
+     1.01 --> mixins
+     1.02 --> variables
+    
+ 02. base
+     2.01 --> reset
+     2.02 --> typography
+     2.03 --> global
+
+ 03. components
+     3.01 --> buttons
+     3.02 --> forms
+     3.03 --> preloader
+     3.04 --> scroll progress button
+     3.05 --> custom cursor
+     3.06 --> widgets
+
+ 04. layout
+     4.01 --> header
+     4.02 --> banner
+     4.03 --> footer
+
+ 05. sections
+     5.01 --> game
+     5.02 --> story
+     5.03 --> lottery
+     5.04 --> about
+     5.05 --> counter
+     5.06 --> testimonial
+     5.07 --> work
+     5.08 --> refer
+     5.09 --> champion
+     5.10 --> fantasy
+     5.11 --> faq
+     5.12 --> authentication
+     5.13 --> blog
+     5.14 --> contact
+     5.15 --> coming soon
+     
+    ==================================
+============== */
+
+// bootstrap five css
+@import url("../css/bootstrap.min.css");
+// font awesome six css
+@import url("../fonts/css/all.min.css");
+// tabler icons css
+@import url("../fonts/css/tabler-icons.min.css");
+// magnific popup css
+@import url("../css/magnific-popup.css");
+// aos css
+@import url("../css/aos.css");
+// nice select css
+@import url("../css/nice-select.css");
+// odometer css
+@import url("../css/odometer.css");
+// swiper slider css
+@import url("../css/swiper-bundle.min.css");
+
+// abstract styles
+@import "./abstracts/mixins";
+@import "./abstracts/variables";
+
+// base styles
+@import "./base/reset";
+@import "./base/typography";
+@import "./base/global";
+
+// component styles
+@import "./components/buttons";
+@import "./components/forms";
+@import "./components/preloader";
+@import "./components/cursor";
+@import "./components/scroll-progress";
+@import "./components/widgets";
+
+// layout styles
+@import "./layout/header";
+@import "./layout/banner";
+@import "./layout/footer";
+
+// section styles
+@import "./sections/game";
+@import "./sections/story";
+@import "./sections/lottery";
+@import "./sections/about";
+@import "./sections/counter";
+@import "./sections/testimonial";
+@import "./sections/work";
+@import "./sections/refer";
+@import "./sections/champion";
+@import "./sections/fantasy";
+@import "./sections/faq";
+@import "./sections/authentication";
+@import "./sections/blog";
+@import "./sections/contact";
+@import "./sections/coming-soon";

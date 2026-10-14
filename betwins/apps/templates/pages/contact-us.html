@@ -1,0 +1,195 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner, heading, vip_cta, sponsor_section %}
+
+{% block title %}Contact Concierge &amp; Resort Goa | Casino Royale{% endblock title %}
+{% block description %}Contact Casino Royale Luxury Casino & Resort on the Mandovi Riverfront, Panaji, Goa. 24x7 phone concierge (+91 832 255 0188), VIP WhatsApp desk (+91 98905 12345), and lounges in Mumbai & Delhi.{% endblock %}
+
+{% block content %}
+{{ banner("Contact Concierge & Resort", [("Contact Us", "/contact-us")]) }}
+
+<!-- ==== contact section start ==== -->
+<section class="contact pt-120 pb-120">
+   <div class="container">
+      {{ heading('Reach Out,', 'to Sovereign Hospitality', 'Connect with Our Goa Concierge', 'Whether you are reserving a table at the Maharaja Salon, organizing travel and suites on the Mandovi riverfront, or require account assistance - our dedicated team is at your service 24 hours a day, 7 days a week.') }}
+
+      <div class="row gutter-24 mt-55">
+         <!-- Contact Channels List -->
+         <div class="col-12 col-lg-5 col-xl-4">
+            <div class="contact__content">
+               <!-- Flagship Address -->
+               <div class="contact__content-single" data-aos="fade-up" data-aos-duration="600">
+                  <div class="icon">
+                     <i class="ti ti-building-skyscraper"></i>
+                  </div>
+                  <div class="content">
+                     <h6 class="fw-6 mb-5">Goa Flagship Casino &amp; Resort</h6>
+                     <div class="content-group">
+                        <p>
+                           <a href="{{ site.map_link }}" target="_blank" rel="noopener">
+                              {{ site.address }}
+                           </a>
+                        </p>
+                        <p class="mt-2 text-xs text-secondary-color fw-6">Gaming Floor Open 24 x 7</p>
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Phones -->
+               <div class="contact__content-single mt-20" data-aos="fade-up" data-aos-delay="100" data-aos-duration="600">
+                  <div class="icon">
+                     <i class="ti ti-phone-call"></i>
+                  </div>
+                  <div class="content">
+                     <h6 class="fw-6 mb-5">Direct Concierge Lines</h6>
+                     <div class="content-group">
+                        {% for p in site.phones %}
+                        <p class="mb-1">
+                           <a href="tel:{{ p.href }}">{{ p.label }}</a>
+                           <span class="text-xs opacity-75 d-block">({{ p.note }})</span>
+                        </p>
+                        {% endfor %}
+                     </div>
+                  </div>
+               </div>
+
+               <!-- Emails -->
+               <div class="contact__content-single mt-20" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+                  <div class="icon">
+                     <i class="ti ti-mail-opened"></i>
+                  </div>
+                  <div class="content">
+                     <h6 class="fw-6 mb-5">Email Inquiries</h6>
+                     <div class="content-group">
+                        {% for e in site.emails %}
+                        <p class="mb-1">
+                           <a href="mailto:{{ e.label }}">{{ e.label }}</a>
+                           <span class="text-xs opacity-75 d-block">({{ e.note }})</span>
+                        </p>
+                        {% endfor %}
+                     </div>
+                  </div>
+               </div>
+
+               <!-- WhatsApp VIP Desk -->
+               <div class="contact__content-single mt-20" data-aos="fade-up" data-aos-delay="300" data-aos-duration="600" style="border-color: #25d366;">
+                  <div class="icon" style="background: #25d366; color: #fff;">
+                     <i class="fa-brands fa-whatsapp"></i>
+                  </div>
+                  <div class="content">
+                     <h6 class="fw-6 mb-5">WhatsApp VIP Host</h6>
+                     <div class="content-group">
+                        <p>
+                           <a href="https://wa.me/{{ site.phones[1].href.replace('+','') }}" target="_blank" rel="noopener" style="color: #25d366; font-weight: 700;">
+                              Chat with VIP Desk <i class="ti ti-external-link"></i>
+                           </a>
+                        </p>
+                        <p class="text-xs opacity-75">Instant responses for table bookings &amp; payouts</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <!-- Interactive Contact Form -->
+         <div class="col-12 col-lg-7 col-xl-8">
+            <div class="contact__form" data-aos="fade-left" data-aos-delay="200" data-aos-duration="600">
+               <div class="contact__form-intro">
+                  <h5 class="title-animation neutral-top fw-6">Send an Inquiry to the Concierge</h5>
+                  <p class="text-sm mt-8 opacity-75">Fill out your details below. Our resort team will contact you within 24 hours.</p>
+               </div>
+               <hr class="divider mt-24 mb-35" />
+
+               <form data-ajax-form="contact" method="post">
+                  <div class="row gutter-20">
+                     <div class="col-12 col-md-6">
+                        <div class="input-wrapper">
+                           <label for="cFullName">Your Full Name</label>
+                           <div class="input-single">
+                              <input id="cFullName" name="name" placeholder="Vikramaditya Roy" required="" type="text" />
+                              <i class="fa-solid fa-user"></i>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-12 col-md-6">
+                        <div class="input-wrapper">
+                           <label for="cEmail">Email Address</label>
+                           <div class="input-single">
+                              <input id="cEmail" name="email" placeholder="vikram@example.com" required="" type="email" />
+                              <i class="fa-solid fa-envelope"></i>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="row gutter-20 mt-20">
+                     <div class="col-12 col-md-6">
+                        <div class="input-wrapper">
+                           <label for="cPhone">Mobile Number (+91)</label>
+                           <div class="input-single">
+                              <input id="cPhone" name="phone" placeholder="+91 98905 12345" required="" type="tel" />
+                              <i class="fa-solid fa-phone"></i>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-12 col-md-6">
+                        <div class="input-wrapper">
+                           <label for="cSubject">Nature of Inquiry</label>
+                           <div class="input-single">
+                              <input id="cSubject" name="subject" placeholder="VIP Salon Reservation / Tournament Registration" required="" type="text" />
+                              <i class="fa-solid fa-tag"></i>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="input-wrapper mt-20">
+                     <label for="cMessage">Your Message</label>
+                     <div class="input-single">
+                        <textarea id="cMessage" name="message" placeholder="Please provide details about your table limits, arrival dates, or special concierge requests..." required="" rows="4"></textarea>
+                     </div>
+                  </div>
+
+                  <div class="mt-30">
+                     <button aria-label="Submit Message" class="btn--primary" type="submit">
+                        Send to Concierge <i class="ti ti-arrow-narrow-right"></i>
+                     </button>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+
+      <!-- Regional Royale Lounges (Goa, Mumbai, Delhi) -->
+      <div class="row gutter-24 mt-80">
+         <div class="col-12 text-center mb-35">
+            <span class="fw-6 secondary-text text-xl"><strong>Royale</strong> Presence</span>
+            <h3 class="title-animation fw-6 mt-12">Our Indian Flagship &amp; VIP Lounges</h3>
+         </div>
+
+         {% for off in site.offices %}
+         <div class="col-12 col-lg-4" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 150 }}" data-aos-duration="600">
+            <div class="office-card text-center">
+               <i class="ti {{ off.icon }} mb-3 d-inline-block"></i>
+               <h5 class="fw-6 neutral-top mb-12">{{ off.city }}</h5>
+               <p class="text-sm opacity-75 mb-0" style="line-height: 1.8;">{{ off.text }}</p>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+
+      <!-- Google Map Section -->
+      <div class="row mt-80">
+         <div class="col-12">
+            <div class="site-map-embed rounded-4 overflow-hidden border border-secondary" data-aos="zoom-in" data-aos-duration="600">
+               <iframe allowfullscreen="" height="450" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="{{ site.map_embed }}" title="Casino Royale Mandovi Riverfront Goa Location" width="100%"></iframe>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<!-- ==== / contact section end ==== -->
+
+{{ vip_cta() }}
+
+{{ sponsor_section() }}
+{% endblock content %}

@@ -1,0 +1,688 @@
+{# =====================================================================
+   Reusable building blocks. Markup / class names are the original
+   template's, so animations & styling are untouched.
+   ===================================================================== #}
+
+{% macro stars(rating=5) %}
+{%- set full = rating|float|int -%}
+{%- set half = (rating|float - full) >= 0.5 -%}
+{%- for i in range(full) %}<i class="fa-solid fa-star"></i>{% endfor -%}
+{%- if half %}<i class="fa-solid fa-star-half-stroke"></i>{% endif -%}
+{% endmacro %}
+
+{# ---------- inner-page banner ---------- #}
+{% macro banner(title, crumbs=[]) %}
+   <!-- ==== banner section start ==== -->
+   <section class="common-banner">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <div class="common-banner__content">
+                  <h2 class="title-animation neutral-top fw-6">{{ title }}</h2>
+                  <nav aria-label="breadcrumb" class="mt-16">
+                     <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        {% for label, href in crumbs %}
+                        <li class="breadcrumb-item"><a href="{{ href }}">{{ label }}</a></li>
+                        {% endfor %}
+                        <li aria-current="page" class="breadcrumb-item active">{{ title }}</li>
+                     </ol>
+                  </nav>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="banner-bg">
+         <img alt="" src="{{ img('banner/cmn-banner-bg.png') }}" />
+      </div>
+      <div class="thumb-wrapper">
+         <div class="thumb">
+            <img alt="" src="{{ img('casino/banner-thumb.svg') }}" />
+         </div>
+         <div class="btc d-none d-sm-block">
+            <img alt="" src="{{ img('casino/chip-gold.svg') }}" />
+         </div>
+         <div class="coin-up d-none d-sm-block">
+            <img alt="" src="{{ img('casino/coin.svg') }}" />
+         </div>
+         <div class="rocket">
+            <img alt="" src="{{ img('casino/dice.svg') }}" />
+         </div>
+      </div>
+      <div class="coin-down">
+         <img alt="" src="{{ img('casino/chip-red.svg') }}" />
+      </div>
+      <div class="point">
+         <img alt="" src="{{ img('casino/chip-blue.svg') }}" />
+      </div>
+      <div class="bg-r">
+         <img alt="" src="{{ img('banner/bg-r.png') }}" />
+      </div>
+      <div class="bg-l">
+         <img alt="" src="{{ img('banner/bg-l.png') }}" />
+      </div>
+   </section>
+   <!-- ==== / banner section end ==== -->
+{% endmacro %}
+
+{# ---------- centred section heading ---------- #}
+{% macro heading(bold, rest, title, text='', col='col-xl-9', mb='mb-55') %}
+         <div class="row justify-content-center">
+            <div class="col-12 {{ col }}">
+               <div class="section__header text-center {{ mb }}" data-aos="fade-up" data-aos-duration="600">
+                  <span class="fw-6 secondary-text text-xl"><strong>{{ bold }},</strong> {{ rest }}</span>
+                  <h2 class="title-animation fw-6 mt-25">{{ title }}</h2>
+                  {% if text %}<p class="mt-25">{{ text }}</p>{% endif %}
+               </div>
+            </div>
+         </div>
+{% endmacro %}
+
+{# ---------- game card (games page) ---------- #}
+{% macro game_card(g, delay=0) %}
+            <div class="col-12 col-lg-6 col-xl-4 filter-item {{ g.cats|join(' ') }}" data-search="{{ g.title|lower }} {{ g.kind|lower }} {{ g.tagline|lower }}" data-aos="fade-up" data-aos-delay="{{ delay }}" data-aos-duration="600">
+               <div class="result__single tilt">
+                  <div class="contest__intro">
+                     <span>{{ g.badge }}</span>
+                     <button aria-label="save" class="js-save" title="save"><i class="ti ti-heart"></i></button>
+                  </div>
+                  <div class="thumb mt-20">
+                     <a href="/game-details/{{ g.slug }}">
+                        <img alt="{{ g.title }}" src="{{ img(g.img) }}" />
+                     </a>
+                  </div>
+                  <div class="content">
+                     <div class="contest-number">
+                        <p class="text-sm fw-6">{{ g.kind }}</p>
+                     </div>
+                     <h5 class="fw-6 neutral-top"><a href="/game-details/{{ g.slug }}">{{ g.title }}</a></h5>
+                     <ul class="platform mt-12">
+                        <li>Min {{ g.bet_min }}</li>
+                        <li><span></span></li>
+                        <li>Max {{ g.bet_max }}</li>
+                        <li><span></span></li>
+                        <li>RTP {{ g.rtp }}</li>
+                     </ul>
+                     <div class="game__single-meta mt-25">
+                        <div class="rate-left">
+                           <div class="thumb-ic">
+                              <p class="text-lg fw-6">{{ g.rating }}</p>
+                           </div>
+                           <div class="content-ic">
+                              <div class="review">{{ stars(g.rating) }}</div>
+                              <p class="text-xs mt-6">{{ g.ratings }} Ratings</p>
+                           </div>
+                        </div>
+                        <span class="divide d-none d-xxl-block"></span>
+                        <div class="rate-right">
+                           <div class="thumb-ic">
+                              <i class="fa-solid fa-users"></i>
+                           </div>
+                           <div class="content-ic">
+                              <p class="text-sm">Playing Now</p>
+                              <p class="text-xs">{{ g.playing }} guests</p>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="cta mt-35">
+                        <a aria-label="view details" class="btn--primary" href="/game-details/{{ g.slug }}" title="view details">View Details <i class="ti ti-arrow-narrow-right"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+{% endmacro %}
+
+{# ---------- live table card (live casino page) ---------- #}
+{% macro live_card(t, delay=0, index=1) %}
+            <div class="col-12 col-md-6 col-xl-4 col-xxl-3 filter-item {{ t.cat }}" data-search="{{ t.title|lower }} {{ t.label|lower }}" data-aos="fade-up" data-aos-delay="{{ delay }}" data-aos-duration="600">
+               <div class="lt-type__single text-center tilt">
+                  <span class="serial">{{ t.seats }}</span>
+                  <span class="price"><i class="fa-solid fa-star"></i> {{ t.rating }}</span>
+                  <div class="thumb">
+                     <img alt="{{ t.title }}" src="{{ img(t.img) }}" />
+                  </div>
+                  <div class="content mt-25">
+                     <span class="text-uppercase fw-6 secondary-text">{{ t.label }}</span>
+                     <h6 class="fw-6 mt-8"><a href="/game-details/{{ t.slug }}">{{ t.title }}</a></h6>
+                     <ul class="platform justify-content-center mt-12">
+                        <li>Limits {{ t.limit }}</li>
+                     </ul>
+                  </div>
+                  <div class="cta mt-25">
+                     <a aria-label="play now" class="btn--primary" href="/game-details/{{ t.slug }}" title="play now">Play Now <i class="ti ti-arrow-narrow-right"></i></a>
+                  </div>
+               </div>
+            </div>
+{% endmacro %}
+
+{# ---------- tournament card ---------- #}
+{% macro tournament_card(t, delay=0, col='col-12 col-lg-6 col-xl-4') %}
+            <div class="{{ col }} filter-item {{ t.cats|join(' ') }}" data-search="{{ t.title|lower }}">
+               <div class="result__single tilt">
+                  <div class="contest__intro">
+                     <span>{{ t.prize }} Prize Pool</span>
+                     <button aria-label="save" class="js-save" title="save"><i class="ti ti-heart"></i></button>
+                  </div>
+                  <div class="thumb mt-20">
+                     <a href="/tournament-details/{{ t.slug }}">
+                        <img alt="{{ t.title }}" src="{{ img(t.img) }}" />
+                     </a>
+                  </div>
+                  <div class="content">
+                     <div class="contest-number">
+                        <p class="text-sm fw-5">Event</p>
+                        <p class="text-lg fw-6 mt-8">{{ t.code }}</p>
+                     </div>
+                     <h5 class="fw-6 neutral-top">
+                        <a href="/tournament-details/{{ t.slug }}">{{ t.title }}</a>
+                     </h5>
+                     <div class="result__info mt-16">
+                        <p class="time">Buy-in</p>
+                        <p class="held text-xl">{{ t.buyin }}</p>
+                     </div>
+                     <div class="result__info mt-16">
+                        <p><i class="ti ti-armchair"></i>{{ t.seats }}</p>
+                        <p class="time">
+                           <i class="ti ti-clock-hour-4"></i> Starts in {{ t.starts }}
+                        </p>
+                     </div>
+                     <div class="cta mt-35">
+                        <a aria-label="view details" class="btn--primary" href="/tournament-details/{{ t.slug }}"
+                           title="view details">View Details <i class="ti ti-arrow-narrow-right"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+{% endmacro %}
+
+{# ---------- blog card (grid style) ---------- #}
+{% macro post_card(p, delay=0, col='col-12 col-md-6 col-xxl-4') %}
+            <div class="{{ col }}">
+               <div class="blog__single-wrapper" data-aos="fade-up" data-aos-delay="{{ delay }}" data-aos-duration="600">
+                  <div class="blog__single tilt">
+                     <div class="thumb">
+                        <a href="/blog-details/{{ p.slug }}">
+                           <img alt="{{ p.title }}" src="{{ img(p.img) }}" />
+                        </a>
+                        <span class="tag text-lg">{{ p.cat }}</span>
+                     </div>
+                     <div class="content">
+                        <div class="content__inner">
+                           <h6 class="mt-20">
+                              <a href="/blog-details/{{ p.slug }}">{{ p.title }}</a>
+                           </h6>
+                        </div>
+                        <div class="content__cta mt-30">
+                           <a aria-label="view comments" href="/blog-details/{{ p.slug }}#comments" title="view comments"><i
+                                 class="ti ti-message-2"></i> {{ p.comments }} Comments</a>
+                           <span></span>
+                           <a aria-label="read more" class="btn--primary" href="/blog-details/{{ p.slug }}"
+                              title="read more">Read More <i class="ti ti-arrow-narrow-right"></i></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+{% endmacro %}
+
+{# ---------- testimonial slider + photo collage (section) ---------- #}
+{% macro testimonial_section(photos='top', alt=False, count=4) %}
+   <!-- ==== testimonial section start ==== -->
+   <section class="testimonial{% if alt %} testimonial-alt{% endif %} pt-120 pb-120"{% if alt %} data-background="{{ img('testimonial-bg.png') }}"{% endif %}>
+      <div class="container">
+         <div class="row align-items-center">
+            {% if not alt %}
+            <div class="col-12 col-lg-5 col-xl-5">
+               {{ testimonial_photos(photos) }}
+            </div>
+            {% endif %}
+            <div class="col-12 col-lg-7 col-xl-6{% if not alt %} offset-xl-1{% endif %}">
+               <div class="testimonial__content">
+                  <div class="section__content text-start mb-40">
+                     <span class="fw-6 secondary-text text-xl"><strong>What,</strong> Our Guests Say</span>
+                     <h2 class="title-animation fw-6 mt-25">
+                        Stories from Our <span>Winning</span> Guests
+                     </h2>
+                  </div>
+                  <div class="testimonial__slider swiper">
+                     <div class="swiper-wrapper">
+                        {% for t in content.TESTIMONIALS[:count] %}
+                        <div class="swiper-slide">
+                           <div class="testimonial__slider-single">
+                              <div class="review mb-20">
+                                 <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                              </div>
+                              <blockquote class="text-xxl">
+                                 <q>{{ t.quote }}</q>
+                              </blockquote>
+                              <div class="author__info mt-35">
+                                 <div class="content">
+                                    <p class="text-xl fw-6">{{ t.name }}</p>
+                                    <p>{{ t.role }}</p>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        {% endfor %}
+                     </div>
+                  </div>
+                  <div class="slider-navigation">
+                     <button aria-label="prev slide" class="prev-testimonial slider-btn" title="prev slide"
+                        type="button">
+                        <i class="fa-solid fa-angle-left"></i>
+                     </button>
+                     <button aria-label="next slide" class="next-testimonial slider-btn" title="next slide"
+                        type="button">
+                        <i class="fa-solid fa-angle-right"></i>
+                     </button>
+                  </div>
+               </div>
+            </div>
+            {% if alt %}
+            <div class="col-12 col-lg-5 col-xl-5 offset-xl-1">
+               {{ testimonial_photos(photos) }}
+            </div>
+            {% endif %}
+         </div>
+      </div>
+      <div class="right-thumb-th">
+         <img alt="" src="{{ img('right-th.png') }}" />
+      </div>
+      <div class="left-thumb-th">
+         <img alt="" src="{{ img('left-th.png') }}" />
+      </div>
+      <div class="chart-thumb">
+         <img alt="" src="{{ img('chart.png') }}" />
+      </div>
+   </section>
+   <!-- ==== / testimonial section end ==== -->
+{% endmacro %}
+
+{% macro testimonial_photos(set='top') %}
+               <div class="testimonial__thumb d-none d-lg-block">
+                  <div class="right-thumb text-end">
+                     <div class="right__thumb__inner">
+                        <img alt="" data-aos="zoom-in" data-aos-duration="600" src="{{ img('testimonial/' ~ set ~ '.png') }}" />
+                        <div class="quote">
+                           <i class="ti ti-quote"></i>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="left-thumb">
+                     <img alt="" data-aos="zoom-in" data-aos-delay="100" data-aos-duration="600" src="{{ img('testimonial/right.png' if set == 'top' else 'testimonial/right-two.png') }}" />
+                  </div>
+                  <div class="bottom-thumb">
+                     <img alt="" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="600" src="{{ img('testimonial/bottom.png' if set == 'top' else 'testimonial/bottom-two.png') }}" />
+                  </div>
+                  <div class="bottom-left-thumb">
+                     <img alt="" src="{{ img('testimonial/card.png' if set == 'top' else 'testimonial/card-two.png') }}" />
+                  </div>
+               </div>
+{% endmacro %}
+
+{# ---------- masonry wall of guest stories ---------- #}
+{% macro story_section() %}
+   <!-- ==== story section start ==== -->
+   <section class="story pt-120">
+      <div class="container">
+         {{ heading('Voices', 'of Our Guests', 'Loved by India\'s Finest Players', 'The best measure of a casino is its guests. Here is what players from Mumbai to Chennai say about their nights at Casino Royale.') }}
+         <div class="row gutter-24">
+            {% set cols = [('story__inner', 'story__wrapper story__left-wrapper'), ('story__inner story__inner-center', 'story__wrapper story__wrapper-center'), ('story__inner', 'story__wrapper story__right-wrapper')] %}
+            {% for outer, inner in cols %}
+            {% set start = loop.index0 * 2 %}
+            <div class="col-12 col-xl-4">
+               <div class="{{ outer }}">
+                  <div class="{{ inner }}">
+                     {% for k in range(8) %}
+                     {% set t = content.TESTIMONIALS[(start + k) % (content.TESTIMONIALS|length)] %}
+                     <div class="story__single">
+                        <i class="ti ti-quote"></i>
+                        <div class="review">
+                           <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <div class="story__meta mt-16">
+                           <p>-{{ t.name }} ({{ t.handle }})</p>
+                           <p>{{ t.date }}</p>
+                        </div>
+                        <div class="story__content mt-25">
+                           <blockquote>
+                              <q class="text-lg">{{ t.quote }}</q>
+                           </blockquote>
+                        </div>
+                        <div class="author__info mt-35">
+                           <div class="thumb">
+                              <img alt="{{ t.name }}" src="{{ img('avatar/' ~ t.av ~ '.png') }}" />
+                           </div>
+                           <div class="content">
+                              <p class="text-xl fw-6">{{ t.name }}</p>
+                              <p>{{ t.role }}</p>
+                           </div>
+                        </div>
+                     </div>
+                     {% endfor %}
+                  </div>
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+      </div>
+      <div class="left-thumb">
+         <img alt="" src="{{ img('left-th.png') }}" />
+      </div>
+   </section>
+   <!-- ==== / story section end ==== -->
+{% endmacro %}
+
+{# ---------- counters ---------- #}
+{% macro counter_section() %}
+   <!-- ==== counter section start ==== -->
+   <section class="counter">
+      <div class="container">
+         <div class="row gutter-24">
+            {% for c in content.COUNTERS %}
+            <div class="col-12 col-md-6 col-xl-3" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 200 }}" data-aos-duration="100%">
+               <div class="counter__single text-center tilt">
+                  <div class="counter__single-thumb">
+                     <i class="ti {{ c.icon }}"></i>
+                  </div>
+                  <div class="counter__single-content mt-25">
+                     <h3 class="fw-6"><span class="odometer" data-odometer-final="{{ c.value }}"></span>{{ c.suffix }}</h3>
+                     <p class="text-lg fw-5">{{ c.label }}</p>
+                  </div>
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+      </div>
+   </section>
+   <!-- ==== / counter section end ==== -->
+{% endmacro %}
+
+{# ---------- how it works ---------- #}
+{% macro work_section(cta=True) %}
+   <!-- ==== work section start ==== -->
+   <section class="work work-two work-alter pt-120 pb-120">
+      <div class="container">
+         {{ heading('Step', 'by Step Process', 'How It Works', 'Joining the Casino Royale experience takes only a few minutes. Register, verify, fund your wallet with UPI and take your seat at the table.', mb='mb-55') }}
+         <div class="row gutter-60">
+            <div class="col-12 col-md-6 col-lg-4">
+               <div class="work__single text-center" data-aos="fade-up" data-aos-duration="600">
+                  <div class="thumb"><i class="ti ti-user"></i></div>
+                  <div class="content mt-30">
+                     <p class="text-lg fw-5">Step_<span class="secondary-text">01</span></p>
+                     <h6 class="fw-6 mt-16">Register &amp; Verify KYC</h6>
+                     <p class="text-sm mt-16">Create your account with your mobile number and upload your PAN and one ID. Verification usually takes under ten minutes.</p>
+                  </div>
+                  <img alt="" class="ar-img d-none d-xl-block" src="{{ img('arrow.png') }}" />
+               </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+               <div class="work__single text-center" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+                  <div class="thumb"><i class="ti ti-wallet"></i></div>
+                  <div class="content mt-30">
+                     <p class="text-lg fw-5">Step_<span class="secondary-text">02</span></p>
+                     <h6 class="fw-6 mt-16">Add Funds via UPI</h6>
+                     <p class="text-sm mt-16">Top up instantly with UPI, net banking, RuPay or cards. Every transaction is in INR and secured with 256-bit encryption.</p>
+                  </div>
+                  <img alt="" class="ar-img d-none d-xl-block" src="{{ img('arrow.png') }}" />
+               </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+               <div class="work__single text-center" data-aos="fade-up" data-aos-delay="400" data-aos-duration="600">
+                  <div class="thumb"><i class="ti ti-trophy"></i></div>
+                  <div class="content mt-30">
+                     <p class="text-lg fw-5">Step_<span class="secondary-text">03</span></p>
+                     <h6 class="fw-6 mt-16">Play &amp; Withdraw Instantly</h6>
+                     <p class="text-sm mt-16">Choose from 120+ games and live tables. Winnings are sent back to your bank or UPI ID, often within 15 minutes.</p>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% if cta %}
+         <div class="row justify-content-center">
+            <div class="col-12 col-xl-8">
+               <div class="work-two__cta mt-60">
+                  <div class="work-two__cta-left">
+                     <p class="text-xl fw-5 secondary-text">
+                        <i class="ti ti-crown"></i> Ready for the Royale experience? Create your account now.
+                     </p>
+                  </div>
+                  <div class="work-two__cta-right">
+                     <a aria-label="Register Here" class="btn--primary" href="/sign-up" title="Register Here">Register Here</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% endif %}
+      </div>
+      <div class="left-thumb">
+         <img alt="" src="{{ img('spring.png') }}" />
+      </div>
+      <div class="right-thumb">
+         <img alt="" src="{{ img('left-th.png') }}" />
+      </div>
+   </section>
+   <!-- ==== / work section end ==== -->
+{% endmacro %}
+
+{# ---------- partner / studio strip ---------- #}
+{% macro sponsor_section(title='Powered by the world\'s most respected studios & auditors') %}
+   <!-- ==== sponsor section start ==== -->
+   <div class="sponsor pt-80 pb-80 tertiary-bg">
+      <div class="container">
+         <div class="row">
+            <div class="col-12">
+               <div class="sponsor__inner text-center">
+                  <h6 class="neutral-top fw-6">{{ title }}</h6>
+                  <div class="sponsor__slider swiper mt-35">
+                     <div class="swiper-wrapper">
+                        {% for s in content.SPONSORS + content.SPONSORS %}
+                        <div class="swiper-slide">
+                           <div class="sponsor__slider-single text-center">
+                              <img alt="{{ s|capitalize }}" src="{{ img('casino/sp-' ~ s ~ '.svg') }}" />
+                           </div>
+                        </div>
+                        {% endfor %}
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- ==== / sponsor section end ==== -->
+{% endmacro %}
+
+{# ---------- accepted payment methods ---------- #}
+{% macro payment_methods() %}
+                  <div class="payment-methods">
+                     <p class="fw-6 text-xl">Payment methods we accept :</p>
+                     <div class="payment-methods__inner mt-24">
+                        {% for p in content.PAYMENTS %}
+                        <div class="payment-method-single">
+                           <img alt="{{ p }}" src="{{ img('casino/' ~ p ~ '.svg') }}" />
+                        </div>
+                        {% endfor %}
+                        {% for p in content.PAYMENTS_RASTER %}
+                        <div class="payment-method-single">
+                           <img alt="{{ p }}" src="{{ img('payment/' ~ p ~ '.png') }}" />
+                        </div>
+                        {% endfor %}
+                     </div>
+                  </div>
+{% endmacro %}
+
+{# ---------- lucky-number picker card (home + lucky-draw) ---------- #}
+{% macro lucky_picker() %}
+               <div class="lottery-card" data-aos="fade-up" data-aos-duration="600">
+                  <div class="lt-alternate-card">
+                     <div class="lottery-intro mb-35">
+                        <h5 class="title-animation fw-6 neutral-top">Pick Your Numbers</h5>
+                        <div class="lottery-intro__action">
+                           <button aria-label="quick pick" class="quick-pick" title="quick pick">Quick Pick</button>
+                           <button aria-label="clear all" class="clear-all" title="clear all">Clear All</button>
+                           <button aria-label="add numbers" class="add-numbers" title="add numbers">Add Numbers</button>
+                        </div>
+                     </div>
+                     <div class="pick-numbers">
+                        <div class="pick-number__single">
+                           <div class="pick-number__intro">
+                              <p class="text-xl fw-5 neutral-top">Pick 5 Lucky Numbers</p>
+                           </div>
+                           <ul class="pick-number-list quick-pick-list mt-20">
+                              {% for n in range(1, 41) %}<li>{{ n }}</li>{% endfor %}
+                           </ul>
+                        </div>
+                        <hr class="divider mt-10 mb-10" />
+                        <div class="pick-number__single">
+                           <div class="pick-number__intro">
+                              <p class="text-xl fw-5 neutral-top">Pick 1 Joker Number</p>
+                           </div>
+                           <ul class="pick-number-list power-pick-list mt-20">
+                              {% for n in range(1, 31) %}<li>{{ n }}</li>{% endfor %}
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="lt-alternate-card mt-16" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+                     <div class="lottery-intro mb-35">
+                        <h5 class="title-animation fw-6 neutral-top">Your Ticket</h5>
+                        <div class="lottery-intro__action">
+                           <button aria-label="delete all" class="delete-all dlt" title="delete all">Delete All</button>
+                        </div>
+                     </div>
+                     <div class="lt-alternate-view">
+                        <div class="lt-alternate-single">
+                           <h6 class="fw-6">Lucky Numbers</h6>
+                           <div class="lt-luck-wrapper mt-16">
+                              <span class="lucky-number">00</span><span class="lucky-number">00</span><span class="lucky-number">00</span><span class="lucky-number">00</span><span class="lucky-number">00</span>
+                           </div>
+                        </div>
+                        <div class="lt-alternate-single">
+                           <h6 class="fw-6">Joker Number</h6>
+                           <div class="lt-luck-wrapper mt-16">
+                              <span class="lucky-power-number">00</span>
+                           </div>
+                        </div>
+                     </div>
+                     <hr class="divider mt-40 mb-40" />
+                     <div class="price-meta mt-40">
+                        <div class="content">
+                           <h6 class="neutral-top fw-6 secondary-text">₹500</h6>
+                           <p class="text-sm mt-6">Ticket Price &middot; Top prize ₹5,00,000</p>
+                        </div>
+                        <div class="cta">
+                           <button aria-label="buy ticket" class="btn--primary js-buy-ticket" title="buy ticket">Buy Ticket</button>
+                        </div>
+                     </div>
+                  </div>
+                  <hr class="divider mt-40 mb-30" />
+                  <div class="lt-alternate-card mt-16" data-aos="fade-up" data-aos-delay="200" data-aos-duration="600">
+                     {{ payment_methods() }}
+                  </div>
+               </div>
+{% endmacro %}
+
+{# ---------- FAQ accordion for one tab ---------- #}
+{% macro faq_panel(tab_id, acc_id, items, active=False) %}
+               <div class="faq__tab-single" id="{{ tab_id }}">
+                  <div class="faq__content-inner">
+                     <div class="accordion" id="{{ acc_id }}">
+                        <div class="row gutter-24">
+                           {% for half in [items[:(items|length + 1) // 2], items[(items|length + 1) // 2:]] %}
+                           <div class="col-12 col-lg-6">
+                              {% for cat, q, a in half %}
+                              {% set uid = acc_id ~ '-' ~ cat ~ '-' ~ loop.index ~ '-' ~ loop.revindex %}
+                              <div class="accordion-item">
+                                 <p class="accordion-header" id="h-{{ uid }}">
+                                    <button aria-controls="c-{{ uid }}" aria-expanded="false" class="accordion-button collapsed" data-bs-target="#c-{{ uid }}" data-bs-toggle="collapse" type="button">{{ q }}</button>
+                                 </p>
+                                 <div aria-labelledby="h-{{ uid }}" class="accordion-collapse collapse" data-bs-parent="#{{ acc_id }}" id="c-{{ uid }}">
+                                    <div class="accordion-body">
+                                       <p>{{ a }}</p>
+                                    </div>
+                                 </div>
+                              </div>
+                              {% endfor %}
+                           </div>
+                           {% endfor %}
+                        </div>
+                     </div>
+                  </div>
+               </div>
+{% endmacro %}
+
+{# ---------- sidebar: socials ---------- #}
+{% macro social_row() %}
+<div class="social">
+   {% for s in site.social %}
+   <a aria-label="{{ s.name }}" href="{{ s.href }}" target="_blank" rel="noopener" title="{{ s.name }}"><i class="{{ s.icon }}"></i></a>
+   {% endfor %}
+</div>
+{% endmacro %}
+
+{# ---------- VIP call-to-action (refer-style section) ---------- #}
+{% macro vip_cta() %}
+   <!-- ==== vip section start ==== -->
+   <section class="refer pt-120 pb-120" data-background="{{ img('faq/faq-bg.png') }}">
+      <div class="container">
+         <div class="row align-items-center rtl-header">
+            <div class="col-12 col-lg-6 col-xl-6">
+               <div class="refer__content" data-aos="fade-right" data-aos-duration="600">
+                  <div class="section__content text-start">
+                     <span class="fw-6 secondary-text text-xl"><strong>Join,</strong> the Royale VIP Club</span>
+                     <h2 class="title-animation fw-6 mt-25">A Throne Reserved for <span>You</span></h2>
+                     <p class="mt-16">Silver to Maharaja - every tier unlocks cashback, private salons, suite stays and a personal host who knows your name, your table and your favourite chai.</p>
+                  </div>
+                  <div class="refer__content-group mt-35">
+                     <div class="refer__content-single">
+                        <p class="text-xl fw-5"><i class="fa-solid fa-circle-arrow-right"></i> Up to 10% Weekly Cashback</p>
+                        <p class="text-sm mt-8">Earn loyalty points on every rupee you play and convert them into cashback and rewards.</p>
+                     </div>
+                     <div class="divider d-none d-xl-block"></div>
+                     <div class="refer__content-single">
+                        <p class="text-xl fw-5"><i class="fa-solid fa-circle-arrow-right"></i> Personal Concierge 24x7</p>
+                        <p class="text-sm mt-8">Flights, suites, tables and surprises - arranged by your host on WhatsApp.</p>
+                     </div>
+                  </div>
+                  <div class="mt-40">
+                     <a aria-label="explore vip club" class="btn--primary" href="/vip-club" title="explore vip club">Explore VIP Club <i class="ti ti-arrow-narrow-right"></i></a>
+                  </div>
+               </div>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
+               <div class="refer__thumb d-none d-lg-block">
+                  <div class="thumb" data-aos="zoom-in" data-aos-delay="200" data-aos-duration="600">
+                     <img alt="" src="{{ img('casino/auth-thumb.svg') }}" />
+                  </div>
+                  <div class="circle">
+                     <img alt="" src="{{ img('faq/circle.png') }}" />
+                  </div>
+                  <div class="btc">
+                     <img alt="" src="{{ img('casino/coin.svg') }}" />
+                  </div>
+                  <div class="eth">
+                     <img alt="" src="{{ img('casino/chip-red.svg') }}" />
+                  </div>
+                  <div class="arrow">
+                     <img alt="" src="{{ img('faq/arrow.png') }}" />
+                  </div>
+                  <div class="btc-alt">
+                     <img alt="" src="{{ img('casino/chip-gold.svg') }}" />
+                  </div>
+                  <div class="eth-alt">
+                     <img alt="" src="{{ img('casino/dice.svg') }}" />
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="left-thumb">
+         <img alt="" src="{{ img('faq/left-thumb.png') }}" />
+      </div>
+      <div class="right-thumb">
+         <img alt="" src="{{ img('faq/right-thumb.png') }}" />
+      </div>
+   </section>
+   <!-- ==== / vip section end ==== -->
+{% endmacro %}

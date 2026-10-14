@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %}
+{% from 'partials/macros.html' import banner, post_card, vip_cta %}
+
+{% block title %}Casino Guides &amp; News Grid | Casino Royale{% endblock title %}
+{% block description %}Browse all articles, game tutorials, Goa travel tips, and responsible play guides in the Casino Royale Casino Journal.{% endblock %}
+
+{% block content %}
+{{ banner("Casino Guides & News", [("Blog", "/blog")]) }}
+
+<!-- ==== blog grid section start ==== -->
+<section class="blog blog-grid pt-120 pb-120">
+   <div class="container">
+      <div class="row gutter-24">
+         {% for p in content.POSTS %}
+         {{ post_card(p, (loop.index0 % 6) * 100) }}
+         {% endfor %}
+      </div>
+   </div>
+</section>
+<!-- ==== / blog grid section end ==== -->
+
+{{ vip_cta() }}
+{% endblock content %}
